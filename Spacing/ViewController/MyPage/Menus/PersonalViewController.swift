@@ -1,0 +1,18 @@
+//
+//  PersonalViewController.swift
+//  Spacing
+//
+//  Created by Sam.Lee on 4/22/24.
+//
+
+import UIKit
+
+class PersonalViewController: UIViewController {
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        // Do any additional setup after loading the view.
+    }
+
+}
