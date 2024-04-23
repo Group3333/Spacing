@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
@@ -52,7 +52,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="예약하기"/>
                                 <connections>
-                                    <action selector="bookingBtn:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="905-tf-r6r"/>
+                                    <action selector="bookingBtn:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="Tfi-0D-Pb2"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="카테고리" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eCw-C4-pUt">
@@ -62,8 +62,8 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="장소 가격" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Feu-oA-w8x">
-                                <rect key="frame" x="303" y="748" width="64" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="장소 가격" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Feu-oA-w8x">
+                                <rect key="frame" x="201" y="748" width="166" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -80,14 +80,11 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="bookingBtn" destination="XED-6L-nyq" id="xud-Cs-UkG"/>
-                        <outlet property="placeCategory" destination="eCw-C4-pUt" id="Qcv-WD-AgZ"/>
+                        <outlet property="placeCateg" destination="eCw-C4-pUt" id="O2x-CX-qvb"/>
                         <outlet property="placeDesc" destination="TY4-v6-3SV" id="zsf-eI-rPc"/>
                         <outlet property="placeImage" destination="c9g-7G-vnV" id="Ycz-eN-PPc"/>
                         <outlet property="placeName" destination="rKE-A3-v52" id="8Gv-3C-9BM"/>
                         <outlet property="placePrice" destination="Feu-oA-w8x" id="hP8-Dy-3ZU"/>
-                        <outlet property="userSupport" destination="Geq-bs-rns" id="ckA-oD-MIp"/>
-                        <outlet property="userSupportBtn" destination="Geq-bs-rns" id="mok-qR-Sdd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
