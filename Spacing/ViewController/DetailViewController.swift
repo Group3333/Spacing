@@ -11,11 +11,41 @@ class HalfModalPresentationController: UIPresentationController {
     // 하프 모달의 뒤 배경 뷰
     private var dimmingView: UIView!
     
+    private var initialTouchPoint: CGPoint = CGPoint(x: 0, y: 0)
+    
     override var frameOfPresentedViewInContainerView: CGRect {
         guard let containerView = containerView else { return CGRect.zero }
         
         let height: CGFloat = 300 // 하프 모달의 높이
         return CGRect(x: 0, y: containerView.bounds.height - height, width: containerView.bounds.width, height: height)
+    }
+    
+    // 추가: 드래그 제스처를 처리하는 메서드
+    @objc private func handlePanGesture(_ gestureRecognizer: UIPanGestureRecognizer) {
+        guard let presentedView = presentedView else { return }
+        
+        let translation = gestureRecognizer.translation(in: presentedView)
+        
+        switch gestureRecognizer.state {
+        case .began:
+            initialTouchPoint = presentedView.frame.origin
+        case .changed:
+            presentedView.frame.origin = CGPoint(
+                x: initialTouchPoint.x,
+                y: initialTouchPoint.y + translation.y
+            )
+        case .ended, .cancelled:
+            let velocity = gestureRecognizer.velocity(in: presentedView)
+            if velocity.y > 0 {
+                // 아래로 드래그: 모달 닫기
+                presentingViewController.dismiss(animated: true, completion: nil)
+            } else {
+                // 위로 드래그: 모달 유지
+                presentedView.frame.origin = initialTouchPoint
+            }
+        default:
+            break
+        }
     }
     
     // 모달이 표시될 때 호출되는 메서드
@@ -32,6 +62,10 @@ class HalfModalPresentationController: UIPresentationController {
         presentedViewController.transitionCoordinator?.animate(alongsideTransition: { _ in
             self.dimmingView.alpha = 1 // 어둡게 처리할 배경의 투명도를 1로 변경하여 보이도록 함
         }, completion: nil)
+        
+        // 추가: 드래그 제스처 추가
+        let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(handlePanGesture(_:)))
+        presentedViewController.view.addGestureRecognizer(panGestureRecognizer)
         
         // 모달의 모서리를 둥글게 만듦
         presentedViewController.view.layer.cornerRadius = 12
