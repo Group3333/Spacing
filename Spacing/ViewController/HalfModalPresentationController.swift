@@ -8,7 +8,7 @@
 import UIKit
 
 class HalfModalPresentationController: UIPresentationController {
-
+    
     private var dimmingView: UIView!
     private var initialTouchPoint: CGPoint = CGPoint(x: 0, y: 0)
     
@@ -23,6 +23,7 @@ class HalfModalPresentationController: UIPresentationController {
         
         // 어둡게 처리할 배경 뷰 생성
         dimmingView = UIView(frame: containerView.bounds)
+        dimmingView.backgroundColor = UIColor.black.withAlphaComponent(0.5) // 어둡게 처리할 배경의 투명도 조절
         dimmingView.alpha = 0
         containerView.insertSubview(dimmingView, at: 0)
         

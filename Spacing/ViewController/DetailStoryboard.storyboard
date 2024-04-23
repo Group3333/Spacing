@@ -41,7 +41,10 @@
                                     <constraint firstAttribute="width" constant="166" id="Mvj-iF-xy4"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="문의하기"/>
+                                <buttonConfiguration key="configuration" style="filled" title="대여시간 설정"/>
+                                <connections>
+                                    <action selector="timeSelectBtn:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="7FQ-bW-evR"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XED-6L-nyq">
                                 <rect key="frame" x="201" y="777" width="166" height="35"/>
@@ -52,7 +55,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="예약하기"/>
                                 <connections>
-                                    <action selector="bookingBtn:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="Tfi-0D-Pb2"/>
+                                    <action selector="bookingBtn:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="KK9-m4-XYC"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="카테고리" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eCw-C4-pUt">

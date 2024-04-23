@@ -17,7 +17,7 @@ class TimeSelectionVC: UIViewController, UIPickerViewDataSource, UIPickerViewDel
     @IBOutlet weak var timeList: UIPickerView!
     
     weak var delegate: TimeSelectionDelegate?
-    let hours = Array(1...24) // 1부터 24까지의 배열
+    let hours = Array(1...24)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,13 +45,11 @@ class TimeSelectionVC: UIViewController, UIPickerViewDataSource, UIPickerViewDel
     
     @IBAction func selectBtn(_ sender: Any) {
         guard let selectedRow = timeList?.selectedRow(inComponent: 0), selectedRow != -1 else {
-            // timeList가 nil이거나 선택한 행이 없는 경우
-            // 오류 처리 또는 경고 메시지를 표시할 수 있습니다.
             return
         }
         
         let selectedHour = hours[selectedRow]
-        delegate?.timeSelected(selectedHour) // 델리게이트로 선택한 시간 전달
+        delegate?.timeSelected(selectedHour)
         dismiss(animated: true) // 화면 닫기
     }
 }
