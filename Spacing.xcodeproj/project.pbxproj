@@ -19,8 +19,8 @@
 		14C7D7A42BD614B500CB5746 /* SpacingUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C7D7A32BD614B500CB5746 /* SpacingUITestsLaunchTests.swift */; };
 		41A0C76D9C502AD131FCCA1A /* Pods_Spacing_SpacingUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55321982F9CA87D5A60EAB7B /* Pods_Spacing_SpacingUITests.framework */; };
 		66A54AB0269AAB50E99CC7EA /* Pods_Spacing.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8EE25D173730CAF5F421C35D /* Pods_Spacing.framework */; };
-		CE9EC5AE2BD6787F00D7BF36 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9EC5AD2BD6787F00D7BF36 /* MapViewController.swift */; };
-		CE9EC5B02BD6788A00D7BF36 /* Map.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE9EC5AF2BD6788A00D7BF36 /* Map.storyboard */; };
+		CE9EC5B32BD7D48200D7BF36 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9EC5B12BD7D48200D7BF36 /* MapViewController.swift */; };
+		CE9EC5B42BD7D48200D7BF36 /* Map.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE9EC5B22BD7D48200D7BF36 /* Map.storyboard */; };
 		D1FC5EE8D14D3D75688354AB /* Pods_SpacingTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B21C15A1C10F65433933A562 /* Pods_SpacingTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -63,8 +63,8 @@
 		8EE25D173730CAF5F421C35D /* Pods_Spacing.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Spacing.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B21C15A1C10F65433933A562 /* Pods_SpacingTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SpacingTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC3185EB196E91F53B1DE512 /* Pods-Spacing.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Spacing.release.xcconfig"; path = "Target Support Files/Pods-Spacing/Pods-Spacing.release.xcconfig"; sourceTree = "<group>"; };
-		CE9EC5AD2BD6787F00D7BF36 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MapViewController.swift; path = ../../../../../Documents/MapViewController.swift; sourceTree = "<group>"; };
-		CE9EC5AF2BD6788A00D7BF36 /* Map.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Map.storyboard; path = ../../../../../Documents/Map.storyboard; sourceTree = "<group>"; };
+		CE9EC5B12BD7D48200D7BF36 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		CE9EC5B22BD7D48200D7BF36 /* Map.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Map.storyboard; sourceTree = "<group>"; };
 		D28A90E916E59A9F2F1BB9A0 /* Pods-Spacing-SpacingUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Spacing-SpacingUITests.release.xcconfig"; path = "Target Support Files/Pods-Spacing-SpacingUITests/Pods-Spacing-SpacingUITests.release.xcconfig"; sourceTree = "<group>"; };
 		F37DA95CF1F7D307394D4463 /* Pods-SpacingTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpacingTests.release.xcconfig"; path = "Target Support Files/Pods-SpacingTests/Pods-SpacingTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -152,9 +152,9 @@
 			isa = PBXGroup;
 			children = (
 				14C7D7812BD614B200CB5746 /* ViewController.swift */,
-				CE9EC5AD2BD6787F00D7BF36 /* MapViewController.swift */,
-				CE9EC5AF2BD6788A00D7BF36 /* Map.storyboard */,
 				14C7D7832BD614B200CB5746 /* Main.storyboard */,
+				CE9EC5B22BD7D48200D7BF36 /* Map.storyboard */,
+				CE9EC5B12BD7D48200D7BF36 /* MapViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -320,7 +320,7 @@
 				14C7D78A2BD614B400CB5746 /* Assets.xcassets in Resources */,
 				14C7D78D2BD614B400CB5746 /* Base in Resources */,
 				14C7D7852BD614B200CB5746 /* Base in Resources */,
-				CE9EC5B02BD6788A00D7BF36 /* Map.storyboard in Resources */,
+				CE9EC5B42BD7D48200D7BF36 /* Map.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -451,7 +451,7 @@
 				14C7D7822BD614B200CB5746 /* ViewController.swift in Sources */,
 				14C7D7882BD614B200CB5746 /* Spacing.xcdatamodeld in Sources */,
 				14C7D77E2BD614B200CB5746 /* AppDelegate.swift in Sources */,
-				CE9EC5AE2BD6787F00D7BF36 /* MapViewController.swift in Sources */,
+				CE9EC5B32BD7D48200D7BF36 /* MapViewController.swift in Sources */,
 				14C7D7802BD614B200CB5746 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
