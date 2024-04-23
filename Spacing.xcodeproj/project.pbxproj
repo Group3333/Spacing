@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		145C32032BD7F525000FB8BD /* KakaoPostCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145C32022BD7F525000FB8BD /* KakaoPostCodeViewController.swift */; };
+		145C32052BD7F53C000FB8BD /* KakaoPostCodeViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 145C32042BD7F53C000FB8BD /* KakaoPostCodeViewController.storyboard */; };
 		14C7D77E2BD614B200CB5746 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C7D77D2BD614B200CB5746 /* AppDelegate.swift */; };
 		14C7D7802BD614B200CB5746 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C7D77F2BD614B200CB5746 /* SceneDelegate.swift */; };
 		14C7D7822BD614B200CB5746 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C7D7812BD614B200CB5746 /* ViewController.swift */; };
@@ -60,6 +62,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		145C32022BD7F525000FB8BD /* KakaoPostCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoPostCodeViewController.swift; sourceTree = "<group>"; };
+		145C32042BD7F53C000FB8BD /* KakaoPostCodeViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = KakaoPostCodeViewController.storyboard; sourceTree = "<group>"; };
 		14C7D77A2BD614B200CB5746 /* Spacing.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Spacing.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		14C7D77D2BD614B200CB5746 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		14C7D77F2BD614B200CB5746 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -124,6 +128,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		145C32012BD7F4F6000FB8BD /* KakaoPostCode */ = {
+			isa = PBXGroup;
+			children = (
+				145C32022BD7F525000FB8BD /* KakaoPostCodeViewController.swift */,
+				145C32042BD7F53C000FB8BD /* KakaoPostCodeViewController.storyboard */,
+			);
+			path = KakaoPostCode;
+			sourceTree = "<group>";
+		};
 		14C7D7712BD614B200CB5746 = {
 			isa = PBXGroup;
 			children = (
@@ -244,6 +257,7 @@
 		14C7D7D62BD667CE00CB5746 /* Menus */ = {
 			isa = PBXGroup;
 			children = (
+				145C32012BD7F4F6000FB8BD /* KakaoPostCode */,
 				14C7D7D72BD667F400CB5746 /* PersonalViewController.swift */,
 				14C7D7D92BD667FF00CB5746 /* PersonalViewController.storyboard */,
 				14C7D7DB2BD6682400CB5746 /* AddPlaceViewController.swift */,
@@ -367,6 +381,7 @@
 				14D9EBE22BD78557007DF629 /* CategoryCollectionViewCell.xib in Resources */,
 				14C7D7CF2BD6632300CB5746 /* MenuTableViewCell.xib in Resources */,
 				14C7D7E22BD668CB00CB5746 /* FavoriteViewController.storyboard in Resources */,
+				145C32052BD7F53C000FB8BD /* KakaoPostCodeViewController.storyboard in Resources */,
 				14C7D7DA2BD667FF00CB5746 /* PersonalViewController.storyboard in Resources */,
 				14C7D7BB2BD658F700CB5746 /* MyPageViewController.storyboard in Resources */,
 				14C7D78A2BD614B400CB5746 /* Assets.xcassets in Resources */,
@@ -415,6 +430,7 @@
 				14C7D77E2BD614B200CB5746 /* AppDelegate.swift in Sources */,
 				14C7D7D22BD664B500CB5746 /* ButtonTableViewCell.swift in Sources */,
 				14C7D7C52BD6607B00CB5746 /* Place.swift in Sources */,
+				145C32032BD7F525000FB8BD /* KakaoPostCodeViewController.swift in Sources */,
 				14C7D7D82BD667F400CB5746 /* PersonalViewController.swift in Sources */,
 				14C7D7802BD614B200CB5746 /* SceneDelegate.swift in Sources */,
 			);
@@ -606,6 +622,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -634,6 +651,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

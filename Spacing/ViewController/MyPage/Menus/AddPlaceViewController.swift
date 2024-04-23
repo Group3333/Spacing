@@ -8,7 +8,18 @@
 import UIKit
 
 class AddPlaceViewController: UIViewController {
-
+    var address : String = ""
+    @IBAction func buttonTouched(_ sender: Any) {
+        let vcName = "KakaoPostCodeViewController"
+        let storyboard = UIStoryboard(name: vcName, bundle: nil)
+        guard let vc = storyboard.instantiateViewController(withIdentifier: vcName) as? KakaoPostCodeViewController else{
+            return
+        }
+        vc.addressDelegate = self
+        let destinationViewController = UINavigationController(rootViewController: vc)
+        self.present(destinationViewController, animated: true)
+    }
+    @IBOutlet weak var temp: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -16,14 +27,16 @@ class AddPlaceViewController: UIViewController {
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func showKakaoPostCodeVC() {
+        let vcName = "KakaoPostCodeViewController"
+        let storyboard = UIStoryboard(name: vcName, bundle: nil)
+        let destinationViewController = UINavigationController(rootViewController: storyboard.instantiateViewController(withIdentifier: vcName))
+        self.present(destinationViewController, animated: true)
     }
-    */
+}
 
+extension AddPlaceViewController: AddressDelegate{
+    func dataReceived(address: String) {
+        print(address)
+    }
 }
