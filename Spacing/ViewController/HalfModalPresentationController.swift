@@ -14,16 +14,15 @@ class HalfModalPresentationController: UIPresentationController {
     
     override var frameOfPresentedViewInContainerView: CGRect {
         guard let containerView = containerView else { return CGRect.zero }
-        let height: CGFloat = 300 // 하프 모달의 높이
+        let height: CGFloat = 300
         return CGRect(x: 0, y: containerView.bounds.height - height, width: containerView.bounds.width, height: height)
     }
     
     override func presentationTransitionWillBegin() {
         guard let containerView = containerView else { return }
         
-        // 어둡게 처리할 배경 뷰 생성
         dimmingView = UIView(frame: containerView.bounds)
-        dimmingView.backgroundColor = UIColor.black.withAlphaComponent(0.5) // 어둡게 처리할 배경의 투명도 조절
+        dimmingView.backgroundColor = UIColor.black.withAlphaComponent(0.5)
         dimmingView.alpha = 0
         containerView.insertSubview(dimmingView, at: 0)
         
