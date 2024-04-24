@@ -7,12 +7,12 @@
 
 import UIKit
 
-class ImageCollectionViewCell: UICollectionViewCell {
+class AddImageCollectionViewCell: UICollectionViewCell {
 
     @IBOutlet weak var imageView: UIImageView!
-    static let identifier = "ImageCollectionViewCell"
+    static let identifier = "AddImageCollectionViewCell"
     static func nib() -> UINib {
-        return UINib(nibName: "ImageCollectionViewCell", bundle: nil)
+        return UINib(nibName: "AddImageCollectionViewCell", bundle: nil)
     }
     
     override func awakeFromNib() {

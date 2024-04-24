@@ -72,7 +72,7 @@ class AddPlaceViewController: UIViewController {
         descriptionTextView.layer.borderWidth = 1
     }
     @objc func customButtonTapped() {
-        var edit = checkEdit().0
+        let edit = checkEdit().0
         
         if edit {
             showAlert()
@@ -110,7 +110,7 @@ class AddPlaceViewController: UIViewController {
     func configureCollectionView(){
         self.imageCollectionView.dataSource = self
         self.imageCollectionView.delegate = self
-        self.imageCollectionView.register(ImageCollectionViewCell.nib(), forCellWithReuseIdentifier: ImageCollectionViewCell.identifier)
+        self.imageCollectionView.register(AddImageCollectionViewCell.nib(), forCellWithReuseIdentifier: AddImageCollectionViewCell.identifier)
         let flowLayout = UICollectionViewFlowLayout()
         flowLayout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         flowLayout.minimumLineSpacing = 0
@@ -170,7 +170,7 @@ extension AddPlaceViewController : UICollectionViewDelegate, UICollectionViewDat
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ImageCollectionViewCell.identifier, for: indexPath) as? ImageCollectionViewCell else{
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AddImageCollectionViewCell.identifier, for: indexPath) as? AddImageCollectionViewCell else{
             return UICollectionViewCell()
         }
         if indexPath.item < images.count {
