@@ -182,6 +182,7 @@ extension PlaceViewController : UITableViewDelegate,UITableViewDataSource{
             return UITableViewCell()
         }
         cell.configure(place: filteredPlaces[indexPath.row])
+        cell.selectionStyle = .none
         return cell
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -198,6 +199,12 @@ extension PlaceViewController : UITableViewDelegate,UITableViewDataSource{
                 self.categoryTopConstraint.constant = 0
             }
         }
+    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let storyboard = UIStoryboard(name: "DetailViewController", bundle: nil)
+        let destinationViewController = storyboard.instantiateViewController(withIdentifier: "DetailViewController") as! DetailViewController
+        destinationViewController.selectedPlaces = places[indexPath.row]
+        self.navigationController?.pushViewController(destinationViewController, animated: true)
     }
 }
 

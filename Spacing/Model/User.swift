@@ -16,7 +16,9 @@ struct User {
     let gender : Gender
     var favorite : [Place]
     var hostPlace : [Place]
+    var bookPlace: [BookPlace]
     var isLogin : Bool
+    
 }
 
 enum Gender : String{
@@ -24,5 +26,5 @@ enum Gender : String{
     case Female = "여자"
 }
 extension User{
-    static var currentUser = User(name: "이승원", profileImage: UIImage(named: "tempImage") ?? UIImage(systemName: "person.crop.circle")!, email: "sam98528@naver.com", nickName: "Seungwon", gender: .Male, favorite: Place.fav, hostPlace: Place.host, isLogin: true)
+    static var currentUser = User(name: "이승원", profileImage: UIImage(named: "tempImage") ?? UIImage(systemName: "person.crop.circle")!, email: "sam98528@naver.com", nickName: "Seungwon", gender: .Male, favorite: Place.fav, hostPlace: Place.host, bookPlace: [], isLogin: true)
 }

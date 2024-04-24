@@ -25,11 +25,17 @@ class AddPlaceViewController: UIViewController {
         if checkEdit().1 {
             let alertController = UIAlertController(title: "경고", message: "아직 입력하지 않는 칸이 있습니다!", preferredStyle: .alert)
             let okAction = UIAlertAction(title: "확인", style: .cancel) { _ in
-                self.navigationController?.popViewController(animated: true)
+                self.dismiss(animated: true)
             }
             alertController.addAction(okAction)
+            present(alertController, animated: true, completion: nil)
         }else{
-            
+            let alertController = UIAlertController(title: "확인", message: "제출하시겠습니까?", preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "확인", style: .default) { _ in
+                self.dismiss(animated: true)
+            }
+            alertController.addAction(okAction)
+            present(alertController, animated: true, completion: nil)
         }
     }
     @IBAction func kakaoPostCodeSearch(_ sender: Any) {
