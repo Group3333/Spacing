@@ -8,4 +8,5 @@
 import UIKit
 
 class TestViewController: UIViewController {
+    @IBOutlet weak var loginLabel: UILabel!
 }
