@@ -65,4 +65,3 @@ extension Place {
     static let hourDiscount : Int = 500
     static let eventDiscount : Int = hourDiscount * 4
 }
-
