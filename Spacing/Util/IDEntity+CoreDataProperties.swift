@@ -1,5 +1,5 @@
 //
-//  User+CoreDataProperties.swift
+//  IDEntity+CoreDataProperties.swift
 //  Spacing
 //
 //  Created by TaeOuk Hwang on 4/24/24.
@@ -10,10 +10,10 @@ import Foundation
 import CoreData
 
 
-extension User {
+extension IDEntity {
 
-    @nonobjc public class func fetchRequest() -> NSFetchRequest<User> {
-        return NSFetchRequest<User>(entityName: "ID")
+    @nonobjc public class func fetchRequest() -> NSFetchRequest<IDEntity> {
+        return NSFetchRequest<IDEntity>(entityName: "IDEntity")
     }
 
     @NSManaged public var id: String?
@@ -22,6 +22,6 @@ extension User {
 
 }
 
-extension User : Identifiable {
+extension IDEntity : Identifiable {
 
 }

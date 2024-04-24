@@ -31,7 +31,7 @@ class LoginViewController: UIViewController {
         }
         
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-        let fetchRequest: NSFetchRequest<User> = User.fetchRequest()
+        let fetchRequest: NSFetchRequest<IDEntity> = IDEntity.fetchRequest()
         
         fetchRequest.predicate = NSPredicate(format: "id == %@ AND password == %@", id, password)
         

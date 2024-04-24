@@ -18,7 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let context = persistentContainer.viewContext
         
-        let user = User(context: context)
+        let user = IDEntity(context: context)
         user.id = "admin@naver.com"
         user.password = "admin1234"
         user.name = "test admin"

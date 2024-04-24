@@ -40,7 +40,7 @@ class SignUpViewController: UIViewController {
 
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
 
-        let fetchRequest: NSFetchRequest<User> = User.fetchRequest()
+        let fetchRequest: NSFetchRequest<IDEntity> = IDEntity.fetchRequest()
         fetchRequest.predicate = NSPredicate(format: "id == %@", id)
         
         do {
@@ -65,7 +65,7 @@ class SignUpViewController: UIViewController {
             return
         }
 
-        let newUser = User(context: context)
+        let newUser = IDEntity(context: context)
         newUser.id = id
         newUser.password = password
         newUser.name = name
