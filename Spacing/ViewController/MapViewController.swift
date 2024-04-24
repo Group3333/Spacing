@@ -16,6 +16,7 @@ class MapViewController: UIViewController, NMFMapViewTouchDelegate {
     var marker = NMFMarker()
     let infoWindow = NMFInfoWindow()
     let dataSource = NMFInfoWindowDefaultTextSource.data()
+    var isInitalLocationUpdate = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -77,7 +78,7 @@ extension MapViewController: CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         
-        guard let location = locations.last else { return }
+        guard let location = locations.last, isInitalLocationUpdate else { return }
         let latitude = location.coordinate.latitude
         let longitude = location.coordinate.longitude
         
@@ -86,7 +87,10 @@ extension MapViewController: CLLocationManagerDelegate {
         cameraUpdate.animation = .easeIn
         
         naverMapView.mapView.moveCamera(cameraUpdate)
+        isInitalLocationUpdate = false
     }
+    
+    
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         guard let clError = error as? CLError else {return}
