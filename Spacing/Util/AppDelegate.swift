@@ -8,7 +8,7 @@
 // AppDelegate.swift
 import UIKit
 import CoreData
-
+import IQKeyboardManagerSwift
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -25,6 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         saveContext()
         
+        IQKeyboardManager.shared.enable = true
         return true
     }
 
