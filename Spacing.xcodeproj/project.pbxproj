@@ -23,14 +23,6 @@
 		14C7D7982BD614B500CB5746 /* SpacingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C7D7972BD614B500CB5746 /* SpacingTests.swift */; };
 		14C7D7A22BD614B500CB5746 /* SpacingUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C7D7A12BD614B500CB5746 /* SpacingUITests.swift */; };
 		14C7D7A42BD614B500CB5746 /* SpacingUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C7D7A32BD614B500CB5746 /* SpacingUITestsLaunchTests.swift */; };
-		2E3279A02BD904E20062D22A /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E32799E2BD904E20062D22A /* ImageCollectionViewCell.swift */; };
-		2E3279A12BD904E20062D22A /* ImageCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E32799F2BD904E20062D22A /* ImageCollectionViewCell.xib */; };
-		2E6DF6F42BD78A2600EE4B95 /* TimeSelectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6DF6F32BD78A2600EE4B95 /* TimeSelectionVC.swift */; };
-		2E6DF6F62BD79D3F00EE4B95 /* TimeSelectionSB.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2E6DF6F52BD79D3F00EE4B95 /* TimeSelectionSB.storyboard */; };
-		2E6DF6F82BD7B49000EE4B95 /* HalfModalPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6DF6F72BD7B49000EE4B95 /* HalfModalPresentationController.swift */; };
-		2EC6B78F2BD66DC1004BE3DE /* DetailStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2EC6B78E2BD66DC1004BE3DE /* DetailStoryboard.storyboard */; };
-		2EC6B7912BD68267004BE3DE /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EC6B7902BD68267004BE3DE /* Place.swift */; };
-		2EC6B7932BD732E3004BE3DE /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EC6B7922BD732E3004BE3DE /* DetailViewController.swift */; };
 		14C7D7BB2BD658F700CB5746 /* MyPageViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14C7D7BA2BD658F700CB5746 /* MyPageViewController.storyboard */; };
 		14C7D7BD2BD6590700CB5746 /* MyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C7D7BC2BD6590700CB5746 /* MyPageViewController.swift */; };
 		14C7D7C32BD65F7E00CB5746 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C7D7C22BD65F7E00CB5746 /* User.swift */; };
@@ -96,14 +88,6 @@
 		14C7D79D2BD614B500CB5746 /* SpacingUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SpacingUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		14C7D7A12BD614B500CB5746 /* SpacingUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpacingUITests.swift; sourceTree = "<group>"; };
 		14C7D7A32BD614B500CB5746 /* SpacingUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpacingUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		2E32799E2BD904E20062D22A /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
-		2E32799F2BD904E20062D22A /* ImageCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageCollectionViewCell.xib; sourceTree = "<group>"; };
-		2E6DF6F32BD78A2600EE4B95 /* TimeSelectionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeSelectionVC.swift; sourceTree = "<group>"; };
-		2E6DF6F52BD79D3F00EE4B95 /* TimeSelectionSB.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TimeSelectionSB.storyboard; sourceTree = "<group>"; };
-		2E6DF6F72BD7B49000EE4B95 /* HalfModalPresentationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HalfModalPresentationController.swift; sourceTree = "<group>"; };
-		2EC6B78E2BD66DC1004BE3DE /* DetailStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DetailStoryboard.storyboard; sourceTree = "<group>"; };
-		2EC6B7902BD68267004BE3DE /* Place.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Place.swift; path = Spacing/ViewController/Place.swift; sourceTree = SOURCE_ROOT; };
-		2EC6B7922BD732E3004BE3DE /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		14C7D7BA2BD658F700CB5746 /* MyPageViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MyPageViewController.storyboard; sourceTree = "<group>"; };
 		14C7D7BC2BD6590700CB5746 /* MyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewController.swift; sourceTree = "<group>"; };
 		14C7D7C22BD65F7E00CB5746 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -225,7 +209,6 @@
 				14C7D7C62BD662E600CB5746 /* MyPage */,
 				14C7D7812BD614B200CB5746 /* ViewController.swift */,
 				14C7D7832BD614B200CB5746 /* Main.storyboard */,
-				2E4B181C2BD8A43D001501AC /* DetailView */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -240,7 +223,6 @@
 		14C7D7B82BD6182600CB5746 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				2EC6B7902BD68267004BE3DE /* Place.swift */,
 				14C7D7C22BD65F7E00CB5746 /* User.swift */,
 				14C7D7C42BD6607B00CB5746 /* Place.swift */,
 				14C7D7D42BD6667A00CB5746 /* MyPageMenu.swift */,
@@ -264,34 +246,6 @@
 			path = Util;
 			sourceTree = "<group>";
 		};
-		2E32799D2BD904D10062D22A /* Cell */ = {
-			isa = PBXGroup;
-			children = (
-				2E32799E2BD904E20062D22A /* ImageCollectionViewCell.swift */,
-				2E32799F2BD904E20062D22A /* ImageCollectionViewCell.xib */,
-			);
-			path = Cell;
-			sourceTree = "<group>";
-		};
-		2E4B181C2BD8A43D001501AC /* DetailView */ = {
-			isa = PBXGroup;
-			children = (
-				2EC6B7922BD732E3004BE3DE /* DetailViewController.swift */,
-				2EC6B78E2BD66DC1004BE3DE /* DetailStoryboard.storyboard */,
-				2E32799D2BD904D10062D22A /* Cell */,
-				2E4B181D2BD8A465001501AC /* TimeSelectionView */,
-			);
-			path = DetailView;
-			sourceTree = "<group>";
-		};
-		2E4B181D2BD8A465001501AC /* TimeSelectionView */ = {
-			isa = PBXGroup;
-			children = (
-				2E6DF6F72BD7B49000EE4B95 /* HalfModalPresentationController.swift */,
-				2E6DF6F32BD78A2600EE4B95 /* TimeSelectionVC.swift */,
-				2E6DF6F52BD79D3F00EE4B95 /* TimeSelectionSB.storyboard */,
-			);
-			path = TimeSelectionView;
 		14C7D7C62BD662E600CB5746 /* MyPage */ = {
 			isa = PBXGroup;
 			children = (
@@ -461,9 +415,6 @@
 				14D9EBDC2BD77C56007DF629 /* PlaceTableViewCell.xib in Resources */,
 				14C7D7D32BD664B500CB5746 /* ButtonTableViewCell.xib in Resources */,
 				14C7D78D2BD614B400CB5746 /* Base in Resources */,
-				2E6DF6F62BD79D3F00EE4B95 /* TimeSelectionSB.storyboard in Resources */,
-				2EC6B78F2BD66DC1004BE3DE /* DetailStoryboard.storyboard in Resources */,
-				2E3279A12BD904E20062D22A /* ImageCollectionViewCell.xib in Resources */,
 				14C7D7852BD614B200CB5746 /* Base in Resources */,
 				14C7D7CB2BD6631000CB5746 /* UserTableViewCell.xib in Resources */,
 			);
@@ -490,12 +441,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2E6DF6F82BD7B49000EE4B95 /* HalfModalPresentationController.swift in Sources */,
-				2E3279A02BD904E20062D22A /* ImageCollectionViewCell.swift in Sources */,
-				14C7D7822BD614B200CB5746 /* ViewController.swift in Sources */,
-				2EC6B7912BD68267004BE3DE /* Place.swift in Sources */,
-				14C7D7882BD614B200CB5746 /* Spacing.xcdatamodeld in Sources */,
-				2E6DF6F42BD78A2600EE4B95 /* TimeSelectionVC.swift in Sources */,
 				14D9EBE32BD78557007DF629 /* CategoryCollectionViewCell.swift in Sources */,
 				14C7D7BD2BD6590700CB5746 /* MyPageViewController.swift in Sources */,
 				14C7D7DC2BD6682400CB5746 /* AddPlaceViewController.swift in Sources */,
@@ -520,7 +465,6 @@
 				145C32032BD7F525000FB8BD /* KakaoPostCodeViewController.swift in Sources */,
 				14C7D7D82BD667F400CB5746 /* PersonalViewController.swift in Sources */,
 				14C7D7802BD614B200CB5746 /* SceneDelegate.swift in Sources */,
-				2EC6B7932BD732E3004BE3DE /* DetailViewController.swift in Sources */,
 				14C5FD8C2BD8DC4B00B8358C /* ImageCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
