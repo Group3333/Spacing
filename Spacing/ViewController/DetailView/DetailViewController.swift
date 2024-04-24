@@ -6,7 +6,9 @@
 //
 
 import UIKit
-
+protocol FavoritieDelegate{
+    func favChanged()
+}
 class DetailViewController: UIViewController, TimeSelectionDelegate {
     
     // MARK: - Properties
@@ -15,9 +17,13 @@ class DetailViewController: UIViewController, TimeSelectionDelegate {
     let categories: [Categories] = Categories.allCases
     var selectedCategory: Categories = .all
     var selectedPlaces: Place = Place.data[0]
+    var isFav : Bool = false
+    var delegate : FavoritieDelegate?
+    var hours : Int = 0
     
     // MARK: - IBOutlets
-    
+    @IBOutlet weak var originalPriceLabel: UILabel!
+    @IBOutlet weak var favButton: UIButton!
     @IBOutlet weak var pageControl: UIPageControl!
     @IBOutlet weak var placeImage: UICollectionView!
     @IBOutlet weak var placeName: UILabel!
@@ -28,6 +34,17 @@ class DetailViewController: UIViewController, TimeSelectionDelegate {
     @IBOutlet weak var timeLabel: UILabel!
     // MARK: - Lifecycle
     
+    @IBAction func favButtonClicked(_ sender: Any) {
+        isFav = isFav ? false : true
+        if isFav {
+            self.favButton.setImage(UIImage(systemName: "star.fill"), for: .normal)
+            User.currentUser.favorite.append(selectedPlaces)
+        }else{
+            self.favButton.setImage(UIImage(systemName: "star"), for: .normal)
+            User.currentUser.favorite.removeAll{$0.title == selectedPlaces.title && $0.description == selectedPlaces.description && $0.position == selectedPlaces.position}
+        }
+        self.delegate?.favChanged()
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
@@ -46,12 +63,12 @@ class DetailViewController: UIViewController, TimeSelectionDelegate {
     }
     
     @IBAction func bookingBtn(_ sender: Any) {
-        
-        let hours = 3
-        let totalPrice = selectedPlaces.price * hours
+        let temp = Int(self.hours / 3 )
+        let remain = self.hours - (temp * 3)
+        let totalPrice = (selectedPlaces.price - Place.hourDiscount) * remain + temp * (selectedPlaces.price * 3 - Place.eventDiscount)
         
         // BookPlace 인스턴스 생성 및 값 할당
-        let bookPlace = BookPlace(place: selectedPlaces, time: hours, totalPrice: totalPrice)
+        let bookPlace = BookPlace(place: selectedPlaces, time: self.hours, totalPrice: totalPrice)
         bookingAlert(bookPlace: bookPlace)
     }
 
@@ -69,11 +86,17 @@ class DetailViewController: UIViewController, TimeSelectionDelegate {
     // MARK: - Methods
     
     private func configureUI() {
+        isFav =  User.currentUser.favorite.contains(where: {$0.title == selectedPlaces.title && $0.description == selectedPlaces.description}) ? true : false
+        
+        isFav ? favButton.setImage(UIImage(systemName: "star.fill"), for: .normal) : favButton.setImage(UIImage(systemName: "star"), for: .normal)
+
         placeName.text = selectedPlaces.title
         placeCateg.text = selectedPlaces.categories.rawValue
         placeDescription.text = selectedPlaces.description
         rateLabel.attributedText = makeStarLabel(rating: selectedPlaces.rating)
-        placePrice.text = "\(Int.addCommas(to: selectedPlaces.price)) 원"
+        placePrice.text = "\(Int.addCommas(to: selectedPlaces.price - Place.hourDiscount)) 원"
+        originalPriceLabel.text = "\(Int.addCommas(to: selectedPlaces.price)) 원"
+        originalPriceLabel.attributedText = originalPriceLabel.text?.strikeThrough()
         timeLabel.text = "1 시간"
         [placeName, placeCateg, placePrice].forEach { $0?.sizeToFit() }
 
@@ -130,8 +153,15 @@ class DetailViewController: UIViewController, TimeSelectionDelegate {
         return attributeString
     }
     func timeSelected(_ hours: Int) {
-        placePrice.text = "\(Int.addCommas(to: (selectedPlaces.price) * hours)) 원"
+        self.hours = hours
+        let temp = Int(hours / 3 )
+        let remain = hours - (temp * 3)
+        let totalPrice = (selectedPlaces.price - Place.hourDiscount) * remain + temp * (selectedPlaces.price * 3 - Place.eventDiscount)
+        
+        placePrice.text = "\(Int.addCommas(to: totalPrice)) 원"
         timeLabel.text = "\(hours) 시간"
+        originalPriceLabel.text = "\(Int.addCommas(to: hours * selectedPlaces.price)) 원"
+        originalPriceLabel.attributedText = originalPriceLabel.text?.strikeThrough()
     }
     
     func bookingAlert() {

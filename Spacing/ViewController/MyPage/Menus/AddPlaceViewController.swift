@@ -7,11 +7,15 @@
 
 import UIKit
 import PhotosUI
+import Alamofire
+
+protocol NewPlaceDelegate {
+    func addNewPlace()
+}
 
 class AddPlaceViewController: UIViewController {
     @IBOutlet weak var imageCollectionView: UICollectionView!
     @IBOutlet weak var pageControl: UIPageControl!
-    
     @IBOutlet weak var detailAddressTextField: UITextField!
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var addressTextField: UITextField!
@@ -32,7 +36,12 @@ class AddPlaceViewController: UIViewController {
         }else{
             let alertController = UIAlertController(title: "확인", message: "제출하시겠습니까?", preferredStyle: .alert)
             let okAction = UIAlertAction(title: "확인", style: .default) { _ in
+                let temp = GeoCoder()
+                temp.delegate = self
+                temp.getAlamofire(address: self.addressTextField.text!)
                 self.dismiss(animated: true)
+                self.navigationController?.popViewController(animated: true)
+                
             }
             alertController.addAction(okAction)
             present(alertController, animated: true, completion: nil)
@@ -46,7 +55,8 @@ class AddPlaceViewController: UIViewController {
     var configuarion = PHPickerConfiguration()
     var index : Int = 0
     let categories: [Categories] = Categories.allCases
-    var user = User.currentUser
+    var row : Int = 0
+    var delegate : NewPlaceDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -230,8 +240,17 @@ extension AddPlaceViewController: UITextFieldDelegate, UIPickerViewDelegate, UIP
     }
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         categoriesTextField.text = categories[row].rawValue
+        self.row = row
     }
     
+}
 
+extension AddPlaceViewController : CoordinateDelegate {
+    func coordinateReceived(x: String, y: String) {
+        let newPlace = Place(title: self.titleTextField.text!, categories: categories[row], position: "\(self.addressTextField.text!) \(self.detailAddressTextField.text!)", images: self.images, description: self.descriptionTextView.text!, isBooked: false, rating: 3.5, price: Int(self.priceTextField.text!)!, x: Double(x) ?? 0.0, y: Double(y) ?? 0.0)
+        Place.data.append(newPlace)
+        User.currentUser.hostPlace.append(newPlace)
+        self.delegate?.addNewPlace()
+    }
 }
 

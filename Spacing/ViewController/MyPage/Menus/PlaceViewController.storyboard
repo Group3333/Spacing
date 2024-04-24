@@ -17,8 +17,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="TrH-En-6Rs">
-                                <rect key="frame" x="10" y="99" width="373" height="719"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="TrH-En-6Rs">
+                                <rect key="frame" x="5" y="99" width="383" height="719"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="beJ-yA-9Ji">
@@ -44,14 +44,14 @@
                             <constraint firstItem="beJ-yA-9Ji" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="N16-UQ-eLd"/>
                             <constraint firstItem="TrH-En-6Rs" firstAttribute="top" secondItem="beJ-yA-9Ji" secondAttribute="bottom" constant="10" id="N9a-pP-lBt"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="TrH-En-6Rs" secondAttribute="bottom" id="lPr-9a-NHK"/>
-                            <constraint firstItem="TrH-En-6Rs" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="10" id="tJP-Pa-s4x"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="TrH-En-6Rs" secondAttribute="trailing" constant="10" id="wHF-0W-wio"/>
+                            <constraint firstItem="TrH-En-6Rs" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="5" id="tJP-Pa-s4x"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="TrH-En-6Rs" secondAttribute="trailing" constant="5" id="wHF-0W-wio"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="categoryCollectionView" destination="beJ-yA-9Ji" id="F6B-O2-qtM"/>
                         <outlet property="categoryTopConstraint" destination="N16-UQ-eLd" id="rSo-X9-etK"/>
-                        <outlet property="favoriteTableView" destination="TrH-En-6Rs" id="mSa-1s-1js"/>
+                        <outlet property="placeTableView" destination="TrH-En-6Rs" id="mSa-1s-1js"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

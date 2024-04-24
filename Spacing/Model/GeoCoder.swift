@@ -7,14 +7,20 @@
 
 import Foundation
 import Alamofire
+
+protocol CoordinateDelegate {
+    func coordinateReceived(x : String, y: String)
+}
 struct Address : Codable{
-    let addresses : Coordinate
+    let addresses : [Coordinate]
 }
 struct Coordinate : Codable {
     var x : String
     var y : String
 }
 class GeoCoder {
+    var delegate : CoordinateDelegate?
+    
     let apiUrl = "https://naveropenapi.apigw.ntruss.com/map-geocode/v2/geocode"
     let headers: HTTPHeaders = [
         "X-NCP-APIGW-API-KEY-ID": "h41fk6xsah",
@@ -28,9 +34,10 @@ class GeoCoder {
                 switch response.result {
                 case .success(let data):
                     do{
-                        let newSearchResult = try JSONDecoder().decode([Address].self, from: data!)
-                        print(newSearchResult[0].addresses.x)
-                        print(newSearchResult[0].addresses.y)
+                        let newSearchResult = try JSONDecoder().decode(Address.self, from: data!)
+                        DispatchQueue.main.async {
+                            self.delegate?.coordinateReceived(x: newSearchResult.addresses[0].x, y: newSearchResult.addresses[0].y)
+                        }
                     }catch let error {
                         print("ERROR PARSING JSON: \(error)")
                     }

@@ -127,7 +127,9 @@
                 <outlet property="categoryLabel" destination="4Q8-gw-GLg" id="9rX-rY-rRN"/>
                 <outlet property="discountHourPriceLabel" destination="OYf-Km-0d3" id="lB0-vZ-aho"/>
                 <outlet property="eventDiscountPriceLabel" destination="OMC-kv-tq4" id="Jjh-Wk-5EK"/>
+                <outlet property="eventLabel" destination="1zc-7L-7hn" id="NIL-TB-xcy"/>
                 <outlet property="eventPriceLabel" destination="Uy1-Dh-cKE" id="Oud-M6-F1F"/>
+                <outlet property="hourLabel" destination="37i-WR-rgw" id="zYf-gz-Fvb"/>
                 <outlet property="hourPriceLabel" destination="5qL-lO-nAR" id="cbe-Ud-lJX"/>
                 <outlet property="rateLabel" destination="CRZ-kU-5VG" id="1n7-SP-AkA"/>
                 <outlet property="spaceImageView" destination="d9R-Lz-zc3" id="bCa-YS-mE0"/>

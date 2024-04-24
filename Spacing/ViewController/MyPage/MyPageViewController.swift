@@ -16,8 +16,7 @@ class MyPageViewController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         configure()
-        let temp = GeoCoder()
-        temp.getAlamofire(address: "서울 서초구 방배동 451-36 지하층")
+        
     }
     
     func configure(){
@@ -48,24 +47,11 @@ extension MyPageViewController : UITableViewDelegate,UITableViewDataSource {
             let vcName = MyPageMenu.menus[indexPath.row].detailVC
             let storyboard = UIStoryboard(name: vcName, bundle: nil)
             let destinationViewController = storyboard.instantiateViewController(withIdentifier: vcName)
-            switch indexPath.row{
-            case 1:
-                guard let favoriteViewController = destinationViewController as? PlaceViewController else{
-                    return
-                }
-                favoriteViewController.places = user.favorite
-                favoriteViewController.state = .Favorite
-                self.navigationController?.pushViewController(favoriteViewController, animated: true)
-            case 2:
-                guard let hostViewController = destinationViewController as? PlaceViewController else{
-                    return
-                }
-                hostViewController.places = user.hostPlace
-                hostViewController.state = .Host
-                self.navigationController?.pushViewController(hostViewController, animated: true)
-            default:
-                self.navigationController?.pushViewController(destinationViewController, animated: true)
+            guard let vc = destinationViewController as? PlaceViewController else{
+                return
             }
+            vc.state = MyPageMenu.menus[indexPath.row].state
+            self.navigationController?.pushViewController(vc, animated: true)
         default:
             print("Selected row \(indexPath.row) in section \(indexPath.section)")
         }
@@ -89,7 +75,7 @@ extension MyPageViewController : UITableViewDelegate,UITableViewDataSource {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: UserTableViewCell.identifier, for: indexPath) as? UserTableViewCell else {
                 return UITableViewCell()
             }
-            cell.configure(user: user)
+            cell.configure(user: User.currentUser)
             return cell
         case 1:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: MenuTableViewCell.identifier, for: indexPath) as? MenuTableViewCell else {

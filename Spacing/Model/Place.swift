@@ -60,10 +60,10 @@ extension Place {
         Place(title: "라바사", categories: .gallery, position: "서울 서초구 방배동 451-36 지하층", images: [UIImage(named: "test4")!], description: "아무거나 입력\n아무거나 입력아무거나 입력\n아무거나 입력아무거나 입력\n아무거나 입력아무거나 입력\n아무거나 입력아무거나 입력\n아무거나 입력아무거나 입력\n아무거나 입력아무거나 입력", isBooked: false, rating: 5.0, price: 13000,x: 0,y: 0),
         Place(title: "투투투", categories: .gallery, position: "서울 서초구 방배동 451-36 지하층", images: [UIImage(named: "test3")!], description: "아무거나 입력\n아무거나 입력아무거나 입력\n아무거나 입력아무거나 입력\n아무거나 입력아무거나 입력\n아무거나 입력아무거나 입력\n아무거나 입력아무거나 입력\n아무거나 입력아무거나 입력", isBooked: false, rating: 2.5, price: 15000,x: 0,y: 0),
         Place(title: "아다가", categories: .lectureRoon, position: "서울 서초구 방배동 451-36 지하층", images: [UIImage(named: "test4")!], description: "아무거나 입력\n아무거나 입력아무거나 입력\n아무거나 입력아무거나 입력\n아무거나 입력아무거나 입력\n아무거나 입력아무거나 입력\n아무거나 입력아무거나 입력\n아무거나 입력아무거나 입력", isBooked: false, rating: 3.5, price: 3000,x: 0,y: 0),
-        Place(title: "할인 사당 1분 60평 브라운스톤", categories: .office, position: "서울 서초구 방배동 451-36 지하층", images: [UIImage(named: "test5")!], description: "아무거나 입력\n아무거나 입력아무거나 입력\n아무거나 입력아무거나 입력\n아무거나 입력아무거나 입력\n아무거나 입력아무거나 입력\n아무거나 입력아무거나 입력\n아무거나 입력아무거나 입력", isBooked: false, rating: 2.0, price: 4000,x: 0,y: 0),
-        Place(title: "할인 사당 1분 60평 브라운스톤", categories: .photoStudio, position: "서울 서초구 방배동 451-36 지하층", images: [UIImage(named: "test6")!], description: "아무거나 입력\n아무거나 입력아무거나 입력\n아무거나 입력아무거나 입력\n아무거나 입력아무거나 입력\n아무거나 입력아무거나 입력\n아무거나 입력아무거나 입력\n아무거나 입력아무거나 입력", isBooked: false, rating: 0.0, price: 2000,x: 0,y: 0),
-        Place(title: "할인 사당 1분 60평 브라운스톤", categories: .gallery, position: "서울 서초구 방배동 451-36 지하층", images: [UIImage(named: "test")!], description: "아무거나 입력\n아무거나 입력아무거나 입력\n아무거나 입력아무거나 입력\n아무거나 입력아무거나 입력\n아무거나 입력아무거나 입력\n아무거나 입력아무거나 입력\n아무거나 입력아무거나 입력", isBooked: false, rating: 2.0, price: 3600,x: 0,y: 0),
-        Place(title: "할인 사당 1분 60평 브라운스톤", categories: .partyRoom, position: "서울 서초구 방배동 451-36 지하층", images: [UIImage(named: "test3")!], description: "아무거나 입력\n아무거나 입력아무거나 입력\n아무거나 입력아무거나 입력\n아무거나 입력아무거나 입력\n아무거나 입력아무거나 입력\n아무거나 입력아무거나 입력\n아무거나 입력아무거나 입력", isBooked: false, rating: 4.4, price: 7700,x: 0,y: 0),
+        Place(title: "할인 사당 1분 60평 브라운스톤2", categories: .office, position: "서울 서초구 방배동 451-36 지하층", images: [UIImage(named: "test5")!], description: "아무거나 입력\n아무거나 입력아무거나 입력\n아무거나 입력아무거나 입력\n아무거나 입력아무거나 입력\n아무거나 입력아무거나 입력\n아무거나 입력아무거나 입력\n아무거나 입력아무거나 입력", isBooked: false, rating: 2.0, price: 4000,x: 0,y: 0),
+        Place(title: "할인 사당 1분 60평 브라운스톤3", categories: .photoStudio, position: "서울 서초구 방배동 451-36 지하층", images: [UIImage(named: "test6")!], description: "아무거나 입력\n아무거나 입력아무거나 입력\n아무거나 입력아무거나 입력\n아무거나 입력아무거나 입력\n아무거나 입력아무거나 입력\n아무거나 입력아무거나 입력\n아무거나 입력아무거나 입력", isBooked: false, rating: 0.0, price: 2000,x: 0,y: 0),
+        Place(title: "할인 사당 1분 60평 브라운스톤4", categories: .gallery, position: "서울 서초구 방배동 451-36 지하층", images: [UIImage(named: "test")!], description: "아무거나 입력\n아무거나 입력아무거나 입력\n아무거나 입력아무거나 입력\n아무거나 입력아무거나 입력\n아무거나 입력아무거나 입력\n아무거나 입력아무거나 입력\n아무거나 입력아무거나 입력", isBooked: false, rating: 2.0, price: 3600,x: 0,y: 0),
+        Place(title: "할인 사당 1분 60평 브라운스톤5", categories: .partyRoom, position: "서울 서초구 방배동 451-36 지하층", images: [UIImage(named: "test3")!], description: "아무거나 입력\n아무거나 입력아무거나 입력\n아무거나 입력아무거나 입력\n아무거나 입력아무거나 입력\n아무거나 입력아무거나 입력\n아무거나 입력아무거나 입력\n아무거나 입력아무거나 입력", isBooked: false, rating: 4.4, price: 7700,x: 0,y: 0),
     ]
     static var host: [Place] = [
         Place(title: "할인 사당 1분 60평 브라운스톤", categories: .cafe, position: "서울 서초구 방배동 451-36 지하층", images: [UIImage(named: "test")!], description: "아무거나 입력\n아무거나 입력아무거나 입력\n아무거나 입력아무거나 입력\n아무거나 입력아무거나 입력\n아무거나 입력아무거나 입력\n아무거나 입력아무거나 입력\n아무거나 입력아무거나 입력", isBooked: false, rating: 3.0, price: 9000,x: 0,y: 0),
@@ -85,5 +85,10 @@ extension Place {
     ]
     static let hourDiscount : Int = 500
     static let eventDiscount : Int = hourDiscount * 4
+    
+    static func == (lhs: Place, rhs: Place) -> Bool {
+        return lhs.title == rhs.title && lhs.position == rhs.position
+    }
+    
 }
 

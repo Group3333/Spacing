@@ -8,9 +8,10 @@
 import UIKit
 import SnapKit
 
+
 class PlaceViewController: UIViewController{
     @IBOutlet weak var categoryTopConstraint: NSLayoutConstraint!
-    @IBOutlet weak var favoriteTableView: UITableView!
+    @IBOutlet weak var placeTableView: UITableView!
     @IBOutlet weak var categoryCollectionView: UICollectionView!
     var user = User.currentUser
     let categories: [Categories] = Categories.allCases
@@ -19,12 +20,18 @@ class PlaceViewController: UIViewController{
     var filteredPlaces: [Place] = []
     var state : State?
     var searchController : UISearchController!
+    var bookPlace: [BookPlace] = []
+    var filteredBookPlaces: [BookPlace] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configure()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        self.placeTableView.reloadData()
+    }
     func configure(){
         configureNav()
         updateData()
@@ -45,7 +52,8 @@ class PlaceViewController: UIViewController{
     
     @objc func PresentAddPlaceVC (){
         let storyboard = UIStoryboard(name: "AddPlaceViewController", bundle: nil)
-        let destinationViewController = storyboard.instantiateViewController(withIdentifier: "AddPlaceViewController")
+        let destinationViewController = storyboard.instantiateViewController(withIdentifier: "AddPlaceViewController") as! AddPlaceViewController
+        destinationViewController.delegate = self
         self.navigationController?.pushViewController(destinationViewController, animated: true)
     }
     func collectionViewConfigure(){
@@ -63,12 +71,31 @@ class PlaceViewController: UIViewController{
     }
     
     func tableViewConfigure(){
-        self.favoriteTableView.dataSource = self
-        self.favoriteTableView.delegate = self
-        self.favoriteTableView.register(PlaceTableViewCell.nib(), forCellReuseIdentifier: PlaceTableViewCell.identifier)
+        self.placeTableView.dataSource = self
+        self.placeTableView.delegate = self
+        self.placeTableView.register(PlaceTableViewCell.nib(), forCellReuseIdentifier: PlaceTableViewCell.identifier)
+        self.placeTableView.showsVerticalScrollIndicator = false
+        self.placeTableView.showsHorizontalScrollIndicator = false
     }
     
     func updateData(){
+        switch state{
+        case .Host:
+            places = User.currentUser.hostPlace
+        case .Favorite:
+            places = User.currentUser.favorite
+        case .Uses:
+            bookPlace = User.currentUser.bookPlace
+            filteredBookPlaces = {
+                if selectedCategory == .all{
+                    return bookPlace
+                }else{
+                    return bookPlace.filter { $0.place.categories == selectedCategory }
+                }
+            }()
+        default:
+            places = Place.data
+        }
         filteredPlaces = {
             if selectedCategory == .all{
                 return places
@@ -76,6 +103,7 @@ class PlaceViewController: UIViewController{
                 return places.filter { $0.categories == selectedCategory }
             }
         }()
+
         setupEmptyView()
     }
     
@@ -92,14 +120,14 @@ class PlaceViewController: UIViewController{
     }
     
     func setupEmptyView() {
-        if filteredPlaces.count == 0{
-            let emptyView = UIView(frame: CGRect(x: 0, y: 0, width: favoriteTableView.bounds.size.width, height: favoriteTableView.bounds.size.height))
+        if filteredPlaces.count == 0 && filteredBookPlaces.count == 0{
+            let emptyView = UIView(frame: CGRect(x: 0, y: 0, width: placeTableView.bounds.size.width, height: placeTableView.bounds.size.height))
             let emptyImageView = UIImageView()
             emptyImageView.image = UIImage(named: "empty")
             emptyImageView.contentMode = .scaleAspectFit
             
             let emptyLabel = UILabel()
-            emptyLabel.text = "즐겨찾기 되어 있는 공간이 없습니다!"
+            emptyLabel.text = "아무것도 없습니다!"
             emptyLabel.textAlignment = .center
             emptyLabel.textColor = .secondaryLabel
             
@@ -114,9 +142,9 @@ class PlaceViewController: UIViewController{
                 make.leading.trailing.equalToSuperview()
                 make.top.equalTo(emptyImageView.snp.bottom).offset(20)
             }
-            favoriteTableView.backgroundView = emptyView
+            placeTableView.backgroundView = emptyView
         }else{
-            favoriteTableView.backgroundView = nil
+            placeTableView.backgroundView = nil
         }
     }
 }
@@ -147,7 +175,7 @@ extension PlaceViewController : UICollectionViewDataSource, UICollectionViewDele
         if let newCell = collectionView.cellForItem(at: indexPath) {
             newCell.contentView.backgroundColor = UIColor.lightGray
         }
-        self.favoriteTableView.reloadData()
+        self.placeTableView.reloadData()
     }
     
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
@@ -174,14 +202,24 @@ extension PlaceViewController : UICollectionViewDataSource, UICollectionViewDele
 
 extension PlaceViewController : UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return filteredPlaces.count
+        if state == .Uses{
+            return filteredBookPlaces.count
+        }else{
+            return filteredPlaces.count
+        }
+        
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: PlaceTableViewCell.identifier, for: indexPath) as? PlaceTableViewCell else{
             return UITableViewCell()
         }
-        cell.configure(place: filteredPlaces[indexPath.row])
+        
+        if state == .Uses{
+            cell.configureBookView(bookPlace: filteredBookPlaces[indexPath.row])
+        }else{
+            cell.configure(place: filteredPlaces[indexPath.row])
+        }
         cell.selectionStyle = .none
         return cell
     }
@@ -203,20 +241,41 @@ extension PlaceViewController : UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let storyboard = UIStoryboard(name: "DetailViewController", bundle: nil)
         let destinationViewController = storyboard.instantiateViewController(withIdentifier: "DetailViewController") as! DetailViewController
-        destinationViewController.selectedPlaces = places[indexPath.row]
+        if state == .Uses{
+            destinationViewController.selectedPlaces = bookPlace[indexPath.row].place
+        }else{
+            destinationViewController.selectedPlaces = places[indexPath.row]
+        }
+        destinationViewController.delegate = self
         self.navigationController?.pushViewController(destinationViewController, animated: true)
     }
 }
 
 extension PlaceViewController : UISearchResultsUpdating, UISearchBarDelegate, UISearchControllerDelegate {
     func updateSearchResults(for searchController: UISearchController) {
-        print(type(of: searchController.searchBar.text))
-        
         guard let text = searchController.searchBar.text else { return }
-        self.filteredPlaces = places.filter {
-            $0.position.contains(text) || $0.title.contains(text)
+        if state == .Uses{
+            self.filteredBookPlaces = bookPlace.filter {
+                $0.place.position.contains(text) || $0.place.title.contains(text)
+            }
+        }else{
+            self.filteredPlaces = places.filter {
+                $0.position.contains(text) || $0.title.contains(text)
+            }
         }
-        dump(text)
-        favoriteTableView.reloadData()
+        
+        placeTableView.reloadData()
+    }
+}
+
+extension PlaceViewController : NewPlaceDelegate , FavoritieDelegate{
+    func favChanged() {
+        updateData()
+        self.placeTableView.reloadData()
+    }
+    
+    func addNewPlace() {
+        updateData()
+        self.placeTableView.reloadData()
     }
 }
