@@ -2,26 +2,27 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Favorite View Controller-->
+        <!--Place View Controller-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
-                <viewController storyboardIdentifier="FavoriteViewController" id="Y6W-OH-hqX" customClass="FavoriteViewController" customModule="Spacing" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PlaceViewController" id="Y6W-OH-hqX" customClass="PlaceViewController" customModule="Spacing" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="TrH-En-6Rs">
-                                <rect key="frame" x="0.0" y="104" width="393" height="714"/>
+                                <rect key="frame" x="10" y="99" width="373" height="719"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="beJ-yA-9Ji">
-                                <rect key="frame" x="5" y="64" width="383" height="30"/>
+                                <rect key="frame" x="5" y="59" width="383" height="30"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="eBn-ge-qFZ"/>
@@ -40,11 +41,11 @@
                         <constraints>
                             <constraint firstItem="beJ-yA-9Ji" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="5" id="8MR-kp-5U4"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="beJ-yA-9Ji" secondAttribute="trailing" constant="5" id="FKO-VE-9J0"/>
-                            <constraint firstItem="beJ-yA-9Ji" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="5" id="N16-UQ-eLd"/>
+                            <constraint firstItem="beJ-yA-9Ji" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="N16-UQ-eLd"/>
                             <constraint firstItem="TrH-En-6Rs" firstAttribute="top" secondItem="beJ-yA-9Ji" secondAttribute="bottom" constant="10" id="N9a-pP-lBt"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="TrH-En-6Rs" secondAttribute="bottom" id="lPr-9a-NHK"/>
-                            <constraint firstItem="TrH-En-6Rs" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="tJP-Pa-s4x"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="TrH-En-6Rs" secondAttribute="trailing" id="wHF-0W-wio"/>
+                            <constraint firstItem="TrH-En-6Rs" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="10" id="tJP-Pa-s4x"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="TrH-En-6Rs" secondAttribute="trailing" constant="10" id="wHF-0W-wio"/>
                         </constraints>
                     </view>
                     <connections>

@@ -23,3 +23,6 @@ enum Gender : String{
     case Male = "남자"
     case Female = "여자"
 }
+extension User{
+    static var currentUser = User(name: "이승원", profileImage: UIImage(named: "tempImage") ?? UIImage(systemName: "person.crop.circle")!, email: "sam98528@naver.com", nickName: "Seungwon", gender: .Male, favorite: Place.fav, hostPlace: Place.host, isLogin: true)
+}

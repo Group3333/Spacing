@@ -8,14 +8,17 @@
 import UIKit
 import SnapKit
 
-class FavoriteViewController: UIViewController{
+class PlaceViewController: UIViewController{
     @IBOutlet weak var categoryTopConstraint: NSLayoutConstraint!
-    let categories: [Categories] = Categories.allCases
-    var selectedCategory: Categories = .all
-    var places : [Place] = Place.data
-    var filteredPlaces: [Place] = []
     @IBOutlet weak var favoriteTableView: UITableView!
     @IBOutlet weak var categoryCollectionView: UICollectionView!
+    var user = User.currentUser
+    let categories: [Categories] = Categories.allCases
+    var selectedCategory: Categories = .all
+    var places : [Place] = []
+    var filteredPlaces: [Place] = []
+    var state : State?
+    var searchController : UISearchController!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,12 +26,28 @@ class FavoriteViewController: UIViewController{
     }
     
     func configure(){
-        self.navigationItem.title = "즐겨찾기"
+        configureNav()
         updateData()
         collectionViewConfigure()
         tableViewConfigure()
+        searchBarConfigure()
     }
     
+    func configureNav(){
+        self.navigationItem.title = state?.rawValue
+        if state == .Host{
+            let addButton = UIBarButtonItem(image: UIImage(systemName: "plus"), style: .plain, target: self, action: #selector(PresentAddPlaceVC))
+            addButton.tintColor = .red
+            self.navigationItem.rightBarButtonItem = addButton
+            
+        }
+    }
+    
+    @objc func PresentAddPlaceVC (){
+        let storyboard = UIStoryboard(name: "AddPlaceViewController", bundle: nil)
+        let destinationViewController = storyboard.instantiateViewController(withIdentifier: "AddPlaceViewController")
+        self.navigationController?.pushViewController(destinationViewController, animated: true)
+    }
     func collectionViewConfigure(){
         self.categoryCollectionView.delegate = self
         self.categoryCollectionView.dataSource = self
@@ -41,13 +60,12 @@ class FavoriteViewController: UIViewController{
         flowLayout.scrollDirection = .horizontal
         categoryCollectionView.collectionViewLayout = flowLayout
         categoryCollectionView.allowsMultipleSelection = false
-        
     }
     
     func tableViewConfigure(){
         self.favoriteTableView.dataSource = self
         self.favoriteTableView.delegate = self
-        self.favoriteTableView.register(FavoriteTableViewCell.nib(), forCellReuseIdentifier: FavoriteTableViewCell.identifier)
+        self.favoriteTableView.register(PlaceTableViewCell.nib(), forCellReuseIdentifier: PlaceTableViewCell.identifier)
     }
     
     func updateData(){
@@ -59,6 +77,18 @@ class FavoriteViewController: UIViewController{
             }
         }()
         setupEmptyView()
+    }
+    
+    func searchBarConfigure(){
+        searchController = UISearchController(searchResultsController: nil)
+        searchController.searchBar.placeholder = "이름, 주소 등"
+        searchController.obscuresBackgroundDuringPresentation = true
+        searchController.searchResultsUpdater = self
+        searchController.searchBar.delegate = self
+        searchController.delegate = self
+        searchController.automaticallyShowsCancelButton = false
+        self.navigationItem.searchController = searchController
+        self.navigationItem.hidesSearchBarWhenScrolling = false
     }
     
     func setupEmptyView() {
@@ -91,14 +121,14 @@ class FavoriteViewController: UIViewController{
     }
 }
 
-extension FavoriteViewController : UICollectionViewDataSource, UICollectionViewDelegate,UICollectionViewDelegateFlowLayout {
+extension PlaceViewController : UICollectionViewDataSource, UICollectionViewDelegate,UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let label = UILabel()
         label.text = categories[indexPath.row].rawValue
         label.sizeToFit()
         let cellWidth = label.frame.width + 20
-        let cellHeight = label.frame.height + 10
+        let cellHeight = label.frame.height + 5
         return CGSize(width: cellWidth, height: cellHeight)
     }
     
@@ -142,13 +172,13 @@ extension FavoriteViewController : UICollectionViewDataSource, UICollectionViewD
     }
 }
 
-extension FavoriteViewController : UITableViewDelegate,UITableViewDataSource{
+extension PlaceViewController : UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return filteredPlaces.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: FavoriteTableViewCell.identifier, for: indexPath) as? FavoriteTableViewCell else{
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: PlaceTableViewCell.identifier, for: indexPath) as? PlaceTableViewCell else{
             return UITableViewCell()
         }
         cell.configure(place: filteredPlaces[indexPath.row])
@@ -159,14 +189,27 @@ extension FavoriteViewController : UITableViewDelegate,UITableViewDataSource{
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-            // TableView의 스크롤 방향을 확인하여 CollectionView를 숨기거나 나타나게 합니다.
+        // TableView의 스크롤 방향을 확인하여 CollectionView를 숨기거나 나타나게 합니다.
         
-            UIView.animate(withDuration: 0.2) {
-                if scrollView.contentOffset.y > 0 { // TableView가 아래로 스크롤될 때
-                    self.categoryTopConstraint.constant = -40
-                } else {
-                    self.categoryTopConstraint.constant = 10
-                }
+        UIView.animate(withDuration: 0.2) {
+            if scrollView.contentOffset.y > 0 { // TableView가 아래로 스크롤될 때
+                self.categoryTopConstraint.constant = -50
+            } else {
+                self.categoryTopConstraint.constant = 0
             }
         }
+    }
+}
+
+extension PlaceViewController : UISearchResultsUpdating, UISearchBarDelegate, UISearchControllerDelegate {
+    func updateSearchResults(for searchController: UISearchController) {
+        print(type(of: searchController.searchBar.text))
+        
+        guard let text = searchController.searchBar.text else { return }
+        self.filteredPlaces = places.filter {
+            $0.position.contains(text) || $0.title.contains(text)
+        }
+        dump(text)
+        favoriteTableView.reloadData()
+    }
 }

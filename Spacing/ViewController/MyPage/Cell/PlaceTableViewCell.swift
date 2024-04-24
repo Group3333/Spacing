@@ -7,7 +7,7 @@
 
 import UIKit
 
-class FavoriteTableViewCell: UITableViewCell {
+class PlaceTableViewCell: UITableViewCell {
     @IBOutlet weak var categoryLabel: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var rateLabel: UILabel!
@@ -18,9 +18,9 @@ class FavoriteTableViewCell: UITableViewCell {
     @IBOutlet weak var eventDiscountPriceLabel: UILabel!
     @IBOutlet weak var spaceImageView: UIImageView!
     
-    static let identifier = "FavoriteTableViewCell"
+    static let identifier = "PlaceTableViewCell"
     static func nib() -> UINib {
-        return UINib(nibName: "FavoriteTableViewCell", bundle: nil)
+        return UINib(nibName: "PlaceTableViewCell", bundle: nil)
     }
     override func awakeFromNib() {
         super.awakeFromNib()

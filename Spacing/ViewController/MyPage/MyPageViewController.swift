@@ -10,7 +10,7 @@ import UIKit
 class MyPageViewController: UIViewController{
     
     
-    var user : User?
+    var user = User.currentUser
     let section = ["profile", "menus", "button"]
     @IBOutlet weak var myPageTableView: UITableView!
     override func viewDidLoad() {
@@ -19,7 +19,6 @@ class MyPageViewController: UIViewController{
     }
     
     func configure(){
-        user = User(name: "이승원", profileImage: UIImage(named: "tempImage") ?? UIImage(systemName: "person.crop.circle")!, email: "sam98528@naver.com", nickName: "Seungwon", gender: .Male, favorite: [], hostPlace: [], isLogin: true)
         
         self.myPageTableView.dataSource = self
         self.myPageTableView.delegate = self
@@ -28,6 +27,15 @@ class MyPageViewController: UIViewController{
         self.myPageTableView.register(ButtonTableViewCell.nib(), forCellReuseIdentifier: ButtonTableViewCell.identifier)
         
         self.navigationItem.title = "마이 페이지"
+        
+        let addButton = UIBarButtonItem(image: UIImage(systemName: "plus"), style: .plain, target: self, action: #selector(PresentAddPlaceVC))
+        addButton.tintColor = .red
+        self.navigationItem.rightBarButtonItem = addButton
+    }
+    @objc func PresentAddPlaceVC (){
+        let storyboard = UIStoryboard(name: "AddPlaceViewController", bundle: nil)
+        let destinationViewController = storyboard.instantiateViewController(withIdentifier: "AddPlaceViewController")
+        self.navigationController?.pushViewController(destinationViewController, animated: true)
     }
 }
 
@@ -38,7 +46,24 @@ extension MyPageViewController : UITableViewDelegate,UITableViewDataSource {
             let vcName = MyPageMenu.menus[indexPath.row].detailVC
             let storyboard = UIStoryboard(name: vcName, bundle: nil)
             let destinationViewController = storyboard.instantiateViewController(withIdentifier: vcName)
-            self.navigationController?.pushViewController(destinationViewController, animated: true)
+            switch indexPath.row{
+            case 1:
+                guard let favoriteViewController = destinationViewController as? PlaceViewController else{
+                    return
+                }
+                favoriteViewController.places = user.favorite
+                favoriteViewController.state = .Favorite
+                self.navigationController?.pushViewController(favoriteViewController, animated: true)
+            case 2:
+                guard let hostViewController = destinationViewController as? PlaceViewController else{
+                    return
+                }
+                hostViewController.places = user.hostPlace
+                hostViewController.state = .Host
+                self.navigationController?.pushViewController(hostViewController, animated: true)
+            default:
+                self.navigationController?.pushViewController(destinationViewController, animated: true)
+            }
         default:
             print("Selected row \(indexPath.row) in section \(indexPath.section)")
         }
@@ -59,7 +84,7 @@ extension MyPageViewController : UITableViewDelegate,UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch indexPath.section{
         case 0:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: UserTableViewCell.identifier, for: indexPath) as? UserTableViewCell, let user = user else {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: UserTableViewCell.identifier, for: indexPath) as? UserTableViewCell else {
                 return UITableViewCell()
             }
             cell.configure(user: user)
