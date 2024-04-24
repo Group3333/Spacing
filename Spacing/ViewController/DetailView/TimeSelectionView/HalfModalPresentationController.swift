@@ -9,8 +9,12 @@ import UIKit
 
 class HalfModalPresentationController: UIPresentationController {
     
+    // MARK: - Properties
+    
     private var dimmingView: UIView!
     private var initialTouchPoint: CGPoint = CGPoint(x: 0, y: 0)
+    
+    // MARK: - Presentation Transition
     
     override var frameOfPresentedViewInContainerView: CGRect {
         guard let containerView = containerView else { return CGRect.zero }
@@ -30,13 +34,14 @@ class HalfModalPresentationController: UIPresentationController {
             self.dimmingView.alpha = 1
         }, completion: nil)
         
-        // 드래그 제스처 추가
         let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(handlePanGesture(_:)))
         presentedViewController.view.addGestureRecognizer(panGestureRecognizer)
         
         presentedViewController.view.layer.cornerRadius = 12
         presentedViewController.view.clipsToBounds = true
     }
+    
+    // MARK: - Pan Gesture Handling
     
     @objc private func handlePanGesture(_ gestureRecognizer: UIPanGestureRecognizer) {
         guard let presentedView = presentedView else { return }
@@ -54,16 +59,16 @@ class HalfModalPresentationController: UIPresentationController {
         case .ended, .cancelled:
             let velocity = gestureRecognizer.velocity(in: presentedView)
             if velocity.y > 0 {
-                // 아래로 드래그: 모달 닫기
                 presentingViewController.dismiss(animated: true, completion: nil)
             } else {
-                // 위로 드래그: 모달 유지
                 presentedView.frame.origin = initialTouchPoint
             }
         default:
             break
         }
     }
+    
+    // MARK: - Dismissal Transition
     
     override func dismissalTransitionWillBegin() {
         presentedViewController.transitionCoordinator?.animate(alongsideTransition: { _ in
