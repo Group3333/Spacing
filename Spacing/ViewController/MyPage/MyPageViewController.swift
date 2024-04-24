@@ -16,6 +16,8 @@ class MyPageViewController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         configure()
+        let temp = GeoCoder()
+        temp.getAlamofire(address: "서울 서초구 방배동 451-36 지하층")
     }
     
     func configure(){
