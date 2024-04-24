@@ -53,7 +53,7 @@ class ChildPlace: Place {
 
 extension Place {
     static var data: [Place] = [
-        Place(title: "할인 사당 1분 60평 브라운스톤", categories: .cafe, position: "서울 서초구 방배동 451-36 지하층", images: [UIImage(named: "test1") ?? UIImage()], description: "아무거나 입력\n아무거나 입력아무거나 입력\n아무거나 입력아무거나 입력\n아무거나 입력아무거나 입력\n아무거나 입력아무거나 입력\n아무거나 입력아무거나 입력\n아무거나 입력아무거나 입력", isBooked: false, rating: 3.0, price: 9000)
+        Place(title: "할인 사당 1분 60평 브라운스톤", categories: .cafe, position: "서울 서초구 방배동 451-36 지하층", images: [UIImage(named: "test")!,UIImage(named: "test3")!,UIImage(named: "test2")!], description: "아무거나 입력\n아무거나 입력아무거나 입력\n아무거나 입력아무거나 입력\n아무거나 입력아무거나 입력\n아무거나 입력아무거나 입력\n아무거나 입력아무거나 입력\n아무거나 입력아무거나 입력", isBooked: false, rating: 3.0, price: 9000)
 //        Place(title: "할인 사당 1분 60평 브라운스톤", categories: .cafe, position: "서울 서초구 방배동 451-36 지하층", images: [UIImage(named: "test2")!], description: "아무거나 입력\n아무거나 입력아무거나 입력\n아무거나 입력아무거나 입력\n아무거나 입력아무거나 입력\n아무거나 입력아무거나 입력\n아무거나 입력아무거나 입력\n아무거나 입력아무거나 입력", isBooked: false, rating: 4.0, price: 7000),
 //        Place(title: "할인 사당 1분 60평 브라운스톤", categories: .gallery, position: "서울 서초구 방배동 451-36 지하층", images: [UIImage(named: "test4")!], description: "아무거나 입력\n아무거나 입력아무거나 입력\n아무거나 입력아무거나 입력\n아무거나 입력아무거나 입력\n아무거나 입력아무거나 입력\n아무거나 입력아무거나 입력\n아무거나 입력아무거나 입력", isBooked: false, rating: 5.0, price: 13000),
 //        Place(title: "할인 사당 1분 60평 브라운스톤", categories: .gallery, position: "서울 서초구 방배동 451-36 지하층", images: [UIImage(named: "test3")!], description: "아무거나 입력\n아무거나 입력아무거나 입력\n아무거나 입력아무거나 입력\n아무거나 입력아무거나 입력\n아무거나 입력아무거나 입력\n아무거나 입력아무거나 입력\n아무거나 입력아무거나 입력", isBooked: false, rating: 2.5, price: 15000),

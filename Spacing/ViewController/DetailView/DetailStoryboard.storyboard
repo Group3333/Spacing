@@ -48,7 +48,7 @@
                                     <action selector="bookingBtn:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="KK9-m4-XYC"/>
                                 </connections>
                             </button>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="MJl-VC-jeE">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="MJl-VC-jeE">
                                 <rect key="frame" x="0.0" y="59" width="393" height="316"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>

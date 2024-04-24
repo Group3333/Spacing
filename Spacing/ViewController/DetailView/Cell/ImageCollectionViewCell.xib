@@ -16,13 +16,18 @@
                 <rect key="frame" x="0.0" y="0.0" width="209" height="209"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Irs-tD-BBk">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Irs-tD-BBk">
                         <rect key="frame" x="0.0" y="0.0" width="209" height="209"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     </imageView>
                 </subviews>
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstItem="Irs-tD-BBk" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="0Iq-10-tWS"/>
+                <constraint firstItem="Irs-tD-BBk" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="34H-6P-mk0"/>
+                <constraint firstAttribute="bottom" secondItem="Irs-tD-BBk" secondAttribute="bottom" id="5Mx-YL-QFq"/>
+                <constraint firstAttribute="trailing" secondItem="Irs-tD-BBk" secondAttribute="trailing" id="AuZ-Gc-cb9"/>
+            </constraints>
             <size key="customSize" width="209" height="209"/>
             <connections>
                 <outlet property="selectedImage" destination="Irs-tD-BBk" id="Ziq-lx-ScH"/>

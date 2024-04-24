@@ -30,7 +30,6 @@ class DetailViewController: UIViewController, TimeSelectionDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI(place: Place.data[0])
-        registerNib()
     }
     
     // MARK: - IBActions
@@ -88,16 +87,21 @@ class DetailViewController: UIViewController, TimeSelectionDelegate {
 
         configureCollectionView()
     }
-    
-    private func registerNib() {
-        placeImage.register(ImageCollectionViewCell.self, forCellWithReuseIdentifier: "ImageCollectionViewCell")
-    }
+
 
     
     func configureCollectionView() {
         placeImage.dataSource = self
         placeImage.delegate = self
-        placeImage.register(ImageCollectionViewCell.self, forCellWithReuseIdentifier: "ImageCollectionViewCell")
+        placeImage.register(ImageCollectionViewCell.nib(), forCellWithReuseIdentifier: ImageCollectionViewCell.identifier)
+        let flowLayout = UICollectionViewFlowLayout()
+        flowLayout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        flowLayout.minimumLineSpacing = 0
+        flowLayout.minimumInteritemSpacing = 10
+        flowLayout.scrollDirection = .horizontal
+        flowLayout.itemSize = CGSize(width: Int(placeImage.frame.size.width), height: Int(placeImage.frame.size.height))
+        placeImage.collectionViewLayout = flowLayout
+        placeImage.allowsMultipleSelection = false
     }
     
     func makeStarLabel(rating : Double) -> NSMutableAttributedString{
@@ -157,8 +161,8 @@ extension DetailViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ImageCollectionViewCell", for: indexPath) as! ImageCollectionViewCell
-        if let image = selectedPlaces?.images[indexPath.item] {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ImageCollectionViewCell.identifier, for: indexPath) as! ImageCollectionViewCell
+        if let image = selectedPlaces?.images[indexPath.row] {
             cell.selectedImage.image = image
         }
         return cell

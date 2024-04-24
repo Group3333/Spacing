@@ -11,4 +11,14 @@ class ImageCollectionViewCell: UICollectionViewCell {
 
     @IBOutlet weak var selectedImage: UIImageView!
     
+    static let identifier = "ImageCollectionViewCell"
+    
+    static func nib() -> UINib {
+        return UINib(nibName: "ImageCollectionViewCell", bundle: nil)
+    }
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        // Initialization code
+    }
 }
