@@ -9,25 +9,27 @@ import UIKit
 import NMapsMap
 import CoreLocation
 
-class MapViewController: UIViewController {
+class MapViewController: UIViewController, NMFMapViewTouchDelegate {
     
     var locationManager = CLLocationManager()
-    var naverMapView: NMFNaverMapView = {
-        let naverMapView = NMFNaverMapView()
-        return naverMapView
-    }()
+    var naverMapView = NMFNaverMapView()
+    var marker = NMFMarker()
+    let infoWindow = NMFInfoWindow()
+    let dataSource = NMFInfoWindowDefaultTextSource.data()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setUI()
         setLocationData()
+        setMarker()
+        naverMapView.mapView.touchDelegate = self
     }
     
     func setUI() {
         self.view.addSubview(naverMapView)
         naverMapView.mapView.positionMode = .normal
         naverMapView.showLocationButton = true
-        
+
         naverMapView.translatesAutoresizingMaskIntoConstraints = false
         
         naverMapView.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 0).isActive = true
@@ -37,6 +39,7 @@ class MapViewController: UIViewController {
     }
     
     func setLocationData() {
+        
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.requestWhenInUseAuthorization()
@@ -45,32 +48,42 @@ class MapViewController: UIViewController {
         let latitude = locationManager.location?.coordinate.latitude ?? 0
         let longtitude = locationManager.location?.coordinate.longitude ?? 0
         
-        let cameraUpdate = NMFCameraUpdate(scrollTo: NMGLatLng(lat: latitude, lng: longtitude), zoomTo: 7)
+        let cameraUpdate = NMFCameraUpdate(scrollTo: NMGLatLng(lat: latitude, lng: longtitude), zoomTo: 14)
         cameraUpdate.animation = .easeIn
+        naverMapView.mapView.moveCamera(cameraUpdate)
     }
+    
+    func setMarker() {
+        let testMarker = marker
+        testMarker.position = NMGLatLng(lat: 35.154497, lng: 129.019168)
+        testMarker.mapView = naverMapView.mapView // 지도상에 마커를 나타냄
+        
+        dataSource.title = "테스트 마커의 정보창"
+        infoWindow.dataSource = dataSource
+        
+        let handler = { [weak self] (overlay: NMFOverlay) -> Bool in
+            if let marker = overlay as? NMFMarker {
+                if marker.infoWindow == nil {
+                    // 현재 마커에 정보 창이 열려있지 않을 경우 엶
+                    self?.infoWindow.open(with: marker)
+                } else {
+                    // 이미 현재 마커에 정보 창이 열려있을 경우 닫음
+                    self?.infoWindow.close()
+                }
+            }
+            return true
+        }
+        testMarker.touchHandler = handler
+    }
+    
+    func mapView(_ mapView: NMFMapView, didTapMap latlng: NMGLatLng, point: CGPoint) {
+        infoWindow.close()
+    }
+
 }
 
+
 extension MapViewController: CLLocationManagerDelegate {
-    
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-         if let location = locations.last {
-             let latitude = location.coordinate.latitude
-             let longitude = location.coordinate.longitude
-             
-             let cameraUpdate = NMFCameraUpdate(scrollTo: NMGLatLng(lat: latitude, lng: longitude), zoomTo: 7)
-             cameraUpdate.animation = .easeIn
-             naverMapView.mapView.moveCamera(cameraUpdate)
-         }
-     }
-    
-    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-        if status == .authorizedWhenInUse || status == .authorizedAlways {
-            locationManager.startUpdatingLocation()
-        } else {
-            // 권한이 없는 경우, 사용자에게 안내
-            showAlert(title: "권한 필요", message: "위치 정보 사용을 위한 권한이 필요합니다.")
-        }
-    }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         guard let clError = error as? CLError else {return}
@@ -96,4 +109,26 @@ extension MapViewController: CLLocationManagerDelegate {
             self.present(alert, animated: true)
         }
     }
+    
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        switch status {
+        case .authorizedWhenInUse, .authorizedAlways:
+            locationManager.startUpdatingLocation()
+        case .notDetermined:
+            locationManager.requestWhenInUseAuthorization()
+        default:
+            // 권한이 없는 경우, 사용자에게 안내
+            showAlert(title: "권한 필요", message: "위치 정보 사용을 위한 권한이 필요합니다.")
+        }
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+         if let location = locations.last {
+             let latitude = location.coordinate.latitude
+             let longitude = location.coordinate.longitude
+             
+             let cameraUpdate = NMFCameraUpdate(scrollTo: NMGLatLng(lat: latitude, lng: longitude), zoomTo: 14)
+             cameraUpdate.animation = .easeIn
+         }
+     }
 }
