@@ -15,13 +15,15 @@ class Place {
   var images : [UIImage]
   var description : String
   var isBooked : Bool
-  init(title: String, position: String, images: [UIImage], description: String, isBooked: Bool, categories: [Categories]) {
+  var price : Int
+  init(title: String, position: String, images: [UIImage], description: String, isBooked: Bool, price : Int, categories: [Categories]) {
     self.title = title
     self.position = position
     self.images = images
     self.description = description
     self.isBooked = isBooked
     self.categories = categories
+    self.price = price
   }
 }
 
