@@ -1,0 +1,6 @@
+framework module Pods_Spacing_SpacingUITests {
+  umbrella header "Pods-Spacing-SpacingUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
