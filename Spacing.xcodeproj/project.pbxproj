@@ -23,6 +23,11 @@
 		14C7D7982BD614B500CB5746 /* SpacingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C7D7972BD614B500CB5746 /* SpacingTests.swift */; };
 		14C7D7A22BD614B500CB5746 /* SpacingUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C7D7A12BD614B500CB5746 /* SpacingUITests.swift */; };
 		14C7D7A42BD614B500CB5746 /* SpacingUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C7D7A32BD614B500CB5746 /* SpacingUITestsLaunchTests.swift */; };
+		41A0C76D9C502AD131FCCA1A /* Pods_Spacing_SpacingUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55321982F9CA87D5A60EAB7B /* Pods_Spacing_SpacingUITests.framework */; };
+		66A54AB0269AAB50E99CC7EA /* Pods_Spacing.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8EE25D173730CAF5F421C35D /* Pods_Spacing.framework */; };
+		CE9EC5B32BD7D48200D7BF36 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9EC5B12BD7D48200D7BF36 /* MapViewController.swift */; };
+		CE9EC5B42BD7D48200D7BF36 /* Map.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE9EC5B22BD7D48200D7BF36 /* Map.storyboard */; };
+		D1FC5EE8D14D3D75688354AB /* Pods_SpacingTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B21C15A1C10F65433933A562 /* Pods_SpacingTests.framework */; };
 		14C7D7BB2BD658F700CB5746 /* MyPageViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14C7D7BA2BD658F700CB5746 /* MyPageViewController.storyboard */; };
 		14C7D7BD2BD6590700CB5746 /* MyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C7D7BC2BD6590700CB5746 /* MyPageViewController.swift */; };
 		14C7D7C32BD65F7E00CB5746 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C7D7C22BD65F7E00CB5746 /* User.swift */; };
@@ -78,6 +83,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		10E43C147BE6D6A5D6716338 /* Pods-SpacingTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpacingTests.debug.xcconfig"; path = "Target Support Files/Pods-SpacingTests/Pods-SpacingTests.debug.xcconfig"; sourceTree = "<group>"; };
 		145C32022BD7F525000FB8BD /* KakaoPostCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoPostCodeViewController.swift; sourceTree = "<group>"; };
 		14C5FD892BD8DC4B00B8358C /* AddImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		14C5FD8A2BD8DC4B00B8358C /* AddImageCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddImageCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -96,6 +102,16 @@
 		14C7D79D2BD614B500CB5746 /* SpacingUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SpacingUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		14C7D7A12BD614B500CB5746 /* SpacingUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpacingUITests.swift; sourceTree = "<group>"; };
 		14C7D7A32BD614B500CB5746 /* SpacingUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpacingUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		1CB09F3D87069351B105BDA8 /* Pods-Spacing-SpacingUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Spacing-SpacingUITests.debug.xcconfig"; path = "Target Support Files/Pods-Spacing-SpacingUITests/Pods-Spacing-SpacingUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		311C78342C6031EB3328ECF2 /* Pods-Spacing.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Spacing.debug.xcconfig"; path = "Target Support Files/Pods-Spacing/Pods-Spacing.debug.xcconfig"; sourceTree = "<group>"; };
+		55321982F9CA87D5A60EAB7B /* Pods_Spacing_SpacingUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Spacing_SpacingUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8EE25D173730CAF5F421C35D /* Pods_Spacing.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Spacing.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B21C15A1C10F65433933A562 /* Pods_SpacingTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SpacingTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BC3185EB196E91F53B1DE512 /* Pods-Spacing.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Spacing.release.xcconfig"; path = "Target Support Files/Pods-Spacing/Pods-Spacing.release.xcconfig"; sourceTree = "<group>"; };
+		CE9EC5B12BD7D48200D7BF36 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		CE9EC5B22BD7D48200D7BF36 /* Map.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Map.storyboard; sourceTree = "<group>"; };
+		D28A90E916E59A9F2F1BB9A0 /* Pods-Spacing-SpacingUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Spacing-SpacingUITests.release.xcconfig"; path = "Target Support Files/Pods-Spacing-SpacingUITests/Pods-Spacing-SpacingUITests.release.xcconfig"; sourceTree = "<group>"; };
+		F37DA95CF1F7D307394D4463 /* Pods-SpacingTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpacingTests.release.xcconfig"; path = "Target Support Files/Pods-SpacingTests/Pods-SpacingTests.release.xcconfig"; sourceTree = "<group>"; };
 		14C7D7BA2BD658F700CB5746 /* MyPageViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MyPageViewController.storyboard; sourceTree = "<group>"; };
 		14C7D7BC2BD6590700CB5746 /* MyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewController.swift; sourceTree = "<group>"; };
 		14C7D7C22BD65F7E00CB5746 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -137,6 +153,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				66A54AB0269AAB50E99CC7EA /* Pods_Spacing.framework in Frameworks */,
 				14C5FD942BD90EB400B8358C /* Alamofire in Frameworks */,
 				14D9EBE82BD7B243007DF629 /* SnapKit in Frameworks */,
 				14C5FD8F2BD8F9E900B8358C /* IQKeyboardManagerSwift in Frameworks */,
@@ -147,6 +164,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D1FC5EE8D14D3D75688354AB /* Pods_SpacingTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -154,6 +172,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				41A0C76D9C502AD131FCCA1A /* Pods_Spacing_SpacingUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -175,6 +194,8 @@
 				14C7D7962BD614B500CB5746 /* SpacingTests */,
 				14C7D7A02BD614B500CB5746 /* SpacingUITests */,
 				14C7D77B2BD614B200CB5746 /* Products */,
+				8554EF878A00986CD57971D8 /* Pods */,
+				818DB44DCA93ACD5EFEAB86E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -226,6 +247,8 @@
 				14C7D7C62BD662E600CB5746 /* MyPage */,
 				14C7D7812BD614B200CB5746 /* ViewController.swift */,
 				14C7D7832BD614B200CB5746 /* Main.storyboard */,
+				CE9EC5B22BD7D48200D7BF36 /* Map.storyboard */,
+				CE9EC5B12BD7D48200D7BF36 /* MapViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -263,6 +286,27 @@
 			path = Util;
 			sourceTree = "<group>";
 		};
+		818DB44DCA93ACD5EFEAB86E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8EE25D173730CAF5F421C35D /* Pods_Spacing.framework */,
+				55321982F9CA87D5A60EAB7B /* Pods_Spacing_SpacingUITests.framework */,
+				B21C15A1C10F65433933A562 /* Pods_SpacingTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		8554EF878A00986CD57971D8 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				311C78342C6031EB3328ECF2 /* Pods-Spacing.debug.xcconfig */,
+				BC3185EB196E91F53B1DE512 /* Pods-Spacing.release.xcconfig */,
+				1CB09F3D87069351B105BDA8 /* Pods-Spacing-SpacingUITests.debug.xcconfig */,
+				D28A90E916E59A9F2F1BB9A0 /* Pods-Spacing-SpacingUITests.release.xcconfig */,
+				10E43C147BE6D6A5D6716338 /* Pods-SpacingTests.debug.xcconfig */,
+				F37DA95CF1F7D307394D4463 /* Pods-SpacingTests.release.xcconfig */,
+			);
+			path = Pods;
 		14C7D7C62BD662E600CB5746 /* MyPage */ = {
 			isa = PBXGroup;
 			children = (
@@ -345,9 +389,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 14C7D7A72BD614B500CB5746 /* Build configuration list for PBXNativeTarget "Spacing" */;
 			buildPhases = (
+				71ACAECAC79D592394D46FC4 /* [CP] Check Pods Manifest.lock */,
 				14C7D7762BD614B200CB5746 /* Sources */,
 				14C7D7772BD614B200CB5746 /* Frameworks */,
 				14C7D7782BD614B200CB5746 /* Resources */,
+				5ADFEF153CFED89BAB9D5A73 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -367,6 +413,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 14C7D7AA2BD614B500CB5746 /* Build configuration list for PBXNativeTarget "SpacingTests" */;
 			buildPhases = (
+				1D95B26A46BA4EBBAABEA05E /* [CP] Check Pods Manifest.lock */,
 				14C7D78F2BD614B500CB5746 /* Sources */,
 				14C7D7902BD614B500CB5746 /* Frameworks */,
 				14C7D7912BD614B500CB5746 /* Resources */,
@@ -385,9 +432,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 14C7D7AD2BD614B500CB5746 /* Build configuration list for PBXNativeTarget "SpacingUITests" */;
 			buildPhases = (
+				0F462FA54DF041CC7B061163 /* [CP] Check Pods Manifest.lock */,
 				14C7D7992BD614B500CB5746 /* Sources */,
 				14C7D79A2BD614B500CB5746 /* Frameworks */,
 				14C7D79B2BD614B500CB5746 /* Resources */,
+				D28F275B0FE99A4CCC315AB9 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -468,6 +517,7 @@
 				14D85DF52BD9309200BB0289 /* TimeSelectionSB.storyboard in Resources */,
 				14C7D78D2BD614B400CB5746 /* Base in Resources */,
 				14C7D7852BD614B200CB5746 /* Base in Resources */,
+				CE9EC5B42BD7D48200D7BF36 /* Map.storyboard in Resources */,
 				14C7D7CB2BD6631000CB5746 /* UserTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -487,6 +537,109 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0F462FA54DF041CC7B061163 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Spacing-SpacingUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		1D95B26A46BA4EBBAABEA05E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SpacingTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5ADFEF153CFED89BAB9D5A73 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Spacing/Pods-Spacing-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Spacing/Pods-Spacing-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Spacing/Pods-Spacing-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		71ACAECAC79D592394D46FC4 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Spacing-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D28F275B0FE99A4CCC315AB9 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Spacing-SpacingUITests/Pods-Spacing-SpacingUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Spacing-SpacingUITests/Pods-Spacing-SpacingUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Spacing-SpacingUITests/Pods-Spacing-SpacingUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		14C7D7762BD614B200CB5746 /* Sources */ = {
@@ -513,6 +666,7 @@
 				14D85DF82BD9309200BB0289 /* DetailViewController.swift in Sources */,
 				14C7D7CE2BD6632300CB5746 /* MenuTableViewCell.swift in Sources */,
 				14C7D77E2BD614B200CB5746 /* AppDelegate.swift in Sources */,
+				CE9EC5B32BD7D48200D7BF36 /* MapViewController.swift in Sources */,
 				51272CC02BD923C6004321F6 /* IDEntity+CoreDataClass.swift in Sources */,
 				51272CC12BD923C6004321F6 /* IDEntity+CoreDataProperties.swift in Sources */,
 				14C5FD912BD90E5100B8358C /* GeoCoder.swift in Sources */,
@@ -614,7 +768,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -629,7 +783,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -677,7 +831,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -686,7 +840,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -698,14 +852,19 @@
 		};
 		14C7D7A82BD614B500CB5746 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 311C78342C6031EB3328ECF2 /* Pods-Spacing.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 27X8924SNC;
+				DEVELOPMENT_TEAM = LRKR7469VU;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Spacing/Info.plist;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "사용자의 위치를 받습니다.";
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "사용자의 위치를 받습니다.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "사용자의 위치를 받습니다.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -717,8 +876,9 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.Group3333.Spacing;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Group33333.Spacing;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -727,14 +887,19 @@
 		};
 		14C7D7A92BD614B500CB5746 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BC3185EB196E91F53B1DE512 /* Pods-Spacing.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 27X8924SNC;
+				DEVELOPMENT_TEAM = LRKR7469VU;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Spacing/Info.plist;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "사용자의 위치를 받습니다.";
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "사용자의 위치를 받습니다.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "사용자의 위치를 받습니다.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -746,8 +911,9 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.Group3333.Spacing;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Group33333.Spacing;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -756,6 +922,7 @@
 		};
 		14C7D7AB2BD614B500CB5746 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 10E43C147BE6D6A5D6716338 /* Pods-SpacingTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -776,6 +943,7 @@
 		};
 		14C7D7AC2BD614B500CB5746 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F37DA95CF1F7D307394D4463 /* Pods-SpacingTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -796,6 +964,7 @@
 		};
 		14C7D7AE2BD614B500CB5746 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1CB09F3D87069351B105BDA8 /* Pods-Spacing-SpacingUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -814,6 +983,7 @@
 		};
 		14C7D7AF2BD614B500CB5746 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D28A90E916E59A9F2F1BB9A0 /* Pods-Spacing-SpacingUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
