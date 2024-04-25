@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		047A7830CFB0E863D3835EDA /* Pods_Spacing.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE579AFE8DFF51573EA5DA2C /* Pods_Spacing.framework */; };
+		1453D8082BDA47BA00BD21C0 /* TopCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1453D8072BDA47BA00BD21C0 /* TopCollectionViewCell.xib */; };
+		1453D8092BDA47BA00BD21C0 /* TopCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1453D8062BDA47BA00BD21C0 /* TopCollectionViewCell.swift */; };
 		145C32032BD7F525000FB8BD /* KakaoPostCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145C32022BD7F525000FB8BD /* KakaoPostCodeViewController.swift */; };
 		14C5FD8B2BD8DC4B00B8358C /* AddImageCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14C5FD8A2BD8DC4B00B8358C /* AddImageCollectionViewCell.xib */; };
 		14C5FD8C2BD8DC4B00B8358C /* AddImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C5FD892BD8DC4B00B8358C /* AddImageCollectionViewCell.swift */; };
@@ -86,6 +88,8 @@
 
 /* Begin PBXFileReference section */
 		0742B520C18EDDC3C9D6D90F /* Pods-Spacing-SpacingUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Spacing-SpacingUITests.debug.xcconfig"; path = "Target Support Files/Pods-Spacing-SpacingUITests/Pods-Spacing-SpacingUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		1453D8062BDA47BA00BD21C0 /* TopCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopCollectionViewCell.swift; sourceTree = "<group>"; };
+		1453D8072BDA47BA00BD21C0 /* TopCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TopCollectionViewCell.xib; sourceTree = "<group>"; };
 		145C32022BD7F525000FB8BD /* KakaoPostCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoPostCodeViewController.swift; sourceTree = "<group>"; };
 		14C5FD892BD8DC4B00B8358C /* AddImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		14C5FD8A2BD8DC4B00B8358C /* AddImageCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddImageCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -183,6 +187,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1453D80A2BDA47D100BD21C0 /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				14EDFFF22BD9EF21001CC996 /* Map.storyboard */,
+				14EDFFF32BD9EF21001CC996 /* MapViewController.swift */,
+				CED0724E2BDA277F00AD54AE /* TopCategoryCollectionViewCell.swift */,
+				CED072542BDA3FF300AD54AE /* BottomCollectionViewCell.swift */,
+				1453D8062BDA47BA00BD21C0 /* TopCollectionViewCell.swift */,
+				1453D8072BDA47BA00BD21C0 /* TopCollectionViewCell.xib */,
+			);
+			path = Map;
+			sourceTree = "<group>";
+		};
+		1453D80B2BDA47E300BD21C0 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				51AC92B22BD7CA7B006C2C51 /* TestViewController.swift */,
+				51AC92B02BD7C66A006C2C51 /* SignUpViewController.swift */,
+				14C7D7812BD614B200CB5746 /* ViewController.swift */,
+				14C7D7832BD614B200CB5746 /* Main.storyboard */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
 		145C32012BD7F4F6000FB8BD /* KakaoPostCode */ = {
 			isa = PBXGroup;
 			children = (
@@ -245,16 +273,10 @@
 		14C7D7B62BD617AB00CB5746 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				14EDFFF22BD9EF21001CC996 /* Map.storyboard */,
-				14EDFFF32BD9EF21001CC996 /* MapViewController.swift */,
-				CED0724E2BDA277F00AD54AE /* TopCategoryCollectionViewCell.swift */,
-				CED072542BDA3FF300AD54AE /* BottomCollectionViewCell.swift */,
+				1453D80B2BDA47E300BD21C0 /* Login */,
+				1453D80A2BDA47D100BD21C0 /* Map */,
 				14D85DEE2BD9309200BB0289 /* DetailView */,
-				51AC92B22BD7CA7B006C2C51 /* TestViewController.swift */,
-				51AC92B02BD7C66A006C2C51 /* SignUpViewController.swift */,
 				14C7D7C62BD662E600CB5746 /* MyPage */,
-				14C7D7812BD614B200CB5746 /* ViewController.swift */,
-				14C7D7832BD614B200CB5746 /* Main.storyboard */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -523,6 +545,7 @@
 				14EDFFF42BD9EF21001CC996 /* Map.storyboard in Resources */,
 				14C7D7D32BD664B500CB5746 /* ButtonTableViewCell.xib in Resources */,
 				14D85DF02BD9309200BB0289 /* ImageCollectionViewCell.xib in Resources */,
+				1453D8082BDA47BA00BD21C0 /* TopCollectionViewCell.xib in Resources */,
 				14D85DF52BD9309200BB0289 /* TimeSelectionSB.storyboard in Resources */,
 				14C7D78D2BD614B400CB5746 /* Base in Resources */,
 				14C7D7852BD614B200CB5746 /* Base in Resources */,
@@ -663,6 +686,7 @@
 				14C7D7E02BD6689D00CB5746 /* PlaceViewController.swift in Sources */,
 				14C7D7822BD614B200CB5746 /* ViewController.swift in Sources */,
 				CED072502BDA277F00AD54AE /* TopCategoryCollectionViewCell.swift in Sources */,
+				1453D8092BDA47BA00BD21C0 /* TopCollectionViewCell.swift in Sources */,
 				51AC92B12BD7C66B006C2C51 /* SignUpViewController.swift in Sources */,
 				51AC92B32BD7CA7B006C2C51 /* TestViewController.swift in Sources */,
 				14C7D7882BD614B200CB5746 /* Spacing.xcdatamodeld in Sources */,

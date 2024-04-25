@@ -60,3 +60,4 @@ class TopCategoryCollectionViewCell: UICollectionViewCell {
         super.init(coder: aDecoder)
     }
 }
+

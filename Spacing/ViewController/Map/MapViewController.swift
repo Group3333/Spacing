@@ -8,10 +8,11 @@
 import UIKit
 import NMapsMap
 import CoreLocation
+import SnapKit
 
 class MapViewController: UIViewController, NMFMapViewTouchDelegate {
     
-    var topCategoryList: [String] = ["카페", "갤러리", "독립오피스", "스터디룸", "촬영스튜디오", "파티룸"]
+    var topCategoryList: [Categories] = Categories.allCases
     var bottomThumbnail: [String] = ["테스트입니다"]
     
     var locationManager = CLLocationManager()
@@ -21,34 +22,23 @@ class MapViewController: UIViewController, NMFMapViewTouchDelegate {
     let dataSource = NMFInfoWindowDefaultTextSource.data()
     var isInitalLocationUpdate = true
     
-    lazy var topCategoryCollectionView: UICollectionView = {
-    let collectionView = UICollectionView(frame: .zero, collectionViewLayout: topCategoryCollectionViewLayout)
-        collectionView.translatesAutoresizingMaskIntoConstraints = false
-        return collectionView
-    }()
+    var categoryCollectionView : UICollectionView!
     
-    lazy var bottomCollectionView: UICollectionView = {
-    let collectionView = UICollectionView(frame: .zero, collectionViewLayout: bottomCollectionViewLayout)
-        collectionView.translatesAutoresizingMaskIntoConstraints = false
-        return collectionView
-    }()
+    //    lazy var bottomCollectionView: UICollectionView = {
+    //        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: bottomCollectionViewLayout)
+    //        collectionView.translatesAutoresizingMaskIntoConstraints = false
+    //        return collectionView
+    //    }()
+    //
+    //
+    //    let bottomCollectionViewLayout: UICollectionViewFlowLayout = {
+    //        let flowlayout = UICollectionViewFlowLayout()
+    //        flowlayout.scrollDirection = .vertical
+    //        flowlayout.minimumLineSpacing = 30
+    //        flowlayout.sectionInset = UIEdgeInsets(top: 15, left: 0, bottom: 0, right: 0)
+    //        return flowlayout
+    //    }()
     
-    let topCategoryCollectionViewLayout: UICollectionViewFlowLayout = {
-        let flowlayout = UICollectionViewFlowLayout()
-        flowlayout.scrollDirection = .vertical
-        flowlayout.minimumLineSpacing = 30
-        flowlayout.sectionInset = UIEdgeInsets(top: 15, left: 0, bottom: 0, right: 0)
-        return flowlayout
-    }()
-    
-    let bottomCollectionViewLayout: UICollectionViewFlowLayout = {
-        let flowlayout = UICollectionViewFlowLayout()
-        flowlayout.scrollDirection = .vertical
-        flowlayout.minimumLineSpacing = 30
-        flowlayout.sectionInset = UIEdgeInsets(top: 15, left: 0, bottom: 0, right: 0)
-        return flowlayout
-    }()
-
     override func viewDidLoad() {
         super.viewDidLoad()
         alertLocationAuth()
@@ -67,16 +57,32 @@ class MapViewController: UIViewController, NMFMapViewTouchDelegate {
     }
     
     func setCollectionViewUI() {
-        naverMapView.addSubview(topCategoryCollectionView)
-        naverMapView.addSubview(bottomCollectionView)
+        let flowLayout = UICollectionViewFlowLayout()
+        flowLayout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        flowLayout.minimumLineSpacing = 30
+        flowLayout.minimumInteritemSpacing = 0
+        flowLayout.scrollDirection = .horizontal
+        // 실제 컬렉션 뷰의 프레임이 아닌 적절한 크기를 설정해야 합니다.
+        categoryCollectionView = {
+            let cv = UICollectionView(frame: .zero,collectionViewLayout: flowLayout)
+            cv.delegate = self
+            cv.dataSource = self
+            cv.register(TopCollectionViewCell.nib().self, forCellWithReuseIdentifier: TopCollectionViewCell.identifier)
+            return cv
+        }()
+        categoryCollectionView.backgroundColor = .clear
         
-        topCategoryCollectionView.delegate = self
-        topCategoryCollectionView.dataSource = self
-        topCategoryCollectionView.register(TopCategoryCollectionViewCell.self, forCellWithReuseIdentifier: "TopCategoryCollectionViewCell")
         
-        bottomCollectionView.delegate = self
-        bottomCollectionView.dataSource = self
-        bottomCollectionView.register(BottomCollectionViewCell.self, forCellWithReuseIdentifier: "BottomCollectionViewCell")
+        categoryCollectionView.allowsMultipleSelection = false
+        
+        
+        naverMapView.addSubview(categoryCollectionView)
+        //        naverMapView.addSubview(bottomCollectionView)
+        //
+        //
+        //        bottomCollectionView.delegate = self
+        //        bottomCollectionView.dataSource = self
+        //        bottomCollectionView.register(BottomCollectionViewCell.self, forCellWithReuseIdentifier: "BottomCollectionViewCell")
     }
     func setConstraints() {
         
@@ -87,15 +93,16 @@ class MapViewController: UIViewController, NMFMapViewTouchDelegate {
         naverMapView.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor, constant: 0).isActive = true
         naverMapView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: 0).isActive = true
         
-        topCategoryCollectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 0).isActive = true
-        topCategoryCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
-        topCategoryCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-        topCategoryCollectionView.heightAnchor.constraint(equalToConstant: 150).isActive = true
+        categoryCollectionView.snp.makeConstraints{make in
+            make.leading.trailing.equalToSuperview()
+            make.top.equalTo(self.view.safeAreaLayoutGuide)
+            make.height.equalTo(70)
+        }
         
-        bottomCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 15).isActive = true
-        bottomCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -15).isActive = true
-        bottomCollectionView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: 0).isActive = true
-        bottomCollectionView.heightAnchor.constraint(equalToConstant: 150).isActive = true
+        //        bottomCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 15).isActive = true
+        //        bottomCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -15).isActive = true
+        //        bottomCollectionView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: 0).isActive = true
+        //        bottomCollectionView.heightAnchor.constraint(equalToConstant: 150).isActive = true
     }
     
     func alertLocationAuth() {
@@ -189,28 +196,21 @@ extension MapViewController: CLLocationManagerDelegate {
 }
 
 extension MapViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UICollectionViewDelegate {
-        func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-            if collectionView == topCategoryCollectionView {
-                return topCategoryList.count
-            } else {
-                return bottomThumbnail.count
-            }
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return topCategoryList.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if collectionView == topCategoryCollectionView {
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TopCategoryCollectionViewCell", for: indexPath) as? TopCategoryCollectionViewCell else {
-                return UICollectionViewCell()
-            }
-            cell.categoryText.text = topCategoryList[indexPath.row]
-            return cell
-        } else {
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "BottomCollectionViewCell", for: indexPath) as? BottomCollectionViewCell else {
-                return UICollectionViewCell()
-            }
-            cell.bottomText.text = bottomThumbnail[indexPath.row]
-            return cell
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TopCollectionViewCell.identifier, for: indexPath) as? TopCollectionViewCell else {
+            return UICollectionViewCell()
         }
+        cell.configure(title: topCategoryList[indexPath.row].rawValue, image: UIImage(systemName: "person.crop.circle.badge.plus")!)
+//        cell.backgroundColor = .blue
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: collectionView.frame.height, height: collectionView.frame.height)
     }
     
 }
