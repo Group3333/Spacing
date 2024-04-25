@@ -11,6 +11,9 @@ import CoreLocation
 
 class MapViewController: UIViewController, NMFMapViewTouchDelegate {
     
+    var topCategoryList: [String] = ["카페", "갤러리", "독립오피스", "스터디룸", "촬영스튜디오", "파티룸"]
+    var bottomThumbnail: [String] = ["테스트입니다"]
+    
     var locationManager = CLLocationManager()
     var naverMapView = NMFNaverMapView()
     var marker = NMFMarker()
@@ -18,18 +21,64 @@ class MapViewController: UIViewController, NMFMapViewTouchDelegate {
     let dataSource = NMFInfoWindowDefaultTextSource.data()
     var isInitalLocationUpdate = true
     
+    lazy var topCategoryCollectionView: UICollectionView = {
+    let collectionView = UICollectionView(frame: .zero, collectionViewLayout: topCategoryCollectionViewLayout)
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
+        return collectionView
+    }()
+    
+    lazy var bottomCollectionView: UICollectionView = {
+    let collectionView = UICollectionView(frame: .zero, collectionViewLayout: bottomCollectionViewLayout)
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
+        return collectionView
+    }()
+    
+    let topCategoryCollectionViewLayout: UICollectionViewFlowLayout = {
+        let flowlayout = UICollectionViewFlowLayout()
+        flowlayout.scrollDirection = .vertical
+        flowlayout.minimumLineSpacing = 30
+        flowlayout.sectionInset = UIEdgeInsets(top: 15, left: 0, bottom: 0, right: 0)
+        return flowlayout
+    }()
+    
+    let bottomCollectionViewLayout: UICollectionViewFlowLayout = {
+        let flowlayout = UICollectionViewFlowLayout()
+        flowlayout.scrollDirection = .vertical
+        flowlayout.minimumLineSpacing = 30
+        flowlayout.sectionInset = UIEdgeInsets(top: 15, left: 0, bottom: 0, right: 0)
+        return flowlayout
+    }()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         alertLocationAuth()
-        setUI()
+        setMapUI()
+        setCollectionViewUI()
+        setConstraints()
         setMarker()
         naverMapView.mapView.touchDelegate = self
     }
     
-    func setUI() {
+    func setMapUI() {
         self.view.addSubview(naverMapView)
+        
         naverMapView.mapView.positionMode = .normal
         naverMapView.showLocationButton = true
+    }
+    
+    func setCollectionViewUI() {
+        naverMapView.addSubview(topCategoryCollectionView)
+        naverMapView.addSubview(bottomCollectionView)
+        
+        topCategoryCollectionView.delegate = self
+        topCategoryCollectionView.dataSource = self
+        topCategoryCollectionView.register(TopCategoryCollectionViewCell.self, forCellWithReuseIdentifier: "TopCategoryCollectionViewCell")
+        
+        bottomCollectionView.delegate = self
+        bottomCollectionView.dataSource = self
+        bottomCollectionView.register(BottomCollectionViewCell.self, forCellWithReuseIdentifier: "BottomCollectionViewCell")
+    }
+    func setConstraints() {
         
         naverMapView.translatesAutoresizingMaskIntoConstraints = false
         
@@ -37,6 +86,16 @@ class MapViewController: UIViewController, NMFMapViewTouchDelegate {
         naverMapView.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor, constant: 0).isActive = true
         naverMapView.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor, constant: 0).isActive = true
         naverMapView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: 0).isActive = true
+        
+        topCategoryCollectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 0).isActive = true
+        topCategoryCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        topCategoryCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        topCategoryCollectionView.heightAnchor.constraint(equalToConstant: 150).isActive = true
+        
+        bottomCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 15).isActive = true
+        bottomCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -15).isActive = true
+        bottomCollectionView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: 0).isActive = true
+        bottomCollectionView.heightAnchor.constraint(equalToConstant: 150).isActive = true
     }
     
     func alertLocationAuth() {
@@ -91,7 +150,6 @@ extension MapViewController: CLLocationManagerDelegate {
     }
     
     
-    
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         guard let clError = error as? CLError else {return}
         
@@ -128,4 +186,31 @@ extension MapViewController: CLLocationManagerDelegate {
             showAlert(title: "권한 필요", message: "위치 정보 사용을 위한 권한이 필요합니다.")
         }
     }
+}
+
+extension MapViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UICollectionViewDelegate {
+        func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+            if collectionView == topCategoryCollectionView {
+                return topCategoryList.count
+            } else {
+                return bottomThumbnail.count
+            }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        if collectionView == topCategoryCollectionView {
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TopCategoryCollectionViewCell", for: indexPath) as? TopCategoryCollectionViewCell else {
+                return UICollectionViewCell()
+            }
+            cell.categoryText.text = topCategoryList[indexPath.row]
+            return cell
+        } else {
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "BottomCollectionViewCell", for: indexPath) as? BottomCollectionViewCell else {
+                return UICollectionViewCell()
+            }
+            cell.bottomText.text = bottomThumbnail[indexPath.row]
+            return cell
+        }
+    }
+    
 }
