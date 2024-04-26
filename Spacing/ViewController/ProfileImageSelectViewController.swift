@@ -7,11 +7,15 @@
 
 import UIKit
 
+protocol ProfileImageDelegate{
+    func profileImageChanged(image : UIImage)
+}
 class ProfileImageSelectViewController: UIViewController {
 
     @IBOutlet weak var confirmButton: UIButton!
     @IBOutlet weak var profileImageCollectionView: UICollectionView!
     
+    var delegate : ProfileImageDelegate?
     override func viewDidLoad() {
         super.viewDidLoad()
         configure()
@@ -21,6 +25,7 @@ class ProfileImageSelectViewController: UIViewController {
         self.dismiss(animated: true)
     }
     func configure(){
+        
         self.profileImageCollectionView.dataSource = self
         self.profileImageCollectionView.delegate = self
         self.profileImageCollectionView.register(ImageCollectionViewCell.nib(), forCellWithReuseIdentifier: ImageCollectionViewCell.identifier)
@@ -48,6 +53,9 @@ extension ProfileImageSelectViewController : UICollectionViewDelegate, UICollect
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ImageCollectionViewCell.identifier, for: indexPath) as! ImageCollectionViewCell
         cell.configure(image: User.profileImageList[indexPath.row])
         return cell
+    }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        self.delegate?.profileImageChanged(image: User.profileImageList[indexPath.row])
     }
     
     

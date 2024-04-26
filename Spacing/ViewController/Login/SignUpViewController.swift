@@ -29,6 +29,7 @@ class SignUpViewController: UIViewController, UINavigationControllerDelegate {
         }
         vc.modalPresentationStyle = .custom
         vc.transitioningDelegate = self
+        vc.delegate = self
         present(vc, animated: true)
         
     }
@@ -145,5 +146,10 @@ class SignUpViewController: UIViewController, UINavigationControllerDelegate {
 extension SignUpViewController: UIViewControllerTransitioningDelegate {
     func presentationController(forPresented presented: UIViewController, presenting: UIViewController?, source: UIViewController) -> UIPresentationController? {
         return HalfModalPresentationController(presentedViewController: presented, presenting: presenting)
+    }
+}
+extension SignUpViewController : ProfileImageDelegate {
+    func profileImageChanged(image: UIImage) {
+        profileImageView.image = image
     }
 }
