@@ -18,7 +18,7 @@ struct User {
     var hostPlace : [Place]
     var bookPlace: [BookPlace]
     var isLogin : Bool
-    
+
 }
 
 enum Gender : String{

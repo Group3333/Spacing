@@ -5,25 +5,16 @@
 //  Created by Sam.Lee on 4/22/24.
 //
 
-// AppDelegate.swift
 import UIKit
 import CoreData
 import IQKeyboardManagerSwift
+
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        
-        let context = persistentContainer.viewContext
-        
-        let user = IDEntity(context: context)
-        user.id = "admin@naver.com"
-        user.password = "admin1234"
-        user.name = "test admin"
-        
-        saveContext()
         
         IQKeyboardManager.shared.enable = true
         return true

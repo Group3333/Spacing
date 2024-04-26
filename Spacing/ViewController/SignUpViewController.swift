@@ -8,14 +8,35 @@
 import UIKit
 import CoreData
 
-class SignUpViewController: UIViewController {
+class SignUpViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    var newUser: User?
+    
     @IBOutlet weak var nameTextField: UITextField!
+    @IBOutlet weak var nickNameTextField: UITextField!
     @IBOutlet weak var idTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var confirmPasswordTextField: UITextField!
+    @IBOutlet weak var genderSegmentedControl: UISegmentedControl!
+    @IBOutlet weak var genderSelectLabel: UILabel!
+    
+    @IBAction func selectProfileImage(_ sender: UIButton) {
+        let imagePickerController = UIImagePickerController()
+        imagePickerController.delegate = self
+        imagePickerController.sourceType = .photoLibrary
+        present(imagePickerController, animated: true, completion: nil)
+    }
+
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let pickedImage = info[.originalImage] as? UIImage {
+            profileImageView.image = pickedImage
+        }
+        dismiss(animated: true, completion: nil)
+    }
     
     @IBAction func signUpButtonTapped(_ sender: UIButton) {
-        guard let id = idTextField.text, !id.isEmpty,
+        guard let nickName = nickNameTextField.text, !nickName.isEmpty,
+              let id = idTextField.text, !id.isEmpty,
               let password = passwordTextField.text, !password.isEmpty,
               let confirmPassword = confirmPasswordTextField.text, !confirmPassword.isEmpty,
               let name = nameTextField.text, !name.isEmpty else {
@@ -37,48 +58,21 @@ class SignUpViewController: UIViewController {
             showAlert(title: "🚨비밀번호 불일치🚨", message: "⚠️ 비밀번호와 확인 비밀번호가 일치하지 않습니다!")
             return
         }
-
-        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-
-        let fetchRequest: NSFetchRequest<IDEntity> = IDEntity.fetchRequest()
-        fetchRequest.predicate = NSPredicate(format: "id == %@", id)
         
-        do {
-            let users = try context.fetch(fetchRequest)
-            if !users.isEmpty {
-                showAlert(title: "🚨이미 등록된 아이디🚨", message: "⚠️ 해당 아이디로 이미 회원가입이 되어 있습니다!")
-                return
-            }
-        } catch {
+        guard (profileImageView.image?.jpegData(compressionQuality: 1.0)) != nil else {
+            showAlert(title: "🚨프로필 이미지 필요🚨", message: "⚠️ 프로필 이미지를 선택해주세요!")
             return
         }
-
-        fetchRequest.predicate = NSPredicate(format: "name == %@", name)
         
-        do {
-            let users = try context.fetch(fetchRequest)
-            if !users.isEmpty {
-                showAlert(title: "🚨이미 등록된 이름🚨", message: "⚠️ 해당 이름으로 이미 회원가입이 되어 있습니다!")
-                return
-            }
-        } catch {
-            return
-        }
-
-        let newUser = IDEntity(context: context)
-        newUser.id = id
-        newUser.password = password
-        newUser.name = name
-
-        do {
-            try context.save()
-            print("successfully signed up!")
-            dismiss(animated: true, completion: nil)
-        } catch {
-            return
+        let selectedGender: Gender = genderSegmentedControl.selectedSegmentIndex == 0 ? .Male : .Female
+           
+        newUser = User(name: name, profileImage: image, email: id, nickName: "", gender: .Male, favorite: [], hostPlace: [], bookPlace: [], isLogin: false)
+        
+        if let newUser = newUser {
+            
         }
     }
-    
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -90,6 +84,10 @@ class SignUpViewController: UIViewController {
         
         passwordTextField.isSecureTextEntry = true
         confirmPasswordTextField.isSecureTextEntry = true
+        
+        profileImageView.layer.cornerRadius = profileImageView.frame.size.width / 2
+        profileImageView.clipsToBounds = true
+        profileImageView.contentMode = .scaleAspectFill
     }
     
     

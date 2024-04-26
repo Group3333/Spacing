@@ -19,6 +19,5 @@ extension IDEntity {
     @NSManaged public var id: String?
     @NSManaged public var name: String?
     @NSManaged public var password: String?
-    @NSManaged public var profileImage: Date?
 
 }
