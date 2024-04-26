@@ -8,35 +8,37 @@
 import UIKit
 import NMapsMap
 import CoreLocation
+import SnapKit
 
 class MapViewController: UIViewController, NMFMapViewTouchDelegate {
     
     var locationManager = CLLocationManager()
     var naverMapView = NMFNaverMapView()
-    var marker = NMFMarker()
     let infoWindow = NMFInfoWindow()
     let dataSource = NMFInfoWindowDefaultTextSource.data()
+    
     var isInitalLocationUpdate = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        alertLocationAuth()
         setUI()
-        setMarker()
+        alertLocationAuth()
+        for place in Place.data {
+            setMarker(lat: place.lat, lng: place.lng, title: place.title)
+        }
         naverMapView.mapView.touchDelegate = self
     }
     
     func setUI() {
-        self.view.addSubview(naverMapView)
+        navigationItem.setHidesBackButton(true, animated: false)
         naverMapView.mapView.positionMode = .normal
         naverMapView.showLocationButton = true
         
         naverMapView.translatesAutoresizingMaskIntoConstraints = false
-        
-        naverMapView.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 0).isActive = true
-        naverMapView.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor, constant: 0).isActive = true
-        naverMapView.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor, constant: 0).isActive = true
-        naverMapView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: 0).isActive = true
+        self.view.addSubview(naverMapView)
+        naverMapView.snp.makeConstraints{ make in
+            make.top.bottom.leading.trailing.equalToSuperview()
+        }
     }
     
     func alertLocationAuth() {
@@ -45,18 +47,21 @@ class MapViewController: UIViewController, NMFMapViewTouchDelegate {
         locationManager.requestWhenInUseAuthorization()
     }
     
-    func setMarker() {
-        let testMarker = marker
-        testMarker.position = NMGLatLng(lat: 35.154497, lng: 129.019168)
+    func setMarker(lat : Double, lng: Double, title : String) {
+        let testMarker = NMFMarker()
+        testMarker.position = NMGLatLng(lat: lat, lng: lng)
+        testMarker.captionText = title
+        testMarker.userInfo = ["title" : title]
         testMarker.mapView = naverMapView.mapView // 지도상에 마커를 나타냄
-        
-        dataSource.title = "테스트 마커의 정보창"
+
         infoWindow.dataSource = dataSource
+    
         
         let handler = { [weak self] (overlay: NMFOverlay) -> Bool in
             if let marker = overlay as? NMFMarker {
                 if marker.infoWindow == nil {
                     // 현재 마커에 정보 창이 열려있지 않을 경우 엶
+                    self?.dataSource.title = marker.userInfo["title"] as! String
                     self?.infoWindow.open(with: marker)
                 } else {
                     // 이미 현재 마커에 정보 창이 열려있을 경우 닫음

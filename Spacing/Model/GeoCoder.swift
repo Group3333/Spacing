@@ -9,7 +9,7 @@ import Foundation
 import Alamofire
 
 protocol CoordinateDelegate {
-    func coordinateReceived(x : String, y: String)
+    func coordinateReceived(lng : String, lat: String)
 }
 struct Address : Codable{
     let addresses : [Coordinate]
@@ -36,7 +36,7 @@ class GeoCoder {
                     do{
                         let newSearchResult = try JSONDecoder().decode(Address.self, from: data!)
                         DispatchQueue.main.async {
-                            self.delegate?.coordinateReceived(x: newSearchResult.addresses[0].x, y: newSearchResult.addresses[0].y)
+                            self.delegate?.coordinateReceived(lng: newSearchResult.addresses[0].x, lat: newSearchResult.addresses[0].y)
                         }
                     }catch let error {
                         print("ERROR PARSING JSON: \(error)")

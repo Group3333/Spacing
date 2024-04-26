@@ -246,8 +246,8 @@ extension AddPlaceViewController: UITextFieldDelegate, UIPickerViewDelegate, UIP
 }
 
 extension AddPlaceViewController : CoordinateDelegate {
-    func coordinateReceived(x: String, y: String) {
-        let newPlace = Place(title: self.titleTextField.text!, categories: categories[row], position: "\(self.addressTextField.text!) \(self.detailAddressTextField.text!)", images: self.images, description: self.descriptionTextView.text!, isBooked: false, rating: 3.5, price: Int(self.priceTextField.text!)!, x: Double(x) ?? 0.0, y: Double(y) ?? 0.0)
+    func coordinateReceived(lng: String, lat: String) {
+        let newPlace = Place(title: self.titleTextField.text!, categories: categories[row], position: "\(self.addressTextField.text!) \(self.detailAddressTextField.text!)", images: self.images, description: self.descriptionTextView.text!, isBooked: false, rating: 3.5, price: Int(self.priceTextField.text!)!, lng: Double(lng) ?? 0.0, lat: Double(lat) ?? 0.0)
         Place.data.append(newPlace)
         User.currentUser.hostPlace.append(newPlace)
         self.delegate?.addNewPlace()
