@@ -38,6 +38,9 @@ class PlaceViewController: UIViewController{
         collectionViewConfigure()
         tableViewConfigure()
         searchBarConfigure()
+        
+        view.backgroundColor = .white
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.spacingDarkGray]
     }
     
     func configureNav(){
@@ -194,7 +197,7 @@ extension PlaceViewController : UICollectionViewDataSource, UICollectionViewDele
         }
         cell.configure(text: categories[indexPath.row].rawValue)
         cell.layer.cornerRadius = cell.layer.bounds.height / 2
-        cell.layer.borderColor = UIColor.label.cgColor
+        cell.layer.borderColor = UIColor.spacingOrange.cgColor
         cell.layer.borderWidth = 1
         return cell
     }

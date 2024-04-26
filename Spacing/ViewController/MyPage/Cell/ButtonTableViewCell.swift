@@ -28,8 +28,8 @@ class ButtonTableViewCell: UITableViewCell {
     
     func configure(){
         logoutButton.titleLabel?.text = "로그아웃"
-        logoutButton.titleLabel?.textColor = .systemBackground
-        logoutButton.backgroundColor = .systemRed
+        logoutButton.titleLabel?.textColor = .red
+        logoutButton.backgroundColor = .spacingLightGray
         logoutButton.clipsToBounds = false
         logoutButton.layer.cornerRadius = logoutButton.frame.height / 2 - 10
         logoutButton.layer.borderWidth = 2

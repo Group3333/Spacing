@@ -42,8 +42,8 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="x71-Wi-K9h"/>
                                         </constraints>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="filled" title="로그인"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="로그인"/>
                                         <connections>
                                             <action selector="loginButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="2jG-XT-iKZ"/>
                                         </connections>
@@ -53,8 +53,8 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="AG3-0x-KMK"/>
                                         </constraints>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="gray" title="회원가입"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="회원가입"/>
                                         <connections>
                                             <segue destination="4sw-Zh-yZm" kind="presentation" id="IDV-Zb-Bky"/>
                                         </connections>
@@ -80,6 +80,7 @@
                         <outlet property="loginButton" destination="WpR-E3-AhX" id="z8W-zh-cho"/>
                         <outlet property="logoImageView" destination="62q-6R-cJ2" id="Tg2-Rb-xgm"/>
                         <outlet property="passwordTextField" destination="nmr-nz-pHT" id="Gw5-UF-VUO"/>
+                        <outlet property="signUpButton" destination="cwp-uI-kSI" id="FdC-bz-qfa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -156,8 +157,8 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="7Cd-iZ-0kl"/>
                                 </constraints>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="회원가입"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="회원가입"/>
                                 <connections>
                                     <action selector="signUpButtonTapped:" destination="4sw-Zh-yZm" eventType="touchUpInside" id="7ny-8u-e3G"/>
                                 </connections>
@@ -188,6 +189,7 @@
                         <outlet property="passwordTextField" destination="pRc-XF-M1G" id="M5L-cG-6f2"/>
                         <outlet property="profileImageView" destination="JuI-YI-8cA" id="Tw0-f0-0nk"/>
                         <outlet property="seleceProfileImageButton" destination="aIf-7I-6ql" id="ymP-1n-61I"/>
+                        <outlet property="signUpButton" destination="kfZ-d3-qDd" id="6SR-hy-HN8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gag-RT-lUQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

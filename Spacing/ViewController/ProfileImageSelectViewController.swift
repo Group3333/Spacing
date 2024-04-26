@@ -19,6 +19,10 @@ class ProfileImageSelectViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configure()
+        
+        view.backgroundColor = .spacingBeige
+        confirmButton.setTitleColor(.white, for: .normal)
+        confirmButton.backgroundColor = .spacingOrange
     }
 
     @IBAction func confirmButtonClicked(_ sender: Any) {
@@ -38,7 +42,7 @@ class ProfileImageSelectViewController: UIViewController {
         flowLayout.itemSize = CGSize(width: Int(profileImageCollectionView.frame.size.height), height: Int(profileImageCollectionView.frame.size.height))
         profileImageCollectionView.collectionViewLayout = flowLayout
         profileImageCollectionView.allowsMultipleSelection = false
-        
+        profileImageCollectionView.backgroundColor = .spacingBeige
         confirmButton.layer.cornerRadius = confirmButton.layer.bounds.height / 2
         
     }

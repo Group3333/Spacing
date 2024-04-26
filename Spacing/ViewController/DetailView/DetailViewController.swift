@@ -42,7 +42,7 @@ class DetailViewController: UIViewController, TimeSelectionDelegate {
         
         view.backgroundColor = UIColor.spacingBeige
         
-        originalPriceLabel.textColor = UIColor.spacingGray
+        originalPriceLabel.textColor = .spacingGray
         placeName.textColor = .spacingDarkGray
         placeCateg.textColor = .spacingGray
         placeDescription.textColor = .spacingDarkGray

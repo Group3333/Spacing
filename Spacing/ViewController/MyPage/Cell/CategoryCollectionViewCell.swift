@@ -19,10 +19,15 @@ class CategoryCollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        categoryLabel.textColor = .spacingGray
     }
 
     func configure(text: String){
         categoryLabel.text = text
+        categoryLabel.textColor = .spacingOrange
+        categoryLabel.backgroundColor = .white
         categoryLabel.layer.cornerRadius = categoryLabel.layer.bounds.width / 2
+        categoryLabel.layer.borderWidth = 1
+        categoryLabel.layer.borderColor = UIColor.spacingOrange.cgColor
     }
 }
