@@ -121,7 +121,7 @@ extension Place {
         ),
         Place(
             title: "우리들의 강의실",
-            categories: .lectureRoon,
+            categories: .lectureRoom,
             position: "서울 서초구 서초중앙로2길 42 갑목빌딩 6층 603호",
             images: [
                 UIImage(named: "place2-3")!,

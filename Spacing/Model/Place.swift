@@ -45,18 +45,30 @@ enum Categories : String, CaseIterable {
     case all = "전체"
     case partyRoom = "파티룸"
     case practiceRoom = "연습실"
-    case photoStudio = "촬영스튜디오"
+    case photoStudio = "스튜디오"
     case studyRoom = "스터디룸"
     case cafe = "카페"
     case gallery = "갤러리"
-    case office = "독립오피스"
-    case lectureRoon = "강의실"
+    case office = "오피스"
+    case lectureRoom = "강의실"
 }
+
 
 extension Place {
     static var fav: [Place] = [Place.data[0],Place.data[1]]
     static var host: [Place] = [Place.data[1]]
     
+    static var categoryImage : [Categories : UIImage] = [
+        .all : UIImage(named: "all")!,
+        .partyRoom : UIImage(named: "partyRoom")!,
+        .practiceRoom : UIImage(named: "practiceRoom")!,
+        .photoStudio : UIImage(named: "photoStudio")!,
+        .studyRoom : UIImage(named: "studyRoom")!,
+        .cafe : UIImage(named: "cafe")!,
+        .gallery : UIImage(named: "gallery")!,
+        .office : UIImage(named: "office")!,
+        .lectureRoom : UIImage(named: "lectureRoom")!
+    ]
     
     static let hourDiscount : Int = 500
     static let eventDiscount : Int = hourDiscount * 4

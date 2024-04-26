@@ -17,6 +17,9 @@ class ImageCollectionViewCell: UICollectionViewCell {
         return UINib(nibName: "ImageCollectionViewCell", bundle: nil)
     }
     
+    override func prepareForReuse() {
+        selectedImage.image = UIImage()
+    }
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
