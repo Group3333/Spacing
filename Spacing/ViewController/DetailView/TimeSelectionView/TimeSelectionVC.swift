@@ -13,20 +13,46 @@ protocol TimeSelectionDelegate: AnyObject {
 
 class TimeSelectionVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
     
-    
-    @IBOutlet weak var timeList: UIPickerView!
+    // MARK: - Properties
     
     weak var delegate: TimeSelectionDelegate?
     let hours = Array(1...24)
     
+    // MARK: - IBOutlets
+    
+    @IBOutlet weak var timeList: UIPickerView!
+    @IBOutlet weak var selectBtn: UIButton!
+    
+    // MARK: - IBActions
+    
+    @IBAction func selectBtnClicked(_ sender: Any) {
+        guard let selectedRow = timeList?.selectedRow(inComponent: 0), selectedRow != -1 else {
+            return
+        }
+        
+        let selectedHour = hours[selectedRow]
+        delegate?.timeSelected(selectedHour)
+        dismiss(animated: true) // 화면 닫기
+    }
+    
+    // MARK: - Lifecycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-            timeList.dataSource = self
-            timeList.delegate = self
+        timeList.dataSource = self
+        timeList.delegate = self
         
         timeList.selectRow(0, inComponent: 0, animated: false)
+        
+        selectBtn.setTitle("확인", for: .normal)
+        selectBtn.setTitleColor(.white, for: .normal)
+        selectBtn.backgroundColor = .spacingOrange
+        selectBtn.layer.cornerRadius = 10
+        selectBtn.layer.masksToBounds = true
     }
+    
+    // MARK: - Methods
     
     // UIPickerView DataSource
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -40,16 +66,5 @@ class TimeSelectionVC: UIViewController, UIPickerViewDataSource, UIPickerViewDel
     // UIPickerView Delegate
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return "\(hours[row]) 시간"
-    }
-    
-    
-    @IBAction func selectBtn(_ sender: Any) {
-        guard let selectedRow = timeList?.selectedRow(inComponent: 0), selectedRow != -1 else {
-            return
-        }
-        
-        let selectedHour = hours[selectedRow]
-        delegate?.timeSelected(selectedHour)
-        dismiss(animated: true) // 화면 닫기
     }
 }
