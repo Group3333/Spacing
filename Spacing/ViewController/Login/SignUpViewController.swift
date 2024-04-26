@@ -84,6 +84,7 @@ class SignUpViewController: UIViewController, UINavigationControllerDelegate {
             present(successAlert, animated: true, completion: nil)
         }
         
+
     }
     
     

@@ -32,27 +32,41 @@ class DetailViewController: UIViewController, TimeSelectionDelegate {
     @IBOutlet weak var placePrice: UILabel!
     @IBOutlet weak var rateLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
+    @IBOutlet weak var bookingBtn: UIButton!
+    @IBOutlet weak var timeSelectBtn: UIButton!
     // MARK: - Lifecycle
     
-    @IBAction func favButtonClicked(_ sender: Any) {
-        isFav = isFav ? false : true
-        if isFav {
-            self.favButton.setImage(UIImage(systemName: "star.fill"), for: .normal)
-            User.currentUser.favorite.append(selectedPlaces)
-        }else{
-            self.favButton.setImage(UIImage(systemName: "star"), for: .normal)
-            User.currentUser.favorite.removeAll{$0.title == selectedPlaces.title && $0.description == selectedPlaces.description && $0.position == selectedPlaces.position}
-        }
-        self.delegate?.favChanged()
-    }
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
+        
+        view.backgroundColor = UIColor.spacingBeige
+        
+        originalPriceLabel.textColor = UIColor.spacingGray
+        placeName.textColor = .spacingDarkGray
+        placeCateg.textColor = .spacingGray
+        placeDescription.textColor = .spacingDarkGray
+        placeDescription.backgroundColor = .spacingBeige
+        placePrice.textColor = .spacingDarkGray
+        rateLabel.textColor = .spacingGray
+        timeLabel.textColor = .spacingDarkGray
+        bookingBtn.setTitle("예약하기", for: .normal)
+        bookingBtn.setTitleColor(.white, for: .normal)
+        bookingBtn.backgroundColor = .spacingOrange
+        bookingBtn.layer.cornerRadius = 10
+        bookingBtn.layer.masksToBounds = true
+        timeSelectBtn.setTitle("대여시간 설정", for: .normal)
+        timeSelectBtn.setTitleColor(.spacingOrange, for: .normal)
+        timeSelectBtn.backgroundColor = .white
+        timeSelectBtn.layer.cornerRadius = 10
+        timeSelectBtn.layer.masksToBounds = true
+        timeSelectBtn.layer.borderWidth = 1.5
+        timeSelectBtn.layer.borderColor = UIColor.spacingOrange.cgColor
     }
     
     // MARK: - IBActions
     
-    @IBAction func timeSelectBtn(_ sender: Any) {
+    @IBAction func timeSelectBtnClicked(_ sender: Any) {
         guard let timeSelectionVC = UIStoryboard(name: "TimeSelectionSB", bundle: nil).instantiateViewController(withIdentifier: "TimeSelectionVC") as? TimeSelectionVC else {
             return
         }
@@ -62,7 +76,7 @@ class DetailViewController: UIViewController, TimeSelectionDelegate {
         present(timeSelectionVC, animated: true)
     }
     
-    @IBAction func bookingBtn(_ sender: Any) {
+    @IBAction func bookingBtnClicked(_ sender: Any) {
         let temp = Int(self.hours / 3 )
         let remain = self.hours - (temp * 3)
         let totalPrice = (selectedPlaces.price - Place.hourDiscount) * remain + temp * (selectedPlaces.price * 3 - Place.eventDiscount)
@@ -70,6 +84,7 @@ class DetailViewController: UIViewController, TimeSelectionDelegate {
         // BookPlace 인스턴스 생성 및 값 할당
         let bookPlace = BookPlace(place: selectedPlaces, time: self.hours, totalPrice: totalPrice)
         bookingAlert(bookPlace: bookPlace)
+        
     }
 
     func bookingAlert(bookPlace: BookPlace) {
@@ -83,6 +98,17 @@ class DetailViewController: UIViewController, TimeSelectionDelegate {
         present(bookingAlert, animated: true, completion: nil)
     }
     
+    @IBAction func favButtonClicked(_ sender: Any) {
+        isFav = isFav ? false : true
+        if isFav {
+            self.favButton.setImage(UIImage(systemName: "star.fill"), for: .normal)
+            User.currentUser.favorite.append(selectedPlaces)
+        }else{
+            self.favButton.setImage(UIImage(systemName: "star"), for: .normal)
+            User.currentUser.favorite.removeAll{$0.title == selectedPlaces.title && $0.description == selectedPlaces.description && $0.position == selectedPlaces.position}
+        }
+        self.delegate?.favChanged()
+    }
     // MARK: - Methods
     
     private func configureUI() {
