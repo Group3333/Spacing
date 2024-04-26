@@ -41,8 +41,9 @@ class LoginViewController: UIViewController {
                 User.currentUser.email = savedObject.email
                 User.currentUser.gender = Gender(rawValue: savedObject.gender)!
                 User.currentUser.isLogin = true
-                let destinationViewController =  UIStoryboard(name: "MyPageViewController", bundle: nil).instantiateInitialViewController()!
-                self.navigationController?.pushViewController(destinationViewController, animated: true)
+//                let destinationViewController =  UIStoryboard(name: "MyPageViewController", bundle: nil).instantiateInitialViewController()!
+                
+                self.navigationController?.pushViewController(MapViewController(), animated: true)
             }
         }else{
             showAlert(title: "🚨회원정보 없음!🚨", message: "⚠️ 해당 회원정보를 찾을 수 없습니다!")
