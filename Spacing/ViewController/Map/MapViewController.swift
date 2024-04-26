@@ -14,7 +14,8 @@ class MapViewController: UIViewController, NMFMapViewTouchDelegate, UICollection
     
     var locationManager = CLLocationManager()
     var naverMapView = NMFNaverMapView()
-    let dataSource = NMFInfoWindowDefaultTextSource.data()
+    let infoWindow = NMFInfoWindow()
+    let dataSource = CustomInfoWindowDataSource(title: "")
     var isInitalLocationUpdate = true
     
     
@@ -48,10 +49,10 @@ class MapViewController: UIViewController, NMFMapViewTouchDelegate, UICollection
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.requestWhenInUseAuthorization()
     }
-
+    
+    
     func setMarker(lat : Double, lng: Double, title : String) {
         let testMarker = NMFMarker()
-        let infoWindow = NMFInfoWindow()
         
         testMarker.position = NMGLatLng(lat: lat, lng: lng)
         testMarker.captionText = title
@@ -60,20 +61,22 @@ class MapViewController: UIViewController, NMFMapViewTouchDelegate, UICollection
         testMarker.iconTintColor = UIColor.spacingOrange
         testMarker.mapView = naverMapView.mapView // 지도상에 마커를 나타냄
         
-        infoWindow.dataSource = CustomInfoWindowDataSource(title: title)
+        infoWindow.dataSource = dataSource
+        
         infoWindow.alpha = 0.8
+        
         
         let handler = { [weak self] (overlay: NMFOverlay) -> Bool in
             if let marker = overlay as? NMFMarker {
                 if marker.infoWindow == nil {
                     // 현재 마커를 터치하면 실행되는 코드블럭
-//                    self?.dataSource.title = marker.userInfo["title"] as! String
+                    self?.dataSource.title = marker.userInfo["title"] as! String
                     let cameraUpdate = NMFCameraUpdate(scrollTo: NMGLatLng(lat: lat, lng: lng), zoomTo: 14)
                     cameraUpdate.animation = .easeIn
                     self?.naverMapView.mapView.moveCamera(cameraUpdate)
-                    infoWindow.open(with: marker)
+                    self?.infoWindow.open(with: marker)
                 } else {
-                    infoWindow.close()
+                    self?.infoWindow.close()
                 }
             }
             return true
@@ -152,17 +155,17 @@ class CustomInfoWindowDataSource: NSObject, NMFOverlayImageDataSource {
     func view(with overlay: NMFOverlay) -> UIView {
         let label = UILabel()
         label.text = self.title
-        label.backgroundColor = .white
+        label.backgroundColor = .spacingBeige
         label.textColor = .black
-        label.font = UIFont.systemFont(ofSize: 10)  // 글자 크기 설정
+        label.font = UIFont.systemFont(ofSize: 14)  // 글자 크기 설정
         label.textAlignment = .center
         label.numberOfLines = 0
-        label.frame = CGRect(x: 0, y: 0, width: 150, height: 50)  // 정보창 크기 설정
+        label.frame = CGRect(x: 0, y: 0, width: 120, height: 50)  // 정보창 크기 설정
         label.layer.borderColor = UIColor.gray.cgColor
         label.layer.borderWidth = 1
-        label.layer.cornerRadius = 5
+        label.layer.cornerRadius = 10
         label.clipsToBounds = true
-
+        
         return label
     }
 }
