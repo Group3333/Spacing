@@ -22,11 +22,12 @@ class MapViewController: UIViewController, NMFMapViewTouchDelegate, UICollection
     var markers : [NMFMarker] = []
     var categoryCollectionView: UICollectionView!
     var detailCollectionView : UICollectionView!
-    
+    var ishidden = false
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.setHidesBackButton(true, animated: false)
         alertLocationAuth()
         setMapUI()
         setCollectionViewUI()
@@ -129,9 +130,11 @@ class MapViewController: UIViewController, NMFMapViewTouchDelegate, UICollection
                         // 현재 마커에 정보 창이 열려있지 않을 경우 엶
                         self?.dataSource.title = marker.userInfo["title"] as! String
                         let cameraUpdate = NMFCameraUpdate(scrollTo: NMGLatLng(lat: place.lat, lng: place.lng), zoomTo: 14)
-                        cameraUpdate.animation = .easeIn
+                        cameraUpdate.animation = .fly
+                        cameraUpdate.animationDuration = 3
                         self?.naverMapView.mapView.moveCamera(cameraUpdate)
                         self?.infoWindow.open(with: marker)
+                        self?.toggleDetails()
                     } else {
                         // 이미 현재 마커에 정보 창이 열려있을 경우 닫음
                         self?.infoWindow.close()
@@ -147,8 +150,30 @@ class MapViewController: UIViewController, NMFMapViewTouchDelegate, UICollection
     
     func mapView(_ mapView: NMFMapView, didTapMap latlng: NMGLatLng, point: CGPoint) {
         infoWindow.close()
+        toggleDetails()
     }
     
+    func toggleDetails(){
+        if self.ishidden { // TableView가 아래로 스크롤될 때
+            self.detailCollectionView.snp.remakeConstraints { make in
+                make.leading.trailing.equalToSuperview()
+                make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom).inset(30)
+                make.height.equalTo(150)
+            }
+            ishidden.toggle()
+        } else {
+            self.detailCollectionView.snp.remakeConstraints { make in
+                make.leading.trailing.equalToSuperview()
+                make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom).offset(200)
+                make.height.equalTo(150)
+            }
+            ishidden.toggle()
+        }
+        UIView.animate(withDuration: 0.4) {
+            
+            self.view.layoutIfNeeded()
+        }
+    }
 }
 
 extension MapViewController: CLLocationManagerDelegate {
@@ -296,7 +321,7 @@ extension MapViewController: UIScrollViewDelegate {
             // 이동한 x좌표 값과 item의 크기를 비교하여 몇 페이징이 될 것인지 값 설정
             var offset = targetContentOffset.pointee
             let index = (offset.x + scrollView.contentInset.left) / cellWidthIncludingSpacing
-            var roundedIndex = round(index)
+            let roundedIndex = round(index)
             
             // 중앙에 보이도록 offset을 조절
             let centeredOffsetX = (roundedIndex * cellWidthIncludingSpacing - scrollView.contentInset.left) - (scrollView.bounds.width - cellWidthIncludingSpacing) / 2
