@@ -9,7 +9,6 @@ import UIKit
 import NMapsMap
 import CoreLocation
 import SnapKit
-//s
 
 //class MapViewController: UIViewController, NMFMapViewTouchDelegate {
 //
@@ -183,7 +182,6 @@ class MapViewController: UIViewController, NMFMapViewTouchDelegate, UICollection
             return cv
         }()
         
-        
         categoryCollectionView.backgroundColor = .clear
         categoryCollectionView.allowsMultipleSelection = false
         naverMapView.addSubview(categoryCollectionView)
@@ -206,36 +204,13 @@ class MapViewController: UIViewController, NMFMapViewTouchDelegate, UICollection
         }
         
     }
+    
     func alertLocationAuth() {
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.requestWhenInUseAuthorization()
     }
-    
-    func setMarker() {
-        let testMarker = NMFMarker()
-        testMarker.position = NMGLatLng(lat: 35.154497, lng: 129.019168)
-        testMarker.mapView = naverMapView.mapView // 지도상에 마커를 나타냄
-        
-        dataSource.title = "테스트 마커의 정보창"
-        infoWindow.dataSource = dataSource
-        
-        let handler = { [self] (overlay: NMFOverlay) -> Bool in
-            if let marker = overlay as? NMFMarker {
-                if marker.infoWindow == nil {
-                    // 현재 마커에 정보 창이 열려있지 않을 경우 엶
-                    self.infoWindow.open(with: marker)
-                    
-                } else {
-                    // 이미 현재 마커에 정보 창이 열려있을 경우 닫음
-                    self.infoWindow.close()
-                }
-            }
-            return true
-        }
-        
-        testMarker.touchHandler = handler
-    }
+
     func setMarker(lat : Double, lng: Double, title : String) {
         let testMarker = NMFMarker()
         testMarker.position = NMGLatLng(lat: lat, lng: lng)

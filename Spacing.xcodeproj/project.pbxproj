@@ -64,6 +64,8 @@
 		A6E0E38F110A599546A537D5 /* Pods_Spacing_SpacingUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C72474CF1FD080CCFDF783BB /* Pods_Spacing_SpacingUITests.framework */; };
 		CE1226D22BDB8446007FF5C4 /* TopCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1226D02BDB8446007FF5C4 /* TopCollectionViewCell.swift */; };
 		CE1226D32BDB8446007FF5C4 /* TopCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE1226D12BDB8446007FF5C4 /* TopCollectionViewCell.xib */; };
+		CE1226D62BDB86D6007FF5C4 /* BottomCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1226D42BDB86D6007FF5C4 /* BottomCollectionViewCell.swift */; };
+		CE1226D72BDB86D6007FF5C4 /* BottomCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE1226D52BDB86D6007FF5C4 /* BottomCollectionViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -148,6 +150,8 @@
 		C72474CF1FD080CCFDF783BB /* Pods_Spacing_SpacingUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Spacing_SpacingUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE1226D02BDB8446007FF5C4 /* TopCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopCollectionViewCell.swift; sourceTree = "<group>"; };
 		CE1226D12BDB8446007FF5C4 /* TopCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TopCollectionViewCell.xib; sourceTree = "<group>"; };
+		CE1226D42BDB86D6007FF5C4 /* BottomCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomCollectionViewCell.swift; sourceTree = "<group>"; };
+		CE1226D52BDB86D6007FF5C4 /* BottomCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BottomCollectionViewCell.xib; sourceTree = "<group>"; };
 		CE579AFE8DFF51573EA5DA2C /* Pods_Spacing.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Spacing.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1894E851D49E83D3E6AA1DE /* Pods-SpacingTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpacingTests.debug.xcconfig"; path = "Target Support Files/Pods-SpacingTests/Pods-SpacingTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -199,6 +203,8 @@
 				14EDFFF32BD9EF21001CC996 /* MapViewController.swift */,
 				CE1226D02BDB8446007FF5C4 /* TopCollectionViewCell.swift */,
 				CE1226D12BDB8446007FF5C4 /* TopCollectionViewCell.xib */,
+				CE1226D42BDB86D6007FF5C4 /* BottomCollectionViewCell.swift */,
+				CE1226D52BDB86D6007FF5C4 /* BottomCollectionViewCell.xib */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -549,6 +555,7 @@
 				14D85DF02BD9309200BB0289 /* ImageCollectionViewCell.xib in Resources */,
 				CE1226D32BDB8446007FF5C4 /* TopCollectionViewCell.xib in Resources */,
 				14D85DF52BD9309200BB0289 /* TimeSelectionSB.storyboard in Resources */,
+				CE1226D72BDB86D6007FF5C4 /* BottomCollectionViewCell.xib in Resources */,
 				14C7D78D2BD614B400CB5746 /* Base in Resources */,
 				14C7D7852BD614B200CB5746 /* Base in Resources */,
 				14C7D7CB2BD6631000CB5746 /* UserTableViewCell.xib in Resources */,
@@ -706,6 +713,7 @@
 				14C7D7C52BD6607B00CB5746 /* Place.swift in Sources */,
 				145C32032BD7F525000FB8BD /* KakaoPostCodeViewController.swift in Sources */,
 				14C7D7D82BD667F400CB5746 /* PersonalViewController.swift in Sources */,
+				CE1226D62BDB86D6007FF5C4 /* BottomCollectionViewCell.swift in Sources */,
 				14C7D7802BD614B200CB5746 /* SceneDelegate.swift in Sources */,
 				14C5FD8C2BD8DC4B00B8358C /* AddImageCollectionViewCell.swift in Sources */,
 				51272CD12BDA4186004321F6 /* IDEntity+CoreDataProperties.swift in Sources */,
