@@ -42,7 +42,6 @@ class HalfModalPresentationController: UIPresentationController {
     }
     
     // MARK: - Pan Gesture Handling
-    
     @objc private func handlePanGesture(_ gestureRecognizer: UIPanGestureRecognizer) {
         guard let presentedView = presentedView else { return }
         

@@ -43,6 +43,14 @@ class MyPageViewController: UIViewController{
 extension MyPageViewController : UITableViewDelegate,UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch indexPath.section{
+        case 0 :
+            guard let vc = UIStoryboard(name: "ProfileImageSelectViewController", bundle: nil).instantiateViewController(withIdentifier: "ProfileImageSelectViewController") as? ProfileImageSelectViewController else {
+                return
+            }
+            vc.modalPresentationStyle = .custom
+            vc.transitioningDelegate = self
+            vc.delegate = self
+            present(vc, animated: true)
         case 1:
             let vcName = MyPageMenu.menus[indexPath.row].detailVC
             let storyboard = UIStoryboard(name: vcName, bundle: nil)
@@ -88,6 +96,7 @@ extension MyPageViewController : UITableViewDelegate,UITableViewDataSource {
                 return UITableViewCell()
             }
             cell.configure()
+            cell.delegate = self
             return cell
         default:
             return UITableViewCell()
@@ -104,5 +113,36 @@ extension MyPageViewController : UITableViewDelegate,UITableViewDataSource {
         default:
             return 100
         }
+    }
+}
+
+extension MyPageViewController: UIViewControllerTransitioningDelegate {
+    func presentationController(forPresented presented: UIViewController, presenting: UIViewController?, source: UIViewController) -> UIPresentationController? {
+        return HalfModalPresentationController(presentedViewController: presented, presenting: presenting)
+    }
+}
+extension MyPageViewController : ProfileImageDelegate {
+    func profileImageChanged(image: UIImage) {
+        User.currentUser.profileImage = image
+        myPageTableView.reloadSections(IndexSet(integer: 0), with: .automatic)
+    }
+}
+
+extension MyPageViewController : LogoutDelegate {
+    func logoutButtonClicked() {
+        showAlert()
+    }
+    
+    func showAlert() {
+        let alertController = UIAlertController(title: "로그아웃", message: "진짜로 로그아웃 하시겠습니까?", preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "확인", style: .default) { _ in
+            self.navigationController?.popToRootViewController(animated: true)
+        }
+        alertController.addAction(okAction)
+        let cancelAction = UIAlertAction(title: "취소", style: .cancel) { _ in
+            self.dismiss(animated: true)
+        }
+        alertController.addAction(cancelAction)
+        present(alertController, animated: true, completion: nil)
     }
 }

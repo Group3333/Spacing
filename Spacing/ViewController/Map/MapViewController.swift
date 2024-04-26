@@ -20,9 +20,12 @@ class MapViewController: UIViewController, NMFMapViewTouchDelegate, UICollection
     let dataSource = NMFInfoWindowDefaultTextSource.data()
     var isInitalLocationUpdate = true
     var markers : [NMFMarker] = []
+    var ishidden = false
+    
     var categoryCollectionView: UICollectionView!
     var detailCollectionView : UICollectionView!
-    var ishidden = false
+    var searchController : UISearchBar!
+    
     
     
     override func viewDidLoad() {
@@ -31,16 +34,36 @@ class MapViewController: UIViewController, NMFMapViewTouchDelegate, UICollection
         alertLocationAuth()
         setMapUI()
         setCollectionViewUI()
+        searchBarConfigure()
         setConstraints()
         setMarker(data: Place.data)
         naverMapView.mapView.touchDelegate = self
+        configureBarButton()
+        
+       
     }
-    
+    func configureBarButton(){
+        let cancel = UIBarButtonItem(image: UIImage(systemName: "person.crop.circle.fill"), style: .plain, target: self, action: #selector(pushMyPage))
+        self.navigationItem.rightBarButtonItem = cancel
+    }
+    @objc func pushMyPage(){
+        let storyboard = UIStoryboard(name: "MyPageViewController", bundle: nil)
+        let destinationViewController = storyboard.instantiateViewController(withIdentifier: "MyPageViewController") as! MyPageViewController
+        self.navigationController?.pushViewController(destinationViewController, animated: true)
+    }
     func setMapUI() {
         self.view.addSubview(naverMapView)
         
         naverMapView.mapView.positionMode = .normal
         naverMapView.showLocationButton = true
+    }
+    func searchBarConfigure(){
+        searchController = UISearchBar()
+        searchController.placeholder = "이름, 주소 등"
+        searchController.searchTextField.backgroundColor = .spacingBeige
+        searchController.delegate = self
+        self.navigationItem.titleView = searchController
+        self.navigationItem.hidesSearchBarWhenScrolling = false
     }
     
     func setCollectionViewUI() {
@@ -105,7 +128,6 @@ class MapViewController: UIViewController, NMFMapViewTouchDelegate, UICollection
             make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom).inset(30)
             make.height.equalTo(150)
         }
-        
     }
     func alertLocationAuth() {
         locationManager.delegate = self
@@ -250,7 +272,8 @@ extension MapViewController: UICollectionViewDataSource, UICollectionViewDelegat
             cell.configure(place : place[indexPath.row])
             cell.backgroundColor = UIColor.systemBackground
             cell.layer.cornerRadius = 20
-            cell.layer.borderColor = UIColor.label.cgColor
+            cell.layer.borderColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.2).cgColor
+            cell.layer.borderWidth = 2
             return cell
         }else{
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TopCollectionViewCell.identifier, for: indexPath) as? TopCollectionViewCell else {
@@ -260,7 +283,8 @@ extension MapViewController: UICollectionViewDataSource, UICollectionViewDelegat
             cell.configure(title: cat.rawValue, image: Place.categoryImage[cat]!)
             cell.backgroundColor = UIColor.systemBackground
             cell.layer.cornerRadius = 20
-            cell.layer.borderColor = UIColor.label.cgColor
+            cell.layer.borderColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.2).cgColor
+            cell.layer.borderWidth = 2
             return cell
         }
     }
@@ -343,3 +367,6 @@ extension MapViewController: UIScrollViewDelegate {
     }
 }
 
+    extension MapViewController :UISearchBarDelegate {
+        
+    }

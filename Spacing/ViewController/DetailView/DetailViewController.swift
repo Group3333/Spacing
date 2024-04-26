@@ -41,7 +41,7 @@ class DetailViewController: UIViewController, TimeSelectionDelegate {
         configureUI()
         
         view.backgroundColor = UIColor.spacingBeige
-        
+        placeImage.backgroundColor = UIColor.spacingBeige
         originalPriceLabel.textColor = UIColor.spacingGray
         placeName.textColor = .spacingDarkGray
         placeCateg.textColor = .spacingGray

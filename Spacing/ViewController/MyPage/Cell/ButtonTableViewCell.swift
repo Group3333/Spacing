@@ -7,11 +7,19 @@
 
 import UIKit
 
+protocol LogoutDelegate{
+    func logoutButtonClicked()
+}
 class ButtonTableViewCell: UITableViewCell {
     
     static let identifier = "ButtonTableViewCell"
     static func nib() -> UINib {
         return UINib(nibName: "ButtonTableViewCell", bundle: nil)
+    }
+    var delegate : LogoutDelegate?
+    
+    @IBAction func logoutButtonClicked(_ sender: Any) {
+        self.delegate?.logoutButtonClicked()
     }
     
     @IBOutlet weak var logoutButton: UIButton!
