@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		047A7830CFB0E863D3835EDA /* Pods_Spacing.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE579AFE8DFF51573EA5DA2C /* Pods_Spacing.framework */; };
+		140EB7512BDB5F250013AB63 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140EB7502BDB5F250013AB63 /* Data.swift */; };
+		140EB7532BDB68AD0013AB63 /* ProfileImageSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140EB7522BDB68AD0013AB63 /* ProfileImageSelectViewController.swift */; };
+		140EB7552BDB68C20013AB63 /* ProfileImageSelectViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 140EB7542BDB68C20013AB63 /* ProfileImageSelectViewController.storyboard */; };
 		1453D8082BDA47BA00BD21C0 /* TopCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1453D8072BDA47BA00BD21C0 /* TopCollectionViewCell.xib */; };
 		1453D8092BDA47BA00BD21C0 /* TopCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1453D8062BDA47BA00BD21C0 /* TopCollectionViewCell.swift */; };
 		145C32032BD7F525000FB8BD /* KakaoPostCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145C32022BD7F525000FB8BD /* KakaoPostCodeViewController.swift */; };
@@ -20,7 +23,6 @@
 		14C7D7802BD614B200CB5746 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C7D77F2BD614B200CB5746 /* SceneDelegate.swift */; };
 		14C7D7822BD614B200CB5746 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C7D7812BD614B200CB5746 /* ViewController.swift */; };
 		14C7D7852BD614B200CB5746 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 14C7D7842BD614B200CB5746 /* Base */; };
-		14C7D7882BD614B200CB5746 /* Spacing.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 14C7D7862BD614B200CB5746 /* Spacing.xcdatamodeld */; };
 		14C7D78A2BD614B400CB5746 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 14C7D7892BD614B400CB5746 /* Assets.xcassets */; };
 		14C7D78D2BD614B400CB5746 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 14C7D78C2BD614B400CB5746 /* Base */; };
 		14C7D7982BD614B500CB5746 /* SpacingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C7D7972BD614B500CB5746 /* SpacingTests.swift */; };
@@ -56,12 +58,10 @@
 		14D9EBE32BD78557007DF629 /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D9EBE02BD78557007DF629 /* CategoryCollectionViewCell.swift */; };
 		14D9EBE52BD7A5D4007DF629 /* ExtensionUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D9EBE42BD7A5D4007DF629 /* ExtensionUtil.swift */; };
 		14D9EBE82BD7B243007DF629 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 14D9EBE72BD7B243007DF629 /* SnapKit */; };
-		14EDFFF42BD9EF21001CC996 /* Map.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14EDFFF22BD9EF21001CC996 /* Map.storyboard */; };
 		14EDFFF52BD9EF21001CC996 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14EDFFF32BD9EF21001CC996 /* MapViewController.swift */; };
-		51272CC02BD923C6004321F6 /* IDEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51272CBE2BD923C6004321F6 /* IDEntity+CoreDataClass.swift */; };
-		51272CC12BD923C6004321F6 /* IDEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51272CBF2BD923C6004321F6 /* IDEntity+CoreDataProperties.swift */; };
+		51272CD02BDA4186004321F6 /* IDEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51272CCF2BDA4186004321F6 /* IDEntity+CoreDataClass.swift */; };
+		51272CD12BDA4186004321F6 /* IDEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51272CCE2BDA4186004321F6 /* IDEntity+CoreDataProperties.swift */; };
 		51AC92B12BD7C66B006C2C51 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51AC92B02BD7C66A006C2C51 /* SignUpViewController.swift */; };
-		51AC92B32BD7CA7B006C2C51 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51AC92B22BD7CA7B006C2C51 /* TestViewController.swift */; };
 		65B4FCD7B27DC56C4E3E13CC /* Pods_SpacingTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F2144B47394FC7445DC498A /* Pods_SpacingTests.framework */; };
 		A6E0E38F110A599546A537D5 /* Pods_Spacing_SpacingUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C72474CF1FD080CCFDF783BB /* Pods_Spacing_SpacingUITests.framework */; };
 /* End PBXBuildFile section */
@@ -85,6 +85,9 @@
 
 /* Begin PBXFileReference section */
 		0742B520C18EDDC3C9D6D90F /* Pods-Spacing-SpacingUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Spacing-SpacingUITests.debug.xcconfig"; path = "Target Support Files/Pods-Spacing-SpacingUITests/Pods-Spacing-SpacingUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		140EB7502BDB5F250013AB63 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
+		140EB7522BDB68AD0013AB63 /* ProfileImageSelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImageSelectViewController.swift; sourceTree = "<group>"; };
+		140EB7542BDB68C20013AB63 /* ProfileImageSelectViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ProfileImageSelectViewController.storyboard; sourceTree = "<group>"; };
 		1453D8062BDA47BA00BD21C0 /* TopCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopCollectionViewCell.swift; sourceTree = "<group>"; };
 		1453D8072BDA47BA00BD21C0 /* TopCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TopCollectionViewCell.xib; sourceTree = "<group>"; };
 		145C32022BD7F525000FB8BD /* KakaoPostCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoPostCodeViewController.swift; sourceTree = "<group>"; };
@@ -96,7 +99,6 @@
 		14C7D77F2BD614B200CB5746 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		14C7D7812BD614B200CB5746 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		14C7D7842BD614B200CB5746 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		14C7D7872BD614B200CB5746 /* Spacing.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Spacing.xcdatamodel; sourceTree = "<group>"; };
 		14C7D7892BD614B400CB5746 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		14C7D78C2BD614B400CB5746 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		14C7D78E2BD614B400CB5746 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -134,13 +136,11 @@
 		14D9EBE02BD78557007DF629 /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		14D9EBE12BD78557007DF629 /* CategoryCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryCollectionViewCell.xib; sourceTree = "<group>"; };
 		14D9EBE42BD7A5D4007DF629 /* ExtensionUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionUtil.swift; sourceTree = "<group>"; };
-		14EDFFF22BD9EF21001CC996 /* Map.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Map.storyboard; sourceTree = "<group>"; };
 		14EDFFF32BD9EF21001CC996 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		1B1048CA9C36ECB96A93773D /* Pods-Spacing.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Spacing.release.xcconfig"; path = "Target Support Files/Pods-Spacing/Pods-Spacing.release.xcconfig"; sourceTree = "<group>"; };
-		51272CBE2BD923C6004321F6 /* IDEntity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "IDEntity+CoreDataClass.swift"; sourceTree = "<group>"; };
-		51272CBF2BD923C6004321F6 /* IDEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "IDEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		51272CCE2BDA4186004321F6 /* IDEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "IDEntity+CoreDataProperties.swift"; path = "../../IDEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		51272CCF2BDA4186004321F6 /* IDEntity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "IDEntity+CoreDataClass.swift"; path = "../../IDEntity+CoreDataClass.swift"; sourceTree = "<group>"; };
 		51AC92B02BD7C66A006C2C51 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
-		51AC92B22BD7CA7B006C2C51 /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 		692D3701DB1C7917962D459F /* Pods-SpacingTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpacingTests.release.xcconfig"; path = "Target Support Files/Pods-SpacingTests/Pods-SpacingTests.release.xcconfig"; sourceTree = "<group>"; };
 		8F2144B47394FC7445DC498A /* Pods_SpacingTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SpacingTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9502A1E41DE8221CB2BCA0CD /* Pods-Spacing-SpacingUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Spacing-SpacingUITests.release.xcconfig"; path = "Target Support Files/Pods-Spacing-SpacingUITests/Pods-Spacing-SpacingUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -181,26 +181,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		1453D80A2BDA47D100BD21C0 /* Map */ = {
+		140EB74E2BDB3BD80013AB63 /* Login */ = {
 			isa = PBXGroup;
 			children = (
-				14EDFFF22BD9EF21001CC996 /* Map.storyboard */,
-				14EDFFF32BD9EF21001CC996 /* MapViewController.swift */,
-				1453D8062BDA47BA00BD21C0 /* TopCollectionViewCell.swift */,
-				1453D8072BDA47BA00BD21C0 /* TopCollectionViewCell.xib */,
-			);
-			path = Map;
-			sourceTree = "<group>";
-		};
-		1453D80B2BDA47E300BD21C0 /* Login */ = {
-			isa = PBXGroup;
-			children = (
-				51AC92B22BD7CA7B006C2C51 /* TestViewController.swift */,
 				51AC92B02BD7C66A006C2C51 /* SignUpViewController.swift */,
 				14C7D7812BD614B200CB5746 /* ViewController.swift */,
 				14C7D7832BD614B200CB5746 /* Main.storyboard */,
 			);
 			path = Login;
+			sourceTree = "<group>";
+		};
+		140EB74F2BDB3BF20013AB63 /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				14EDFFF32BD9EF21001CC996 /* MapViewController.swift */,
+			);
+			path = Map;
 			sourceTree = "<group>";
 		};
 		145C32012BD7F4F6000FB8BD /* KakaoPostCode */ = {
@@ -265,10 +261,12 @@
 		14C7D7B62BD617AB00CB5746 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				1453D80B2BDA47E300BD21C0 /* Login */,
-				1453D80A2BDA47D100BD21C0 /* Map */,
+				140EB74F2BDB3BF20013AB63 /* Map */,
+				140EB74E2BDB3BD80013AB63 /* Login */,
 				14D85DEE2BD9309200BB0289 /* DetailView */,
 				14C7D7C62BD662E600CB5746 /* MyPage */,
+				140EB7522BDB68AD0013AB63 /* ProfileImageSelectViewController.swift */,
+				140EB7542BDB68C20013AB63 /* ProfileImageSelectViewController.storyboard */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -287,6 +285,7 @@
 				14C7D7C42BD6607B00CB5746 /* Place.swift */,
 				14C7D7D42BD6667A00CB5746 /* MyPageMenu.swift */,
 				14C5FD902BD90E5100B8358C /* GeoCoder.swift */,
+				140EB7502BDB5F250013AB63 /* Data.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -294,10 +293,9 @@
 		14C7D7B92BD6183000CB5746 /* Util */ = {
 			isa = PBXGroup;
 			children = (
-				51272CBE2BD923C6004321F6 /* IDEntity+CoreDataClass.swift */,
-				51272CBF2BD923C6004321F6 /* IDEntity+CoreDataProperties.swift */,
+				51272CCF2BDA4186004321F6 /* IDEntity+CoreDataClass.swift */,
+				51272CCE2BDA4186004321F6 /* IDEntity+CoreDataProperties.swift */,
 				14C7D77D2BD614B200CB5746 /* AppDelegate.swift */,
-				14C7D7862BD614B200CB5746 /* Spacing.xcdatamodeld */,
 				14C7D77F2BD614B200CB5746 /* SceneDelegate.swift */,
 				14C7D7892BD614B400CB5746 /* Assets.xcassets */,
 				14C7D78B2BD614B400CB5746 /* LaunchScreen.storyboard */,
@@ -532,8 +530,8 @@
 				14C7D7DE2BD6683100CB5746 /* AddPlaceViewController.storyboard in Resources */,
 				14C5FD8B2BD8DC4B00B8358C /* AddImageCollectionViewCell.xib in Resources */,
 				14D9EBDC2BD77C56007DF629 /* PlaceTableViewCell.xib in Resources */,
-				14EDFFF42BD9EF21001CC996 /* Map.storyboard in Resources */,
 				14C7D7D32BD664B500CB5746 /* ButtonTableViewCell.xib in Resources */,
+				140EB7552BDB68C20013AB63 /* ProfileImageSelectViewController.storyboard in Resources */,
 				14D85DF02BD9309200BB0289 /* ImageCollectionViewCell.xib in Resources */,
 				1453D8082BDA47BA00BD21C0 /* TopCollectionViewCell.xib in Resources */,
 				14D85DF52BD9309200BB0289 /* TimeSelectionSB.storyboard in Resources */,
@@ -674,30 +672,29 @@
 				14D85DF62BD9309200BB0289 /* TimeSelectionVC.swift in Sources */,
 				14C7D7DC2BD6682400CB5746 /* AddPlaceViewController.swift in Sources */,
 				14C7D7E02BD6689D00CB5746 /* PlaceViewController.swift in Sources */,
+				140EB7512BDB5F250013AB63 /* Data.swift in Sources */,
 				14C7D7822BD614B200CB5746 /* ViewController.swift in Sources */,
 				1453D8092BDA47BA00BD21C0 /* TopCollectionViewCell.swift in Sources */,
 				51AC92B12BD7C66B006C2C51 /* SignUpViewController.swift in Sources */,
-				51AC92B32BD7CA7B006C2C51 /* TestViewController.swift in Sources */,
-				14C7D7882BD614B200CB5746 /* Spacing.xcdatamodeld in Sources */,
 				14D9EBDD2BD77C56007DF629 /* PlaceTableViewCell.swift in Sources */,
 				14C7D7C32BD65F7E00CB5746 /* User.swift in Sources */,
 				14EDFFF52BD9EF21001CC996 /* MapViewController.swift in Sources */,
 				14C7D7D52BD6667A00CB5746 /* MyPageMenu.swift in Sources */,
-				14C7D7882BD614B200CB5746 /* Spacing.xcdatamodeld in Sources */,
 				14C7D7CA2BD6631000CB5746 /* UserTableViewCell.swift in Sources */,
 				14D9EBE52BD7A5D4007DF629 /* ExtensionUtil.swift in Sources */,
 				14D85DF82BD9309200BB0289 /* DetailViewController.swift in Sources */,
 				14C7D7CE2BD6632300CB5746 /* MenuTableViewCell.swift in Sources */,
+				51272CD02BDA4186004321F6 /* IDEntity+CoreDataClass.swift in Sources */,
 				14C7D77E2BD614B200CB5746 /* AppDelegate.swift in Sources */,
-				51272CC02BD923C6004321F6 /* IDEntity+CoreDataClass.swift in Sources */,
-				51272CC12BD923C6004321F6 /* IDEntity+CoreDataProperties.swift in Sources */,
 				14C5FD912BD90E5100B8358C /* GeoCoder.swift in Sources */,
 				14C7D7D22BD664B500CB5746 /* ButtonTableViewCell.swift in Sources */,
+				140EB7532BDB68AD0013AB63 /* ProfileImageSelectViewController.swift in Sources */,
 				14C7D7C52BD6607B00CB5746 /* Place.swift in Sources */,
 				145C32032BD7F525000FB8BD /* KakaoPostCodeViewController.swift in Sources */,
 				14C7D7D82BD667F400CB5746 /* PersonalViewController.swift in Sources */,
 				14C7D7802BD614B200CB5746 /* SceneDelegate.swift in Sources */,
 				14C5FD8C2BD8DC4B00B8358C /* AddImageCollectionViewCell.swift in Sources */,
+				51272CD12BDA4186004321F6 /* IDEntity+CoreDataProperties.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1105,19 +1102,6 @@
 			productName = SnapKit;
 		};
 /* End XCSwiftPackageProductDependency section */
-
-/* Begin XCVersionGroup section */
-		14C7D7862BD614B200CB5746 /* Spacing.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				14C7D7872BD614B200CB5746 /* Spacing.xcdatamodel */,
-			);
-			currentVersion = 14C7D7872BD614B200CB5746 /* Spacing.xcdatamodel */;
-			path = Spacing.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = 14C7D7722BD614B200CB5746 /* Project object */;
 }

@@ -6,9 +6,9 @@
 //
 
 import UIKit
-import CoreData
 
 class LoginViewController: UIViewController {
+    @IBOutlet weak var logoImageView: UIImageView!
     @IBOutlet weak var idTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var loginButton: UIButton!
@@ -30,21 +30,22 @@ class LoginViewController: UIViewController {
             return
         }
         
-        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-        let fetchRequest: NSFetchRequest<IDEntity> = IDEntity.fetchRequest()
-        
-        fetchRequest.predicate = NSPredicate(format: "id == %@ AND password == %@", id, password)
-        
-        do {
-            let users = try context.fetch(fetchRequest)
-            if let user = users.first {
-                performSegue(withIdentifier: "testview", sender: nil)
-                print("Login successful for user: \(String(describing: user.name))")
-            } else {
-                showAlert(title: "🚨Login 실패🚨", message: "⚠️ 다시 시도해주세요!")
+        if let savedData = UserDefaults.standard.object(forKey: id) as? Data {
+            let decoder = JSONDecoder()
+            if let savedObject = try? decoder.decode(LoginUser.self, from: savedData) {
+                guard savedObject.password == password else {
+                    showAlert(title: "🚨Password 오류🚨", message: "⚠️ Password가 일치하지 않습니다!")
+                    return
+                }
+                User.currentUser.name = savedObject.name
+                User.currentUser.email = savedObject.email
+                User.currentUser.gender = Gender(rawValue: savedObject.gender)!
+                User.currentUser.isLogin = true
+                let destinationViewController =  UIStoryboard(name: "MyPageViewController", bundle: nil).instantiateInitialViewController()!
+                self.navigationController?.pushViewController(destinationViewController, animated: true)
             }
-        } catch {
-            print("Error")
+        }else{
+            showAlert(title: "🚨회원정보 없음!🚨", message: "⚠️ 해당 회원정보를 찾을 수 없습니다!")
         }
     }
     
@@ -52,10 +53,14 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        idTextField.placeholder = "ID"
-        passwordTextField.placeholder = "Password"
+        idTextField.placeholder = "아이디 ( 이메일 형식 )"
+        passwordTextField.placeholder = "비밀번호"
         
         passwordTextField.isSecureTextEntry = true
+        
+//        if let appDomain = Bundle.main.bundleIdentifier {
+//            UserDefaults.standard.removePersistentDomain(forName: appDomain)
+//        }
     }
     
     

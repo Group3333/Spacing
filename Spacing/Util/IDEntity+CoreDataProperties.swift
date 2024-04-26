@@ -1,8 +1,8 @@
 //
 //  IDEntity+CoreDataProperties.swift
-//  Spacing
+//  
 //
-//  Created by TaeOuk Hwang on 4/24/24.
+//  Created by TaeOuk Hwang on 4/25/24.
 //
 //
 
@@ -19,9 +19,6 @@ extension IDEntity {
     @NSManaged public var id: String?
     @NSManaged public var name: String?
     @NSManaged public var password: String?
-
-}
-
-extension IDEntity : Identifiable {
+    @NSManaged public var profileImage: Date?
 
 }

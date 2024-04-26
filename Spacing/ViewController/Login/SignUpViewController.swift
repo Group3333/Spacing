@@ -8,14 +8,35 @@
 import UIKit
 import CoreData
 
-class SignUpViewController: UIViewController {
+class SignUpViewController: UIViewController, UINavigationControllerDelegate {
+    var newLoginUser: LoginUser?
+    let gender : [Gender] =  Gender.allCases
+    
     @IBOutlet weak var nameTextField: UITextField!
+    @IBOutlet weak var nickNameTextField: UITextField!
     @IBOutlet weak var idTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var confirmPasswordTextField: UITextField!
+    @IBOutlet weak var genderSegmentedControl: UISegmentedControl!
+    @IBOutlet weak var seleceProfileImageButton: UIButton!
+    
+    
+    
+    @IBAction func selectProfileImage(_ sender: UIButton) {
+        guard let vc = UIStoryboard(name: "ProfileImageSelectViewController", bundle: nil).instantiateViewController(withIdentifier: "ProfileImageSelectViewController") as? ProfileImageSelectViewController else {
+            return
+        }
+        vc.modalPresentationStyle = .custom
+        vc.transitioningDelegate = self
+        vc.delegate = self
+        present(vc, animated: true)
+        
+    }
     
     @IBAction func signUpButtonTapped(_ sender: UIButton) {
-        guard let id = idTextField.text, !id.isEmpty,
+        guard let nickName = nickNameTextField.text, !nickName.isEmpty,
+              let id = idTextField.text, !id.isEmpty,
               let password = passwordTextField.text, !password.isEmpty,
               let confirmPassword = confirmPasswordTextField.text, !confirmPassword.isEmpty,
               let name = nameTextField.text, !name.isEmpty else {
@@ -37,61 +58,68 @@ class SignUpViewController: UIViewController {
             showAlert(title: "🚨비밀번호 불일치🚨", message: "⚠️ 비밀번호와 확인 비밀번호가 일치하지 않습니다!")
             return
         }
-
-        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-
-        let fetchRequest: NSFetchRequest<IDEntity> = IDEntity.fetchRequest()
-        fetchRequest.predicate = NSPredicate(format: "id == %@", id)
         
-        do {
-            let users = try context.fetch(fetchRequest)
-            if !users.isEmpty {
-                showAlert(title: "🚨이미 등록된 아이디🚨", message: "⚠️ 해당 아이디로 이미 회원가입이 되어 있습니다!")
-                return
-            }
-        } catch {
+        guard (profileImageView.image?.jpegData(compressionQuality: 1.0)) != nil else {
+            showAlert(title: "🚨프로필 이미지 필요🚨", message: "⚠️ 프로필 이미지를 선택해주세요!")
             return
         }
-
-        fetchRequest.predicate = NSPredicate(format: "name == %@", name)
         
-        do {
-            let users = try context.fetch(fetchRequest)
-            if !users.isEmpty {
-                showAlert(title: "🚨이미 등록된 이름🚨", message: "⚠️ 해당 이름으로 이미 회원가입이 되어 있습니다!")
-                return
+        if let _ = UserDefaults.standard.object(forKey: id) as? Data {
+            showAlert(title: "🚨중복 회원가입🚨", message: "⚠️ 회원가입이 이미 되어 있습니다!")
+            return
+        }else{
+            newLoginUser = LoginUser(name: name, profileImage: "emptyProfile", password: password, email: id, nickName: nickName, gender: gender[genderSegmentedControl.selectedSegmentIndex].rawValue)
+            let encoder = JSONEncoder()
+            
+            /// encoded는 Data형
+            if let encoded = try? encoder.encode(newLoginUser) {
+                UserDefaults.standard.setValue(encoded, forKey: id)
             }
-        } catch {
-            return
+            let successAlert = UIAlertController(title: "축하합니다!", message: "회원가입이 완료되었습니다!", preferredStyle: .alert)
+            let ok = UIAlertAction(title: "확인", style: .default) {_ in
+                self.dismiss(animated: true)
+                self.dismiss(animated: true)
+            }
+            successAlert.addAction(ok)
+            present(successAlert, animated: true, completion: nil)
         }
+        
 
-        let newUser = IDEntity(context: context)
-        newUser.id = id
-        newUser.password = password
-        newUser.name = name
-
-        do {
-            try context.save()
-            print("successfully signed up!")
-            dismiss(animated: true, completion: nil)
-        } catch {
-            return
-        }
     }
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        idTextField.placeholder = "ID"
-        passwordTextField.placeholder = "Password"
-        confirmPasswordTextField.placeholder = "Confirm Password"
-        nameTextField.placeholder = "Name"
-        
-        passwordTextField.isSecureTextEntry = true
-        confirmPasswordTextField.isSecureTextEntry = true
+        configureUI()
     }
     
+    func configureUI(){
+        idTextField.placeholder = "아이디 ( 이메일 형식 )"
+        passwordTextField.placeholder = "비밀번호"
+        confirmPasswordTextField.placeholder = "비밀번호 확인"
+        nameTextField.placeholder = "이름"
+        nickNameTextField.placeholder = "닉네임"
+        seleceProfileImageButton.setTitle("프로필 변경", for: .normal)
+        genderSegmentedControl.setTitle(gender[0].rawValue, forSegmentAt: 0)
+        genderSegmentedControl.setTitle(gender[1].rawValue, forSegmentAt: 1)
+        seleceProfileImageButton.sizeToFit()
+        [passwordTextField,confirmPasswordTextField].forEach{
+            $0?.textContentType = .oneTimeCode
+            $0?.isSecureTextEntry = true
+        }
+        [idTextField,passwordTextField,confirmPasswordTextField,nameTextField,nickNameTextField,genderSegmentedControl,seleceProfileImageButton].forEach{
+            $0?.layer.cornerRadius = 5
+            $0?.layer.borderColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.2).cgColor
+            $0?.layer.borderWidth = 2
+        }
+        profileImageView.layer.cornerRadius = profileImageView.frame.size.width / 2
+        profileImageView.layer.borderWidth = 3
+        profileImageView.layer.borderColor = UIColor.label.cgColor
+        profileImageView.tintColor = .label
+        profileImageView.image = UIImage(named: "emptyProfile")!
+        profileImageView.clipsToBounds = true
+        profileImageView.contentMode = .scaleAspectFill
+    }
     
     func isValidPassword(_ password: String) -> Bool {
         let passwordRegEx = "^[a-zA-Z0-9]{8,}$"
@@ -110,5 +138,19 @@ class SignUpViewController: UIViewController {
         let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
         alert.addAction(okAction)
         present(alert, animated: true, completion: nil)
+    }
+    
+    
+}
+
+
+extension SignUpViewController: UIViewControllerTransitioningDelegate {
+    func presentationController(forPresented presented: UIViewController, presenting: UIViewController?, source: UIViewController) -> UIPresentationController? {
+        return HalfModalPresentationController(presentedViewController: presented, presenting: presenting)
+    }
+}
+extension SignUpViewController : ProfileImageDelegate {
+    func profileImageChanged(image: UIImage) {
+        profileImageView.image = image
     }
 }
