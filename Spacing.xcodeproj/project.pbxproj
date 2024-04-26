@@ -50,7 +50,6 @@
 		14D85DF62BD9309200BB0289 /* TimeSelectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D85DE92BD9309200BB0289 /* TimeSelectionVC.swift */; };
 		14D85DF72BD9309200BB0289 /* DetailViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14D85DEB2BD9309200BB0289 /* DetailViewController.storyboard */; };
 		14D85DF82BD9309200BB0289 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D85DEC2BD9309200BB0289 /* DetailViewController.swift */; };
-		14D85DF92BD9309200BB0289 /* View.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14D85DED2BD9309200BB0289 /* View.xib */; };
 		14D9EBDC2BD77C56007DF629 /* PlaceTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14D9EBDB2BD77C56007DF629 /* PlaceTableViewCell.xib */; };
 		14D9EBDD2BD77C56007DF629 /* PlaceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D9EBDA2BD77C56007DF629 /* PlaceTableViewCell.swift */; };
 		14D9EBE22BD78557007DF629 /* CategoryCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14D9EBE12BD78557007DF629 /* CategoryCollectionViewCell.xib */; };
@@ -130,7 +129,6 @@
 		14D85DE92BD9309200BB0289 /* TimeSelectionVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeSelectionVC.swift; sourceTree = "<group>"; };
 		14D85DEB2BD9309200BB0289 /* DetailViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = DetailViewController.storyboard; sourceTree = "<group>"; };
 		14D85DEC2BD9309200BB0289 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
-		14D85DED2BD9309200BB0289 /* View.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = View.xib; sourceTree = "<group>"; };
 		14D9EBDA2BD77C56007DF629 /* PlaceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceTableViewCell.swift; sourceTree = "<group>"; };
 		14D9EBDB2BD77C56007DF629 /* PlaceTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlaceTableViewCell.xib; sourceTree = "<group>"; };
 		14D9EBE02BD78557007DF629 /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -378,7 +376,6 @@
 				14D85DEA2BD9309200BB0289 /* TimeSelectionView */,
 				14D85DEB2BD9309200BB0289 /* DetailViewController.storyboard */,
 				14D85DEC2BD9309200BB0289 /* DetailViewController.swift */,
-				14D85DED2BD9309200BB0289 /* View.xib */,
 			);
 			path = DetailView;
 			sourceTree = "<group>";
@@ -529,7 +526,6 @@
 				14C7D7CF2BD6632300CB5746 /* MenuTableViewCell.xib in Resources */,
 				14C7D7E22BD668CB00CB5746 /* PlaceViewController.storyboard in Resources */,
 				14C7D7DA2BD667FF00CB5746 /* PersonalViewController.storyboard in Resources */,
-				14D85DF92BD9309200BB0289 /* View.xib in Resources */,
 				14C7D7BB2BD658F700CB5746 /* MyPageViewController.storyboard in Resources */,
 				14C7D78A2BD614B400CB5746 /* Assets.xcassets in Resources */,
 				14D85DF72BD9309200BB0289 /* DetailViewController.storyboard in Resources */,

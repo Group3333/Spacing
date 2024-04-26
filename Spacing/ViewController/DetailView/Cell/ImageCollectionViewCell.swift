@@ -20,6 +20,8 @@ class ImageCollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        
+        contentView.backgroundColor = UIColor.spacingBeige
     }
     
     func configure(image : UIImage){

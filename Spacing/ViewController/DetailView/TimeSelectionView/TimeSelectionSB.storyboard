@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -17,49 +18,51 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TYl-g0-lo1">
-                                <rect key="frame" x="34" y="213" width="325" height="35"/>
+                                <rect key="frame" x="20" y="270" width="353" height="50"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="325" id="HRS-rN-1LN"/>
-                                    <constraint firstAttribute="height" constant="35" id="jED-gB-zIB"/>
+                                    <constraint firstAttribute="height" constant="50" id="HsJ-Go-t13"/>
                                 </constraints>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="확인"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
+                                <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="확인"/>
                                 <connections>
-                                    <action selector="selectBtn:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="0yZ-Ue-6Ug"/>
+                                    <action selector="selectBtnClicked:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="0ra-In-AFZ"/>
                                 </connections>
                             </button>
-                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6x7-Aa-Zcm">
-                                <rect key="frame" x="81" y="70" width="231" height="112"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="대여 시간을 설정해주세요" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m3K-yK-6MG">
+                                <rect key="frame" x="108" y="89" width="177" height="21"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="112" id="NOa-V1-q3i"/>
-                                    <constraint firstAttribute="width" constant="231" id="TaG-aG-YeG"/>
+                                    <constraint firstAttribute="height" constant="21" id="7lv-OT-9hh"/>
+                                    <constraint firstAttribute="width" constant="177" id="JCG-XF-YLK"/>
                                 </constraints>
-                            </pickerView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="대여 시간을 설정해주세요." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m3K-yK-6MG">
-                                <rect key="frame" x="108" y="30" width="177" height="21"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="eIa-xt-xMA"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6x7-Aa-Zcm">
+                                <rect key="frame" x="50" y="130" width="293" height="115"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="115" id="R4G-PS-fEt"/>
+                                </constraints>
+                            </pickerView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="TYl-g0-lo1" firstAttribute="top" secondItem="6x7-Aa-Zcm" secondAttribute="bottom" constant="31" id="30a-nY-vi8"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="TYl-g0-lo1" secondAttribute="trailing" constant="34" id="HyZ-df-COK"/>
-                            <constraint firstItem="6x7-Aa-Zcm" firstAttribute="top" secondItem="m3K-yK-6MG" secondAttribute="bottom" constant="19" id="K6g-YK-KMd"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="6x7-Aa-Zcm" secondAttribute="trailing" constant="81" id="gOU-xr-PWB"/>
-                            <constraint firstItem="TYl-g0-lo1" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="34" id="h4l-Rv-gLl"/>
-                            <constraint firstItem="m3K-yK-6MG" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" constant="108" id="pmE-3R-AdR"/>
-                            <constraint firstItem="m3K-yK-6MG" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" constant="30" id="q3H-wU-b38"/>
-                            <constraint firstItem="6x7-Aa-Zcm" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="81" id="wSi-X7-Dw3"/>
-                            <constraint firstAttribute="trailing" secondItem="m3K-yK-6MG" secondAttribute="trailing" constant="108" id="yNB-Lu-4DG"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="6x7-Aa-Zcm" secondAttribute="trailing" constant="50" id="89I-eb-UXf"/>
+                            <constraint firstItem="m3K-yK-6MG" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="108" id="Cjk-Mq-3He"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="m3K-yK-6MG" secondAttribute="trailing" constant="108" id="FeT-uw-jzc"/>
+                            <constraint firstItem="TYl-g0-lo1" firstAttribute="top" secondItem="6x7-Aa-Zcm" secondAttribute="bottom" constant="25" id="JMV-nC-hNr"/>
+                            <constraint firstItem="6x7-Aa-Zcm" firstAttribute="top" secondItem="m3K-yK-6MG" secondAttribute="bottom" constant="20" id="Tah-TM-i9z"/>
+                            <constraint firstItem="TYl-g0-lo1" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="VKR-uJ-1Xi"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="TYl-g0-lo1" secondAttribute="trailing" constant="20" id="aEu-6U-4if"/>
+                            <constraint firstItem="6x7-Aa-Zcm" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="50" id="ads-rK-LYb"/>
+                            <constraint firstItem="m3K-yK-6MG" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="30" id="efP-ik-UBM"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="selectBtn" destination="TYl-g0-lo1" id="iyQ-fN-Y31"/>
                         <outlet property="timeList" destination="6x7-Aa-Zcm" id="OBj-bo-Gta"/>
                     </connections>
                 </viewController>
