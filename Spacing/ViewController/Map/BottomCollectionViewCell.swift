@@ -8,9 +8,11 @@
 import UIKit
 
 class BottomCollectionViewCell: UICollectionViewCell {
+    
     @IBOutlet var imageView: UIImageView!
     @IBOutlet var title: UILabel!
-    @IBOutlet var discriptions: UILabel!
+    @IBOutlet var descriptions: UILabel!
+    
     static let identifier = "BottomCollectionViewCell"
     static func nib() -> UINib {
         return UINib(nibName: "BottomCollectionViewCell", bundle: nil)
@@ -19,6 +21,11 @@ class BottomCollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+    }
+    func configure(title: String, description: String, image: UIImage){
+        self.title.text = title
+        self.descriptions.text = description
+        self.imageView.image = image
     }
 
 }
