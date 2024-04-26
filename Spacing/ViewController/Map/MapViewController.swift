@@ -22,7 +22,7 @@ class MapViewController: UIViewController, NMFMapViewTouchDelegate, UICollection
     var isInitalLocationUpdate = true
     
     var categoryCollectionView: UICollectionView!
-    var locationSearchField = UITextField()
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,7 +36,6 @@ class MapViewController: UIViewController, NMFMapViewTouchDelegate, UICollection
     
     func setMapUI() {
         self.view.addSubview(naverMapView)
-        naverMapView.addSubview(locationSearchField)
         
         naverMapView.mapView.positionMode = .normal
         naverMapView.showLocationButton = true
@@ -75,16 +74,10 @@ class MapViewController: UIViewController, NMFMapViewTouchDelegate, UICollection
         
         categoryCollectionView.snp.makeConstraints {make in
             make.leading.trailing.equalToSuperview()
-            make.top.equalTo(locationSearchField).inset(5)
+            make.top.equalTo(view.safeAreaLayoutGuide)
             make.height.equalTo(70)
         }
         
-        locationSearchField.snp.makeConstraints { make in
-            make.leading.trailing.equalToSuperview().inset(15)
-            make.top.equalTo(self.view.safeAreaLayoutGuide)
-            make.height.equalTo(30)
-            
-        }
     }
         func alertLocationAuth() {
             locationManager.delegate = self
@@ -100,18 +93,23 @@ class MapViewController: UIViewController, NMFMapViewTouchDelegate, UICollection
             dataSource.title = "테스트 마커의 정보창"
             infoWindow.dataSource = dataSource
             
-            let handler = { [weak self] (overlay: NMFOverlay) -> Bool in
+            let handler = { [self] (overlay: NMFOverlay) -> Bool in
                 if let marker = overlay as? NMFMarker {
                     if marker.infoWindow == nil {
                         // 현재 마커에 정보 창이 열려있지 않을 경우 엶
-                        self?.infoWindow.open(with: marker)
+                        self.infoWindow.open(with: marker)
+                        infoWindow.alpha = 0.8
+                        let cameraUpdate = NMFCameraUpdate(scrollTo: NMGLatLng(lat: 35.154497, lng: 129.019168), zoomTo: 14)
+                        cameraUpdate.animation = .easeIn
+                        naverMapView.mapView.moveCamera(cameraUpdate)
                     } else {
                         // 이미 현재 마커에 정보 창이 열려있을 경우 닫음
-                        self?.infoWindow.close()
+                        self.infoWindow.close()
                     }
                 }
                 return true
             }
+            
             testMarker.touchHandler = handler
         }
         
