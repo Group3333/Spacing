@@ -5,6 +5,9 @@ target 'Spacing' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
 	pod 'NMapsMap'
+  	pod 'KakaoSDKCommon'
+  	pod 'KakaoSDKAuth'
+  	pod 'KakaoSDKUser'
   # Pods for Spacing
 
   target 'SpacingTests' do

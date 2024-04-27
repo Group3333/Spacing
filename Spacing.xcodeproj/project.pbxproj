@@ -11,8 +11,6 @@
 		140EB7512BDB5F250013AB63 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140EB7502BDB5F250013AB63 /* Data.swift */; };
 		140EB7532BDB68AD0013AB63 /* ProfileImageSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140EB7522BDB68AD0013AB63 /* ProfileImageSelectViewController.swift */; };
 		140EB7552BDB68C20013AB63 /* ProfileImageSelectViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 140EB7542BDB68C20013AB63 /* ProfileImageSelectViewController.storyboard */; };
-		140EB75A2BDB79CE0013AB63 /* TopCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140EB7582BDB79CE0013AB63 /* TopCollectionViewCell.swift */; };
-		1431FA192BDB7B4300347DBA /* TopCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 140EB7572BDB79CE0013AB63 /* TopCollectionViewCell.xib */; };
 		145C32032BD7F525000FB8BD /* KakaoPostCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145C32022BD7F525000FB8BD /* KakaoPostCodeViewController.swift */; };
 		14C5FD8B2BD8DC4B00B8358C /* AddImageCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14C5FD8A2BD8DC4B00B8358C /* AddImageCollectionViewCell.xib */; };
 		14C5FD8C2BD8DC4B00B8358C /* AddImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C5FD892BD8DC4B00B8358C /* AddImageCollectionViewCell.swift */; };
@@ -61,7 +59,11 @@
 		14EDFFF52BD9EF21001CC996 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14EDFFF32BD9EF21001CC996 /* MapViewController.swift */; };
 		51272CD02BDA4186004321F6 /* IDEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51272CCF2BDA4186004321F6 /* IDEntity+CoreDataClass.swift */; };
 		51272CD12BDA4186004321F6 /* IDEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51272CCE2BDA4186004321F6 /* IDEntity+CoreDataProperties.swift */; };
+		5154AC882BDC8B9A00EEB998 /* KakaoLogin.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5154AC872BDC8B9A00EEB998 /* KakaoLogin.storyboard */; };
+		5154AC8A2BDC8BA700EEB998 /* KakaoLoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5154AC892BDC8BA700EEB998 /* KakaoLoginController.swift */; };
 		51AC92B12BD7C66B006C2C51 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51AC92B02BD7C66A006C2C51 /* SignUpViewController.swift */; };
+		51B8B85B2BDC88A600303563 /* TopCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 51B8B8592BDC88A600303563 /* TopCollectionViewCell.xib */; };
+		51B8B85C2BDC88A600303563 /* TopCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51B8B85A2BDC88A600303563 /* TopCollectionViewCell.swift */; };
 		65B4FCD7B27DC56C4E3E13CC /* Pods_SpacingTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F2144B47394FC7445DC498A /* Pods_SpacingTests.framework */; };
 		A6E0E38F110A599546A537D5 /* Pods_Spacing_SpacingUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C72474CF1FD080CCFDF783BB /* Pods_Spacing_SpacingUITests.framework */; };
 /* End PBXBuildFile section */
@@ -88,8 +90,6 @@
 		140EB7502BDB5F250013AB63 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		140EB7522BDB68AD0013AB63 /* ProfileImageSelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImageSelectViewController.swift; sourceTree = "<group>"; };
 		140EB7542BDB68C20013AB63 /* ProfileImageSelectViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ProfileImageSelectViewController.storyboard; sourceTree = "<group>"; };
-		140EB7572BDB79CE0013AB63 /* TopCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TopCollectionViewCell.xib; path = ../../../../../../Downloads/TopCollectionViewCell.xib; sourceTree = "<group>"; };
-		140EB7582BDB79CE0013AB63 /* TopCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TopCollectionViewCell.swift; path = ../../../../../../Downloads/TopCollectionViewCell.swift; sourceTree = "<group>"; };
 		1453D8062BDA47BA00BD21C0 /* TopCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopCollectionViewCell.swift; sourceTree = "<group>"; };
 		1453D8072BDA47BA00BD21C0 /* TopCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TopCollectionViewCell.xib; sourceTree = "<group>"; };
 		145C32022BD7F525000FB8BD /* KakaoPostCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoPostCodeViewController.swift; sourceTree = "<group>"; };
@@ -142,7 +142,11 @@
 		1B1048CA9C36ECB96A93773D /* Pods-Spacing.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Spacing.release.xcconfig"; path = "Target Support Files/Pods-Spacing/Pods-Spacing.release.xcconfig"; sourceTree = "<group>"; };
 		51272CCE2BDA4186004321F6 /* IDEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "IDEntity+CoreDataProperties.swift"; path = "../../IDEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		51272CCF2BDA4186004321F6 /* IDEntity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "IDEntity+CoreDataClass.swift"; path = "../../IDEntity+CoreDataClass.swift"; sourceTree = "<group>"; };
+		5154AC872BDC8B9A00EEB998 /* KakaoLogin.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = KakaoLogin.storyboard; sourceTree = "<group>"; };
+		5154AC892BDC8BA700EEB998 /* KakaoLoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoLoginController.swift; sourceTree = "<group>"; };
 		51AC92B02BD7C66A006C2C51 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		51B8B8592BDC88A600303563 /* TopCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TopCollectionViewCell.xib; sourceTree = "<group>"; };
+		51B8B85A2BDC88A600303563 /* TopCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopCollectionViewCell.swift; sourceTree = "<group>"; };
 		692D3701DB1C7917962D459F /* Pods-SpacingTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpacingTests.release.xcconfig"; path = "Target Support Files/Pods-SpacingTests/Pods-SpacingTests.release.xcconfig"; sourceTree = "<group>"; };
 		8F2144B47394FC7445DC498A /* Pods_SpacingTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SpacingTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9502A1E41DE8221CB2BCA0CD /* Pods-Spacing-SpacingUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Spacing-SpacingUITests.release.xcconfig"; path = "Target Support Files/Pods-Spacing-SpacingUITests/Pods-Spacing-SpacingUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -186,9 +190,11 @@
 		140EB74E2BDB3BD80013AB63 /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				5154AC892BDC8BA700EEB998 /* KakaoLoginController.swift */,
 				51AC92B02BD7C66A006C2C51 /* SignUpViewController.swift */,
 				14C7D7812BD614B200CB5746 /* ViewController.swift */,
 				14C7D7832BD614B200CB5746 /* Main.storyboard */,
+				5154AC872BDC8B9A00EEB998 /* KakaoLogin.storyboard */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -197,8 +203,8 @@
 			isa = PBXGroup;
 			children = (
 				14EDFFF32BD9EF21001CC996 /* MapViewController.swift */,
-				140EB7582BDB79CE0013AB63 /* TopCollectionViewCell.swift */,
-				140EB7572BDB79CE0013AB63 /* TopCollectionViewCell.xib */,
+				51B8B85A2BDC88A600303563 /* TopCollectionViewCell.swift */,
+				51B8B8592BDC88A600303563 /* TopCollectionViewCell.xib */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -534,8 +540,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1431FA192BDB7B4300347DBA /* TopCollectionViewCell.xib in Resources */,
 				14D9EBE22BD78557007DF629 /* CategoryCollectionViewCell.xib in Resources */,
+				5154AC882BDC8B9A00EEB998 /* KakaoLogin.storyboard in Resources */,
 				14C7D7CF2BD6632300CB5746 /* MenuTableViewCell.xib in Resources */,
 				14C7D7E22BD668CB00CB5746 /* PlaceViewController.storyboard in Resources */,
 				14C7D7DA2BD667FF00CB5746 /* PersonalViewController.storyboard in Resources */,
@@ -548,6 +554,7 @@
 				14C7D7D32BD664B500CB5746 /* ButtonTableViewCell.xib in Resources */,
 				140EB7552BDB68C20013AB63 /* ProfileImageSelectViewController.storyboard in Resources */,
 				14D85DF02BD9309200BB0289 /* ImageCollectionViewCell.xib in Resources */,
+				51B8B85B2BDC88A600303563 /* TopCollectionViewCell.xib in Resources */,
 				14D85DF52BD9309200BB0289 /* TimeSelectionSB.storyboard in Resources */,
 				14C7D78D2BD614B400CB5746 /* Base in Resources */,
 				14C7D7852BD614B200CB5746 /* Base in Resources */,
@@ -691,7 +698,7 @@
 				51AC92B12BD7C66B006C2C51 /* SignUpViewController.swift in Sources */,
 				14D9EBDD2BD77C56007DF629 /* PlaceTableViewCell.swift in Sources */,
 				14C7D7C32BD65F7E00CB5746 /* User.swift in Sources */,
-				140EB75A2BDB79CE0013AB63 /* TopCollectionViewCell.swift in Sources */,
+				51B8B85C2BDC88A600303563 /* TopCollectionViewCell.swift in Sources */,
 				14EDFFF52BD9EF21001CC996 /* MapViewController.swift in Sources */,
 				14C7D7D52BD6667A00CB5746 /* MyPageMenu.swift in Sources */,
 				14C7D7CA2BD6631000CB5746 /* UserTableViewCell.swift in Sources */,
@@ -708,6 +715,7 @@
 				14C7D7D82BD667F400CB5746 /* PersonalViewController.swift in Sources */,
 				14C7D7802BD614B200CB5746 /* SceneDelegate.swift in Sources */,
 				14C5FD8C2BD8DC4B00B8358C /* AddImageCollectionViewCell.swift in Sources */,
+				5154AC8A2BDC8BA700EEB998 /* KakaoLoginController.swift in Sources */,
 				51272CD12BDA4186004321F6 /* IDEntity+CoreDataProperties.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
