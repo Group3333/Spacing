@@ -62,10 +62,13 @@ class MapViewController: UIViewController, NMFMapViewTouchDelegate, UICollection
     func searchBarConfigure(){
         searchController = UISearchBar()
         searchController.placeholder = "이름, 주소 등"
-        searchController.searchTextField.backgroundColor = .spacingBeige
+        searchController.searchTextField.backgroundColor = .systemBackground
+        searchController.searchTextField.layer.borderColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.2).cgColor
+        searchController.searchTextField.layer.borderWidth = 2
+        searchController.searchTextField.layer.cornerRadius = 20
         searchController.delegate = self
         searchController.setValue("취소", forKey: "cancelButtonText")
-        searchController.enablesReturnKeyAutomatically = true
+        searchController.enablesReturnKeyAutomatically = false
         searchController.showsCancelButton = true
         self.navigationItem.titleView = searchController
         self.navigationItem.hidesSearchBarWhenScrolling = false
@@ -185,7 +188,9 @@ class MapViewController: UIViewController, NMFMapViewTouchDelegate, UICollection
     func mapView(_ mapView: NMFMapView, didTapMap latlng: NMGLatLng, point: CGPoint) {
         infoWindow.close()
         toggleDetails()
+        self.searchController.resignFirstResponder()
     }
+
     
     func toggleDetails(){
         if self.ishidden { // TableView가 아래로 스크롤될 때
@@ -393,6 +398,11 @@ extension MapViewController : UISearchBarDelegate {
             vc.state = .Main
             vc.searchText = searchText
             self.navigationController?.pushViewController(vc, animated: true)
+        }else{
+            return
         }
+    }
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
     }
 }
