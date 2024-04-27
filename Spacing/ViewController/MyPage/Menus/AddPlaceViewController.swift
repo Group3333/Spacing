@@ -24,6 +24,11 @@ class AddPlaceViewController: UIViewController {
     @IBOutlet weak var priceTextField: UITextField!
     @IBOutlet weak var submitButton: UIButton!
     @IBOutlet weak var descriptionTextView: UITextView!
+    @IBOutlet weak var spaceNamelabel: UILabel!
+    @IBOutlet weak var spaceAddressLabel: UILabel!
+    @IBOutlet weak var spaceCategLabel: UILabel!
+    @IBOutlet weak var spacePriceLabel: UILabel!
+    @IBOutlet weak var spaceDescriptionLabel: UILabel!
     
     @IBAction func submitButtonClicked(_ sender: Any) {
         if checkEdit().1 {
@@ -70,6 +75,15 @@ class AddPlaceViewController: UIViewController {
         createPickerView()
         dismissPickerView()
         configureCollectionView()
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.spacingDarkGray]
+        
+        view.backgroundColor = .white
+        [spaceNamelabel, spaceAddressLabel, spaceCategLabel, spacePriceLabel, spaceDescriptionLabel].forEach {
+            $0?.textColor = .spacingDarkGray
+        }
+        [titleTextField, detailAddressTextField,addressTextField, categoriesTextField,priceTextField, descriptionTextView].forEach {
+            $0?.backgroundColor = .spacingBeige
+        }
         // Do any additional setup after loading the view.
     }
     
@@ -85,9 +99,11 @@ class AddPlaceViewController: UIViewController {
         pageControl.pageIndicatorTintColor = UIColor.systemGray
         pageControl.currentPageIndicatorTintColor = UIColor.label
         [searchButton!,submitButton!].forEach{
-            $0.layer.cornerRadius = $0.layer.bounds.height / 2
-            $0.layer.borderWidth = 2
-            $0.layer.borderColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.3).cgColor
+            $0.backgroundColor = .spacingOrange
+            $0.layer.cornerRadius = 10
+            //            $0.layer.borderWidth = 2
+            $0.setTitleColor(.white, for: .normal)
+            //            $0.layer.borderColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.3).cgColor
         }
         categoriesTextField.tintColor = .clear
         descriptionTextView.layer.cornerRadius = 10
@@ -193,20 +209,20 @@ extension AddPlaceViewController : PHPickerViewControllerDelegate {
         picker.dismiss(animated: true)
         for result in results {
             result.itemProvider.loadObject(ofClass: UIImage.self) { (object, error) in // 4
-                    
-                    DispatchQueue.main.async {
-                        if let image = object as? UIImage {
-                            if self.index >= self.images.count {
-                                self.images.append(image)
-                            }else{
-                                self.images[self.index] = image
-                            }
+                
+                DispatchQueue.main.async {
+                    if let image = object as? UIImage {
+                        if self.index >= self.images.count {
+                            self.images.append(image)
+                        }else{
+                            self.images[self.index] = image
                         }
-                        self.imageCollectionView.reloadData()
                     }
+                    self.imageCollectionView.reloadData()
                 }
             }
         }
+    }
     
     func showPHPicker(){
         configuarion.selectionLimit = 1

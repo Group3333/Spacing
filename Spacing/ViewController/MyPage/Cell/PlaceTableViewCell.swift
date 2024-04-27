@@ -28,6 +28,13 @@ class PlaceTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        
+        [categoryLabel, rateLabel, hourPriceLabel, eventPriceLabel, eventLabel, hourLabel].forEach{
+            $0?.textColor = .spacingGray
+        }
+        [titleLabel, addressLabel, discountHourPriceLabel, eventDiscountPriceLabel].forEach {
+            $0?.textColor = .spacingDarkGray
+        }
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

@@ -12,6 +12,7 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var idTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var loginButton: UIButton!
+    @IBOutlet weak var signUpButton: UIButton!
     
     @IBAction func loginButtonTapped(_ sender: UIButton) {
         guard let id = idTextField.text, !id.isEmpty,
@@ -59,6 +60,21 @@ class LoginViewController: UIViewController {
         passwordTextField.placeholder = "비밀번호"
         
         passwordTextField.isSecureTextEntry = true
+        
+        view.backgroundColor = .spacingBeige
+        
+        loginButton.setTitleColor(.white, for: .normal)
+        loginButton.setTitle("로그인", for: .normal)
+        loginButton.backgroundColor = .spacingOrange
+        loginButton.layer.cornerRadius = 10
+        
+        signUpButton.setTitleColor(.spacingOrange, for: .normal)
+        signUpButton.setTitle("회원가입", for: .normal)
+        signUpButton.backgroundColor = .white
+        signUpButton.layer.cornerRadius = 10
+        signUpButton.layer.masksToBounds = true
+        signUpButton.layer.borderWidth = 1.5
+        signUpButton.layer.borderColor = UIColor.spacingOrange.cgColor
         
 //        if let appDomain = Bundle.main.bundleIdentifier {
 //            UserDefaults.standard.removePersistentDomain(forName: appDomain)

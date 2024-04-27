@@ -24,7 +24,6 @@ class ImageCollectionViewCell: UICollectionViewCell {
         super.awakeFromNib()
         // Initialization code
         
-
     }
     
     func configure(image : UIImage){

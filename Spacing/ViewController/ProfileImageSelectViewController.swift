@@ -20,6 +20,10 @@ class ProfileImageSelectViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configure()
+        
+        view.backgroundColor = .spacingBeige
+        confirmButton.setTitleColor(.white, for: .normal)
+        confirmButton.backgroundColor = .spacingOrange
     }
 
     @IBAction func confirmButtonClicked(_ sender: Any) {
