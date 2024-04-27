@@ -17,15 +17,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="62q-6R-cJ2">
-                                <rect key="frame" x="96.666666666666686" y="139" width="200" height="200"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="200" id="6fx-36-upW"/>
-                                    <constraint firstAttribute="width" secondItem="62q-6R-cJ2" secondAttribute="height" multiplier="1:1" id="jGS-tR-1pD"/>
-                                </constraints>
-                            </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="9Ph-4U-Rgw">
-                                <rect key="frame" x="40" y="439" width="313" height="200"/>
+                                <rect key="frame" x="40" y="422" width="313" height="200"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="d9E-RR-WrJ" userLabel="idTextField">
                                         <rect key="frame" x="0.0" y="0.0" width="313" height="34"/>
@@ -64,14 +57,21 @@
                                     <constraint firstAttribute="height" constant="200" id="ATN-bm-2RB"/>
                                 </constraints>
                             </stackView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="62q-6R-cJ2">
+                                <rect key="frame" x="50" y="89" width="293" height="293"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="62q-6R-cJ2" secondAttribute="height" multiplier="1:1" id="jGS-tR-1pD"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="62q-6R-cJ2" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="80" id="DLZ-yc-twS"/>
-                            <constraint firstItem="9Ph-4U-Rgw" firstAttribute="top" secondItem="62q-6R-cJ2" secondAttribute="bottom" constant="100" id="rS5-Gx-RTK"/>
+                            <constraint firstItem="62q-6R-cJ2" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="30" id="DLZ-yc-twS"/>
+                            <constraint firstItem="62q-6R-cJ2" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="50" id="bd5-r7-yA7"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="62q-6R-cJ2" secondAttribute="trailing" constant="50" id="gjr-th-2IL"/>
+                            <constraint firstItem="9Ph-4U-Rgw" firstAttribute="top" secondItem="62q-6R-cJ2" secondAttribute="bottom" constant="40" id="rS5-Gx-RTK"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="9Ph-4U-Rgw" secondAttribute="trailing" constant="40" id="tUh-n5-Zud"/>
-                            <constraint firstItem="62q-6R-cJ2" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ttd-zC-GWl"/>
                             <constraint firstItem="9Ph-4U-Rgw" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="40" id="yEQ-NF-G1F"/>
                         </constraints>
                     </view>
@@ -198,6 +198,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="logo" width="905" height="137"/>
         <image name="person" catalog="system" width="128" height="121"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

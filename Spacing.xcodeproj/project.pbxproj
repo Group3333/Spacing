@@ -44,6 +44,7 @@
 		14C7D7DE2BD6683100CB5746 /* AddPlaceViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14C7D7DD2BD6683100CB5746 /* AddPlaceViewController.storyboard */; };
 		14C7D7E02BD6689D00CB5746 /* PlaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C7D7DF2BD6689D00CB5746 /* PlaceViewController.swift */; };
 		14C7D7E22BD668CB00CB5746 /* PlaceViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14C7D7E12BD668CB00CB5746 /* PlaceViewController.storyboard */; };
+		14CE20762BDCC3DC002E1B0F /* appIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 14CE20752BDCC3DC002E1B0F /* appIcon.png */; };
 		14D85DEF2BD9309200BB0289 /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D85DE02BD9309200BB0289 /* ImageCollectionViewCell.swift */; };
 		14D85DF02BD9309200BB0289 /* ImageCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14D85DE12BD9309200BB0289 /* ImageCollectionViewCell.xib */; };
 		14D85DF42BD9309200BB0289 /* HalfModalPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D85DE72BD9309200BB0289 /* HalfModalPresentationController.swift */; };
@@ -124,6 +125,7 @@
 		14C7D7DD2BD6683100CB5746 /* AddPlaceViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddPlaceViewController.storyboard; sourceTree = "<group>"; };
 		14C7D7DF2BD6689D00CB5746 /* PlaceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceViewController.swift; sourceTree = "<group>"; };
 		14C7D7E12BD668CB00CB5746 /* PlaceViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PlaceViewController.storyboard; sourceTree = "<group>"; };
+		14CE20752BDCC3DC002E1B0F /* appIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = appIcon.png; sourceTree = "<group>"; };
 		14D85DE02BD9309200BB0289 /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		14D85DE12BD9309200BB0289 /* ImageCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ImageCollectionViewCell.xib; sourceTree = "<group>"; };
 		14D85DE72BD9309200BB0289 /* HalfModalPresentationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HalfModalPresentationController.swift; sourceTree = "<group>"; };
@@ -303,6 +305,7 @@
 				14C7D77D2BD614B200CB5746 /* AppDelegate.swift */,
 				14C7D77F2BD614B200CB5746 /* SceneDelegate.swift */,
 				14C7D7892BD614B400CB5746 /* Assets.xcassets */,
+				14CE20752BDCC3DC002E1B0F /* appIcon.png */,
 				14A9DEA92BDCBC3400668E35 /* LaunchScreen.storyboard */,
 				14D9EBE42BD7A5D4007DF629 /* ExtensionUtil.swift */,
 			);
@@ -529,6 +532,7 @@
 				14C7D7CF2BD6632300CB5746 /* MenuTableViewCell.xib in Resources */,
 				14C7D7E22BD668CB00CB5746 /* PlaceViewController.storyboard in Resources */,
 				14C7D7DA2BD667FF00CB5746 /* PersonalViewController.storyboard in Resources */,
+				14CE20762BDCC3DC002E1B0F /* appIcon.png in Resources */,
 				14C7D7BB2BD658F700CB5746 /* MyPageViewController.storyboard in Resources */,
 				14C7D78A2BD614B400CB5746 /* Assets.xcassets in Resources */,
 				14A9DEAA2BDCBC3400668E35 /* LaunchScreen.storyboard in Resources */,
