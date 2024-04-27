@@ -9,9 +9,11 @@ import Foundation
 import UIKit
 
 class Place {
-    let title : String
+    var title : String
     var categories : Categories
-    let position : String
+    var position : String
+    var address: String
+    var detailAddress: String
     var images : [UIImage]
     var description : String
     var isBooked : Bool
@@ -20,10 +22,12 @@ class Place {
     var lng : Double
     var lat : Double
     
-    init(title: String, categories: Categories, position: String, images: [UIImage], description: String, isBooked: Bool, rating: Double, price: Int, lng: Double, lat: Double) {
+    init(title: String, categories: Categories, position: String, address: String, detailAddress: String, images: [UIImage], description: String, isBooked: Bool, rating: Double, price: Int, lng: Double, lat: Double) {
         self.title = title
         self.categories = categories
         self.position = position
+        self.address = address
+        self.detailAddress = detailAddress
         self.images = images
         self.description = description
         self.isBooked = isBooked
@@ -55,11 +59,11 @@ enum Categories : String, CaseIterable {
 
 
 extension Place {
-    static var fav: [Place] = [Place.data[0],Place.data[1]]
-    static var host: [Place] = [Place.data[1]]
+    static var fav: [Place] = [Place.data[0],Place.data[1],Place.data[2]]
+    static var host: [Place] = [Place.data[0]]
     
     static var categoryImage : [Categories : UIImage] = [
-        .all : UIImage(named: "all")!,
+        .all : UIImage(named: "allImage")!,
         .partyRoom : UIImage(named: "partyRoom")!,
         .practiceRoom : UIImage(named: "practiceRoom")!,
         .photoStudio : UIImage(named: "photoStudio")!,

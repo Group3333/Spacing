@@ -14,6 +14,8 @@ extension Place {
             title: "신촌블랑4[금,토 할인]노래방",
             categories: .partyRoom,
             position: "서울 서대문구 창천동 510-9 3층",
+            address: "서울 서대문구 창천동 510-9",
+            detailAddress: "3층",
             images: [
                 UIImage(named: "place0-1")!,
                 UIImage(named: "place0-2")!,
@@ -55,6 +57,8 @@ extension Place {
             title: "[강남] 공연,세미나,전시 갤러리",
             categories: .cafe,
             position: "서울 서초구 신반포로 지하 241 역사내 지하1층 갤러리사이",
+            address: "서울 서초구 신반포로 지하 241",
+            detailAddress: "역사내 지하1층 갤러리사이",
             images: [
                 UIImage(named: "place1-1")!,
                 UIImage(named: "place1-2")!,
@@ -93,6 +97,8 @@ extension Place {
             title: "[겨울특가]서초 소중한스튜디오",
             categories: .photoStudio,
             position: "서울 서초구 서초중앙로2길 42 갑목빌딩 6층 603호",
+            address: "서울 서초구 서초중앙로2길 42",
+            detailAddress: "갑목빌딩 6층 603호",
             images: [
                 UIImage(named: "place2-1")!,
                 UIImage(named: "place2-2")!,
@@ -123,6 +129,8 @@ extension Place {
             title: "우리들의 강의실",
             categories: .lectureRoom,
             position: "서울 서초구 서초중앙로2길 42 갑목빌딩 6층 603호",
+            address: "서울 서초구 서초중앙로2길 42",
+            detailAddress: "갑목빌딩 6층 603호",
             images: [
                 UIImage(named: "place2-3")!,
                 UIImage(named: "place2-1")!,
@@ -153,6 +161,8 @@ extension Place {
             title: "저세상 사진관",
             categories: .photoStudio,
             position: "서울 서초구 서초중앙로2길 42 갑목빌딩 6층 603호",
+            address: "서울 서초구 서초중앙로2길 42",
+            detailAddress: "갑목빌딩 6층 603호",
             images: [
                 UIImage(named: "place2-1")!,
                 UIImage(named: "place2-2")!,
@@ -183,6 +193,8 @@ extension Place {
             title: "죽어라 연습실",
             categories: .practiceRoom,
             position: "서울 서초구 서초중앙로2길 42 갑목빌딩 6층 603호",
+            address: "서울 서초구 서초중앙로2길 42",
+            detailAddress: "갑목빌딩 6층 603호",
             images: [
                 UIImage(named: "place2-1")!,
                 UIImage(named: "place2-2")!,
@@ -213,6 +225,8 @@ extension Place {
             title: "일만해라 오피스",
             categories: .office,
             position: "서울 서초구 서초중앙로2길 42 갑목빌딩 6층 603호",
+            address: "서울 서초구 서초중앙로2길 42",
+            detailAddress: "갑목빌딩 6층 603호",
             images: [
                 UIImage(named: "place2-1")!,
                 UIImage(named: "place2-2")!,
@@ -243,6 +257,8 @@ extension Place {
             title: "공부해라 스터디룸",
             categories: .studyRoom,
             position: "서울 서초구 서초중앙로2길 42 갑목빌딩 6층 603호",
+            address: "서울 서초구 서초중앙로2길 42",
+            detailAddress: "갑목빌딩 6층 603호",
             images: [
                 UIImage(named: "place0-1")!,
                 UIImage(named: "place2-2")!,

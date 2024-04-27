@@ -21,7 +21,6 @@ class MapViewController: UIViewController, NMFMapViewTouchDelegate, UICollection
     var isInitalLocationUpdate = true
     var markers : [NMFMarker] = []
     var ishidden = false
-    
     var categoryCollectionView: UICollectionView!
     var detailCollectionView : UICollectionView!
     var searchController : UISearchBar!
@@ -39,9 +38,12 @@ class MapViewController: UIViewController, NMFMapViewTouchDelegate, UICollection
         setMarker(data: Place.data)
         naverMapView.mapView.touchDelegate = self
         configureBarButton()
-        
-       
     }
+    override func viewDidAppear(_ animated: Bool) {
+        place = Place.data
+        detailCollectionView.reloadData()
+    }
+    
     func configureBarButton(){
         let cancel = UIBarButtonItem(image: UIImage(systemName: "person.crop.circle.fill"), style: .plain, target: self, action: #selector(pushMyPage))
         self.navigationItem.rightBarButtonItem = cancel
@@ -62,6 +64,9 @@ class MapViewController: UIViewController, NMFMapViewTouchDelegate, UICollection
         searchController.placeholder = "이름, 주소 등"
         searchController.searchTextField.backgroundColor = .spacingBeige
         searchController.delegate = self
+        searchController.setValue("취소", forKey: "cancelButtonText")
+        searchController.enablesReturnKeyAutomatically = true
+        searchController.showsCancelButton = true
         self.navigationItem.titleView = searchController
         self.navigationItem.hidesSearchBarWhenScrolling = false
     }
@@ -134,6 +139,7 @@ class MapViewController: UIViewController, NMFMapViewTouchDelegate, UICollection
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.requestWhenInUseAuthorization()
     }
+
     
     func setMarker(data : [Place]) {
         for place in data {
@@ -156,7 +162,13 @@ class MapViewController: UIViewController, NMFMapViewTouchDelegate, UICollection
                         cameraUpdate.animationDuration = 3
                         self?.naverMapView.mapView.moveCamera(cameraUpdate)
                         self?.infoWindow.open(with: marker)
-                        self?.toggleDetails()
+                        if self?.ishidden == true{
+                            self?.toggleDetails()
+                        }
+                        let index = self!.markers.firstIndex(of: marker) ?? 0
+                        let indexPath = IndexPath(item: index , section: 0)
+                        self?.detailCollectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
+                        
                     } else {
                         // 이미 현재 마커에 정보 창이 열려있을 경우 닫음
                         self?.infoWindow.close()
@@ -318,7 +330,9 @@ extension MapViewController: UICollectionViewDataSource, UICollectionViewDelegat
                 self.naverMapView.mapView.moveCamera(cameraUpdate)
             }
             detailCollectionView.reloadData()
-            
+            if self.ishidden {
+                toggleDetails()
+            }
         }
         else{
             let currentPlace = place[indexPath.row]
@@ -367,6 +381,18 @@ extension MapViewController: UIScrollViewDelegate {
     }
 }
 
-    extension MapViewController :UISearchBarDelegate {
-        
+extension MapViewController : UISearchBarDelegate {
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        if let searchText = searchBar.text {
+            let vcName = "PlaceViewController"
+            let storyboard = UIStoryboard(name: vcName, bundle: nil)
+            let destinationViewController = storyboard.instantiateViewController(withIdentifier: vcName)
+            guard let vc = destinationViewController as? PlaceViewController else{
+                return
+            }
+            vc.state = .Main
+            vc.searchText = searchText
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
     }
+}
