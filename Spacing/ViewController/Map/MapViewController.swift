@@ -17,7 +17,7 @@ class MapViewController: UIViewController, NMFMapViewTouchDelegate, UICollection
     var locationManager = CLLocationManager()
     var naverMapView = NMFNaverMapView()
     let infoWindow = NMFInfoWindow()
-    let dataSource = NMFInfoWindowDefaultTextSource.data()
+    let dataSource = CustomInfoWindowDataSource(title: "")
     var isInitalLocationUpdate = true
     var markers : [NMFMarker] = []
     var ishidden = false
@@ -150,6 +150,8 @@ class MapViewController: UIViewController, NMFMapViewTouchDelegate, UICollection
             testMarker.position = NMGLatLng(lat: place.lat, lng: place.lng)
             testMarker.captionText = place.title
             testMarker.userInfo = ["title" : place.title]
+            testMarker.iconImage = NMF_MARKER_IMAGE_BLACK
+            testMarker.iconTintColor = UIColor.spacingOrange
             testMarker.mapView = naverMapView.mapView // 지도상에 마커를 나타냄
             
             infoWindow.dataSource = dataSource

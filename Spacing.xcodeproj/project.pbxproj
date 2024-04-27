@@ -12,6 +12,7 @@
 		140EB7532BDB68AD0013AB63 /* ProfileImageSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140EB7522BDB68AD0013AB63 /* ProfileImageSelectViewController.swift */; };
 		140EB7552BDB68C20013AB63 /* ProfileImageSelectViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 140EB7542BDB68C20013AB63 /* ProfileImageSelectViewController.storyboard */; };
 		145C32032BD7F525000FB8BD /* KakaoPostCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145C32022BD7F525000FB8BD /* KakaoPostCodeViewController.swift */; };
+		14A9DEA82BDCB2FF00668E35 /* CustomInfoWindowDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A9DEA72BDCB2FF00668E35 /* CustomInfoWindowDataSource.swift */; };
 		14C5FD8B2BD8DC4B00B8358C /* AddImageCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14C5FD8A2BD8DC4B00B8358C /* AddImageCollectionViewCell.xib */; };
 		14C5FD8C2BD8DC4B00B8358C /* AddImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C5FD892BD8DC4B00B8358C /* AddImageCollectionViewCell.swift */; };
 		14C5FD8F2BD8F9E900B8358C /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 14C5FD8E2BD8F9E900B8358C /* IQKeyboardManagerSwift */; };
@@ -93,6 +94,7 @@
 		1453D8062BDA47BA00BD21C0 /* TopCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopCollectionViewCell.swift; sourceTree = "<group>"; };
 		1453D8072BDA47BA00BD21C0 /* TopCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TopCollectionViewCell.xib; sourceTree = "<group>"; };
 		145C32022BD7F525000FB8BD /* KakaoPostCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoPostCodeViewController.swift; sourceTree = "<group>"; };
+		14A9DEA72BDCB2FF00668E35 /* CustomInfoWindowDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomInfoWindowDataSource.swift; sourceTree = "<group>"; };
 		14C5FD892BD8DC4B00B8358C /* AddImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		14C5FD8A2BD8DC4B00B8358C /* AddImageCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddImageCollectionViewCell.xib; sourceTree = "<group>"; };
 		14C5FD902BD90E5100B8358C /* GeoCoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeoCoder.swift; sourceTree = "<group>"; };
@@ -205,6 +207,7 @@
 				14E664922BDB885D00AFC4B8 /* TopCollectionViewCell.swift */,
 				14E664912BDB885D00AFC4B8 /* TopCollectionViewCell.xib */,
 				14EDFFF32BD9EF21001CC996 /* MapViewController.swift */,
+				14A9DEA72BDCB2FF00668E35 /* CustomInfoWindowDataSource.swift */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -696,6 +699,7 @@
 				140EB7512BDB5F250013AB63 /* Data.swift in Sources */,
 				14C7D7822BD614B200CB5746 /* ViewController.swift in Sources */,
 				51AC92B12BD7C66B006C2C51 /* SignUpViewController.swift in Sources */,
+				14A9DEA82BDCB2FF00668E35 /* CustomInfoWindowDataSource.swift in Sources */,
 				14D9EBDD2BD77C56007DF629 /* PlaceTableViewCell.swift in Sources */,
 				14C7D7C32BD65F7E00CB5746 /* User.swift in Sources */,
 				14E664942BDB885D00AFC4B8 /* TopCollectionViewCell.swift in Sources */,
