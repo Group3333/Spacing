@@ -41,6 +41,7 @@ class LoginViewController: UIViewController {
                 User.currentUser.name = savedObject.name
                 User.currentUser.email = savedObject.email
                 User.currentUser.gender = Gender(rawValue: savedObject.gender)!
+                User.currentUser.profileImage = UIImage(named: savedObject.profileImage)!
                 User.currentUser.isLogin = true
 //                let destinationViewController =  UIStoryboard(name: "MyPageViewController", bundle: nil).instantiateInitialViewController()!
                 

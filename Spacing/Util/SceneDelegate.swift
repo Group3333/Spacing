@@ -21,6 +21,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(windowScene: windowScene)
         let mainViewController = UIStoryboard(name: "Main", bundle: nil).instantiateInitialViewController()!
         let navigationController = UINavigationController(rootViewController: mainViewController)
+        navigationController.navigationBar.tintColor = .spacingOrange
         window?.rootViewController = navigationController
         window?.makeKeyAndVisible()
 

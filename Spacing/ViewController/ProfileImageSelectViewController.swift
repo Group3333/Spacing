@@ -12,6 +12,7 @@ protocol ProfileImageDelegate{
 }
 class ProfileImageSelectViewController: UIViewController {
 
+    @IBOutlet weak var label: UILabel!
     @IBOutlet weak var confirmButton: UIButton!
     @IBOutlet weak var profileImageCollectionView: UICollectionView!
     
@@ -29,7 +30,6 @@ class ProfileImageSelectViewController: UIViewController {
         self.dismiss(animated: true)
     }
     func configure(){
-        
         self.profileImageCollectionView.dataSource = self
         self.profileImageCollectionView.delegate = self
         self.profileImageCollectionView.register(ImageCollectionViewCell.nib(), forCellWithReuseIdentifier: ImageCollectionViewCell.identifier)
@@ -42,8 +42,12 @@ class ProfileImageSelectViewController: UIViewController {
         flowLayout.itemSize = CGSize(width: Int(profileImageCollectionView.frame.size.height), height: Int(profileImageCollectionView.frame.size.height))
         profileImageCollectionView.collectionViewLayout = flowLayout
         profileImageCollectionView.allowsMultipleSelection = false
-        profileImageCollectionView.backgroundColor = .spacingBeige
+        profileImageCollectionView.backgroundColor = .clear
+        confirmButton.setTitle("확인", for: .normal)
+        confirmButton.setTitleColor(.white, for: .normal)
+        confirmButton.backgroundColor = .spacingOrange
         confirmButton.layer.cornerRadius = confirmButton.layer.bounds.height / 2
+        label.textColor = .spacingOrange
         
     }
 }

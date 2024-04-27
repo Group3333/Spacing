@@ -22,6 +22,7 @@ class PlaceViewController: UIViewController{
     var searchController : UISearchController!
     var bookPlace: [BookPlace] = []
     var filteredBookPlaces: [BookPlace] = []
+    var searchText = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,10 +39,10 @@ class PlaceViewController: UIViewController{
         collectionViewConfigure()
         tableViewConfigure()
         searchBarConfigure()
-        
-        view.backgroundColor = .white
+        view.backgroundColor = systemBackground
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.spacingDarkGray]
     }
+
     
     func configureNav(){
         self.navigationItem.title = state?.rawValue
@@ -99,14 +100,20 @@ class PlaceViewController: UIViewController{
         default:
             places = Place.data
         }
-        filteredPlaces = {
-            if selectedCategory == .all{
-                return places
-            }else{
-                return places.filter { $0.categories == selectedCategory }
-            }
-        }()
-
+        if state == .Main && searchText != "" {
+            filteredPlaces = {
+                return places.filter { $0.position.contains(self.searchText) || $0.title.contains(self.searchText) || $0.position.contains(self.searchText) }
+            }()
+            self.searchText = ""
+        }else{
+            filteredPlaces = {
+                if selectedCategory == .all{
+                    return places
+                }else{
+                    return places.filter { $0.categories == selectedCategory }
+                }
+            }()
+        }
         setupEmptyView()
     }
     
@@ -117,7 +124,9 @@ class PlaceViewController: UIViewController{
         searchController.searchResultsUpdater = self
         searchController.searchBar.delegate = self
         searchController.delegate = self
-        searchController.automaticallyShowsCancelButton = false
+        searchController.automaticallyShowsCancelButton = true
+        searchController.searchBar.setValue("취소", forKey: "cancelButtonText")
+        searchController.searchBar.enablesReturnKeyAutomatically = true
         self.navigationItem.searchController = searchController
         self.navigationItem.hidesSearchBarWhenScrolling = false
     }
@@ -252,21 +261,46 @@ extension PlaceViewController : UITableViewDelegate,UITableViewDataSource{
         destinationViewController.delegate = self
         self.navigationController?.pushViewController(destinationViewController, animated: true)
     }
+    
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        if state == .Host{
+            let modify = UIContextualAction(style: .normal, title: "수정하기", handler: {(action, view, completionHandler) in
+                let storyboard = UIStoryboard(name: "AddPlaceViewController", bundle: nil)
+                let destinationViewController = storyboard.instantiateViewController(withIdentifier: "AddPlaceViewController") as! AddPlaceViewController
+                destinationViewController.place = self.filteredPlaces[indexPath.row]
+                destinationViewController.edit = true
+                self.navigationController?.pushViewController(destinationViewController, animated: true)
+                completionHandler(true)
+            })
+            modify.image = UIImage(systemName: "pencil")
+            return UISwipeActionsConfiguration(actions: [modify])
+        }else{
+            return nil
+        }
+    }
 }
 
 extension PlaceViewController : UISearchResultsUpdating, UISearchBarDelegate, UISearchControllerDelegate {
     func updateSearchResults(for searchController: UISearchController) {
         guard let text = searchController.searchBar.text else { return }
+        if text == ""{
+            return
+        }
         if state == .Uses{
             self.filteredBookPlaces = bookPlace.filter {
                 $0.place.position.contains(text) || $0.place.title.contains(text)
             }
         }else{
             self.filteredPlaces = places.filter {
-                $0.position.contains(text) || $0.title.contains(text)
+                $0.position.contains(text) || $0.title.contains(text) || $0.position.contains(text)
             }
         }
-        
+        setupEmptyView()
+        placeTableView.reloadData()
+    }
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        setupEmptyView()
+        self.searchController.isActive = false
         placeTableView.reloadData()
     }
 }

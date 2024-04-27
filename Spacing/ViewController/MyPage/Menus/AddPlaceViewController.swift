@@ -59,13 +59,19 @@ class AddPlaceViewController: UIViewController {
     var address : String = ""
     var configuarion = PHPickerConfiguration()
     var index : Int = 0
-    let categories: [Categories] = Categories.allCases
+    var categories: [Categories] = Categories.allCases
     var row : Int = 0
     var delegate : NewPlaceDelegate?
+    var place : Place?
+    var edit : Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        configure()
+        if edit{
+            configureEdit()
+        }else{
+            configure()
+        }
         createPickerView()
         dismissPickerView()
         configureCollectionView()
@@ -83,6 +89,7 @@ class AddPlaceViewController: UIViewController {
     
     func configure(){
         self.navigationItem.title = "새로운 place 등록"
+        categories.removeFirst()
         navigationItem.setHidesBackButton(true, animated: false)
         let customButton = UIBarButtonItem(title: "X", image: UIImage(systemName: "xmark"), target: self, action: #selector(customButtonTapped))
         customButton.tintColor = .red
@@ -102,6 +109,36 @@ class AddPlaceViewController: UIViewController {
         descriptionTextView.layer.cornerRadius = 10
         descriptionTextView.layer.borderColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.1).cgColor
         descriptionTextView.layer.borderWidth = 1
+    }
+    
+    func configureEdit(){
+        self.navigationItem.title = "수정"
+        categories.removeFirst()
+        navigationItem.setHidesBackButton(true, animated: false)
+        let customButton = UIBarButtonItem(title: "X", image: UIImage(systemName: "xmark"), target: self, action: #selector(customButtonTapped))
+        customButton.tintColor = .red
+        navigationItem.leftBarButtonItem = customButton
+        self.hideKeyboardWhenTappedAround()
+        pageControl.numberOfPages = 5
+        pageControl.pageIndicatorTintColor = UIColor.systemGray
+        pageControl.currentPageIndicatorTintColor = UIColor.label
+        [searchButton!,submitButton!].forEach{
+            $0.layer.cornerRadius = $0.layer.bounds.height / 2
+            $0.layer.borderWidth = 2
+            $0.layer.borderColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.3).cgColor
+        }
+        categoriesTextField.tintColor = .clear
+        descriptionTextView.layer.cornerRadius = 10
+        descriptionTextView.layer.borderColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.1).cgColor
+        descriptionTextView.layer.borderWidth = 1
+        
+        titleTextField.text = place?.title
+        addressTextField.text = place?.address
+        detailAddressTextField.text = place?.detailAddress
+        images = place?.images ?? []
+        categoriesTextField.text = place?.categories.rawValue
+        priceTextField.text = String(place?.price ?? 0)
+        descriptionTextView.text = place?.description
     }
     @objc func customButtonTapped() {
         let edit = checkEdit().0
@@ -229,6 +266,10 @@ extension AddPlaceViewController: UITextFieldDelegate, UIPickerViewDelegate, UIP
     func createPickerView() {
         let pickerView = UIPickerView()
         pickerView.delegate = self
+        if edit{
+            self.row = categories.firstIndex(of: self.place?.categories ?? .all) ?? 0
+        }
+        pickerView.selectRow(row, inComponent: 0, animated: true)
         categoriesTextField.inputView = pickerView
     }
     
@@ -263,7 +304,7 @@ extension AddPlaceViewController: UITextFieldDelegate, UIPickerViewDelegate, UIP
 
 extension AddPlaceViewController : CoordinateDelegate {
     func coordinateReceived(lng: String, lat: String) {
-        let newPlace = Place(title: self.titleTextField.text!, categories: categories[row], position: "\(self.addressTextField.text!) \(self.detailAddressTextField.text!)", images: self.images, description: self.descriptionTextView.text!, isBooked: false, rating: 3.5, price: Int(self.priceTextField.text!)!, lng: Double(lng) ?? 0.0, lat: Double(lat) ?? 0.0)
+        let newPlace = Place(title: self.titleTextField.text!, categories: categories[row], position: "\(self.addressTextField.text!) \(self.detailAddressTextField.text!)",address: self.addressTextField.text!, detailAddress: self.detailAddressTextField.text!,images: self.images, description: self.descriptionTextView.text!, isBooked: false, rating: 3.5, price: Int(self.priceTextField.text!)!, lng: Double(lng) ?? 0.0, lat: Double(lat) ?? 0.0)
         Place.data.append(newPlace)
         User.currentUser.hostPlace.append(newPlace)
         self.delegate?.addNewPlace()
