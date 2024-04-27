@@ -21,7 +21,7 @@ class SignUpViewController: UIViewController, UINavigationControllerDelegate {
     @IBOutlet weak var genderSegmentedControl: UISegmentedControl!
     @IBOutlet weak var seleceProfileImageButton: UIButton!
     @IBOutlet weak var signUpButton: UIButton!
-    
+    var image : String = ""
     
     @IBAction func selectProfileImage(_ sender: UIButton) {
         guard let vc = UIStoryboard(name: "ProfileImageSelectViewController", bundle: nil).instantiateViewController(withIdentifier: "ProfileImageSelectViewController") as? ProfileImageSelectViewController else {
@@ -68,7 +68,7 @@ class SignUpViewController: UIViewController, UINavigationControllerDelegate {
             showAlert(title: "🚨중복 회원가입🚨", message: "⚠️ 회원가입이 이미 되어 있습니다!")
             return
         }else{
-            newLoginUser = LoginUser(name: name, profileImage: "emptyProfile", password: password, email: id, nickName: nickName, gender: gender[genderSegmentedControl.selectedSegmentIndex].rawValue)
+            newLoginUser = LoginUser(name: name, profileImage: self.image, password: password, email: id, nickName: nickName, gender: gender[genderSegmentedControl.selectedSegmentIndex].rawValue)
             let encoder = JSONEncoder()
             
             /// encoded는 Data형
@@ -157,7 +157,8 @@ extension SignUpViewController: UIViewControllerTransitioningDelegate {
     }
 }
 extension SignUpViewController : ProfileImageDelegate {
-    func profileImageChanged(image: UIImage) {
-        profileImageView.image = image
+    func profileImageChanged(image: String) {
+        profileImageView.image = UIImage(named: image)
+        self.image = image
     }
 }

@@ -39,7 +39,7 @@ class PlaceViewController: UIViewController{
         collectionViewConfigure()
         tableViewConfigure()
         searchBarConfigure()
-        view.backgroundColor = systemBackground
+        view.backgroundColor = .systemBackground
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.spacingDarkGray]
     }
 

@@ -26,10 +26,18 @@ class ImageCollectionViewCell: UICollectionViewCell {
         
     }
     
-    func configure(image : UIImage){
-        selectedImage.image = image
-        selectedImage.layer.cornerRadius = 10
-        selectedImage.layer.borderColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.2).cgColor
-        selectedImage.layer.borderWidth = 3
+    func configure(image : UIImage, imageString: String){
+        if imageString == "" {
+            selectedImage.image = image
+            selectedImage.layer.cornerRadius = 10
+            selectedImage.layer.borderColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.2).cgColor
+            selectedImage.layer.borderWidth = 3
+        }else{
+            selectedImage.image = UIImage(named: imageString)
+            selectedImage.layer.cornerRadius = 10
+            selectedImage.layer.borderColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.2).cgColor
+            selectedImage.layer.borderWidth = 3
+        }
+        
     }
 }

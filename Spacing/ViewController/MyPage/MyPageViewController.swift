@@ -123,8 +123,8 @@ extension MyPageViewController: UIViewControllerTransitioningDelegate {
     }
 }
 extension MyPageViewController : ProfileImageDelegate {
-    func profileImageChanged(image: UIImage) {
-        User.currentUser.profileImage = image
+    func profileImageChanged(image: String) {
+        User.currentUser.profileImage = UIImage(named: image)!
         myPageTableView.reloadSections(IndexSet(integer: 0), with: .automatic)
     }
 }

@@ -35,8 +35,8 @@ enum Gender : String, CaseIterable{
     case Female = "여자"
 }
 extension User{
-    static var currentUser = User(name: "이승원", profileImage: UIImage(named: "profileImage1") ?? UIImage(systemName: "person.crop.circle")!, email: "sam98528@naver.com", nickName: "Seungwon", gender: .Male, favorite: Place.fav, hostPlace: Place.host, bookPlace: [BookPlace(place: Place.data[1], time: 3, totalPrice: 9000)], isLogin: true)
-    static var profileImageList : [UIImage] = [UIImage(named: "profileImage1")!,UIImage(named: "profileImage2")!,UIImage(named: "profileImage3")!,UIImage(named: "profileImage4")!,UIImage(named: "profileImage5")!,UIImage(named: "profileImage6")!, UIImage(named: "profileImage7")!,]
+    static var currentUser = User(name: "이승원", profileImage: UIImage(named: "profileImage1")!, email: "sam98528@naver.com", nickName: "Seungwon", gender: .Male, favorite: Place.fav, hostPlace: Place.host, bookPlace: [BookPlace(place: Place.data[1], time: 3, totalPrice: 9000)], isLogin: true)
+    static var profileImageList : [String] = ["profileImage1","profileImage2","profileImage3","profileImage4", "profileImage5", "profileImage6", "profileImage7"]
 }
 
 

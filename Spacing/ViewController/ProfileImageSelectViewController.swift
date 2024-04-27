@@ -8,7 +8,7 @@
 import UIKit
 
 protocol ProfileImageDelegate{
-    func profileImageChanged(image : UIImage)
+    func profileImageChanged(image : String)
 }
 class ProfileImageSelectViewController: UIViewController {
 
@@ -59,7 +59,7 @@ extension ProfileImageSelectViewController : UICollectionViewDelegate, UICollect
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ImageCollectionViewCell.identifier, for: indexPath) as! ImageCollectionViewCell
-        cell.configure(image: User.profileImageList[indexPath.row])
+        cell.configure(image: UIImage(), imageString: User.profileImageList[indexPath.row])
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {

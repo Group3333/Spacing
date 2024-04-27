@@ -45,8 +45,8 @@ class MapViewController: UIViewController, NMFMapViewTouchDelegate, UICollection
     }
     
     func configureBarButton(){
-        let cancel = UIBarButtonItem(image: UIImage(systemName: "person.crop.circle.fill"), style: .plain, target: self, action: #selector(pushMyPage))
-        self.navigationItem.rightBarButtonItem = cancel
+        let myPage = UIBarButtonItem(image: UIImage(systemName: "person.crop.circle.fill"), style: .plain, target: self, action: #selector(pushMyPage))
+        self.navigationItem.rightBarButtonItem = myPage
     }
     @objc func pushMyPage(){
         let storyboard = UIStoryboard(name: "MyPageViewController", bundle: nil)
@@ -66,10 +66,12 @@ class MapViewController: UIViewController, NMFMapViewTouchDelegate, UICollection
         searchController.searchTextField.layer.borderColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.2).cgColor
         searchController.searchTextField.layer.borderWidth = 2
         searchController.searchTextField.layer.cornerRadius = 20
+        searchController.searchTextField.clipsToBounds = true
+        
         searchController.delegate = self
         searchController.setValue("취소", forKey: "cancelButtonText")
         searchController.enablesReturnKeyAutomatically = false
-        searchController.showsCancelButton = true
+        searchController.showsCancelButton = false
         self.navigationItem.titleView = searchController
         self.navigationItem.hidesSearchBarWhenScrolling = false
     }
@@ -164,7 +166,7 @@ class MapViewController: UIViewController, NMFMapViewTouchDelegate, UICollection
                         self?.dataSource.title = marker.userInfo["title"] as! String
                         let cameraUpdate = NMFCameraUpdate(scrollTo: NMGLatLng(lat: place.lat, lng: place.lng), zoomTo: 14)
                         cameraUpdate.animation = .fly
-                        cameraUpdate.animationDuration = 3
+                        cameraUpdate.animationDuration = 1
                         self?.naverMapView.mapView.moveCamera(cameraUpdate)
                         self?.infoWindow.open(with: marker)
                         if self?.ishidden == true{

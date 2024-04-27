@@ -216,7 +216,7 @@ extension DetailViewController: UICollectionViewDataSource,UICollectionViewDeleg
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ImageCollectionViewCell.identifier, for: indexPath) as! ImageCollectionViewCell
-            cell.configure(image: selectedPlaces.images[indexPath.row])
+            cell.configure(image: selectedPlaces.images[indexPath.row], imageString: "")
         return cell
     }
     
