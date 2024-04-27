@@ -17,6 +17,7 @@ class MyPageViewController: UIViewController{
         super.viewDidLoad()
         configure()
         
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.spacingDarkGray]
     }
     
     func configure(){

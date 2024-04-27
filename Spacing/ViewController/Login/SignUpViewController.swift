@@ -20,7 +20,7 @@ class SignUpViewController: UIViewController, UINavigationControllerDelegate {
     @IBOutlet weak var confirmPasswordTextField: UITextField!
     @IBOutlet weak var genderSegmentedControl: UISegmentedControl!
     @IBOutlet weak var seleceProfileImageButton: UIButton!
-    
+    @IBOutlet weak var signUpButton: UIButton!
     
     
     @IBAction func selectProfileImage(_ sender: UIButton) {
@@ -83,14 +83,15 @@ class SignUpViewController: UIViewController, UINavigationControllerDelegate {
             successAlert.addAction(ok)
             present(successAlert, animated: true, completion: nil)
         }
-        
-
-    }
     
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
+        
+        view.backgroundColor = .spacingBeige
+    
     }
     
     func configureUI(){
@@ -100,6 +101,11 @@ class SignUpViewController: UIViewController, UINavigationControllerDelegate {
         nameTextField.placeholder = "이름"
         nickNameTextField.placeholder = "닉네임"
         seleceProfileImageButton.setTitle("프로필 변경", for: .normal)
+        seleceProfileImageButton.setTitleColor(.spacingOrange, for: .normal)
+        signUpButton.setTitle("회원가입", for: .normal)
+        signUpButton.setTitleColor(.white, for: .normal)
+        signUpButton.backgroundColor = .spacingOrange
+        signUpButton.layer.cornerRadius = 10
         genderSegmentedControl.setTitle(gender[0].rawValue, forSegmentAt: 0)
         genderSegmentedControl.setTitle(gender[1].rawValue, forSegmentAt: 1)
         seleceProfileImageButton.sizeToFit()
@@ -107,13 +113,14 @@ class SignUpViewController: UIViewController, UINavigationControllerDelegate {
             $0?.textContentType = .oneTimeCode
             $0?.isSecureTextEntry = true
         }
-        [idTextField,passwordTextField,confirmPasswordTextField,nameTextField,nickNameTextField,genderSegmentedControl,seleceProfileImageButton].forEach{
+        [idTextField,passwordTextField,confirmPasswordTextField,nameTextField,nickNameTextField,genderSegmentedControl].forEach{
             $0?.layer.cornerRadius = 5
-            $0?.layer.borderColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.2).cgColor
-            $0?.layer.borderWidth = 2
         }
+//            $0?.layer.borderColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.2).cgColor
+//            $0?.layer.borderWidth = 2
+       
         profileImageView.layer.cornerRadius = profileImageView.frame.size.width / 2
-        profileImageView.layer.borderWidth = 3
+//        profileImageView.layer.borderWidth = 3
         profileImageView.layer.borderColor = UIColor.label.cgColor
         profileImageView.tintColor = .label
         profileImageView.image = UIImage(named: "emptyProfile")!

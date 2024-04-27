@@ -21,7 +21,7 @@ class ImageCollectionViewCell: UICollectionViewCell {
         super.awakeFromNib()
         // Initialization code
         
-        contentView.backgroundColor = UIColor.spacingBeige
+        contentView.backgroundColor = .spacingBeige
     }
     
     func configure(image : UIImage){
