@@ -91,7 +91,7 @@ class SignUpViewController: UIViewController, UINavigationControllerDelegate {
         configureUI()
         
         view.backgroundColor = .spacingBeige
-    
+        self.hideKeyboardWhenTappedAround()
     }
     
     func configureUI(){
