@@ -75,7 +75,7 @@ class LoginViewController: UIViewController {
         signUpButton.layer.masksToBounds = true
         signUpButton.layer.borderWidth = 1.5
         signUpButton.layer.borderColor = UIColor.spacingOrange.cgColor
-        
+        self.hideKeyboardWhenTappedAround()
 //        if let appDomain = Bundle.main.bundleIdentifier {
 //            UserDefaults.standard.removePersistentDomain(forName: appDomain)
 //        }
